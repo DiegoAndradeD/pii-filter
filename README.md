@@ -152,6 +152,9 @@ Para auxiliar no desenvolvimento e entendimento do projeto, listamos abaixo link
 - **[Módulo `re` do Python](https://docs.python.org/3/library/re.html)**
   Essencial para a implementação do filtro por Regex (`regex_filter.py`).
 
+- **[`pytest` – Documentação Oficial](https://www.google.com/search?q=%5Bhttps://docs.pytest.org/en/stable/%5D\(https://docs.pytest.org/en/stable/\))**
+  A principal ferramenta de testes utilizada no projeto.
+
 ---
 
 ### Ferramentas e Ambiente
@@ -209,6 +212,50 @@ Além da documentação oficial, estes são alguns dos textos e artigos consulta
 - **[Tutorial de Expressões Regulares em Python (Google for Developers - Inglês)](https://developers.google.com/edu/python/regular-expressions)**
 
 ---
+
+### Testes e Qualidade de Código 🧪
+
+  - **[`pytest parametrize` – Documentação Específica](https://www.google.com/search?q=%5Bhttps://docs.pytest.org/en/stable/how-to/parametrize.html%5D\(https://docs.pytest.org/en/stable/how-to/parametrize.html\))**
+
+  - **[Módulo `logging` do Python](https://www.google.com/search?q=%5Bhttps://docs.python.org/3/library/logging.html%5D\(https://docs.python.org/3/library/logging.html\))**
+
+  - **[Formato JSON Lines (`.jsonl`)](https://www.google.com/search?q=%5Bhttps://jsonlines.org/%5D\(https://jsonlines.org/\))**
+
+---
+
+### Análise de Dados e NLP 📊
+
+  - **[`scikit-learn` – Documentação Oficial](https://www.google.com/search?q=%5Bhttps://scikit-learn.org/stable/%5D\(https://scikit-learn.org/stable/\))**
+    Biblioteca de Machine Learning para Python.
+
+  - **[`TfidfVectorizer` – Documentação Específica](https://www.google.com/search?q=%5Bhttps://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html%5D\(https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html\))**
+    Documentação da classe usada para converter a coleção de textos do dataset em uma matriz de features TF-IDF.
+
+  - **[`cosine_similarity` – Documentação Específica](https://www.google.com/search?q=%5Bhttps://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html%5D\(https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html\))**
+    Função utilizada para calcular a similaridade de cossenos entre todos os textos do dataset, que é a base para medir a diversidade semântica.
+
+  - **[`NumPy` – Documentação Oficial](https://www.google.com/search?q=%5Bhttps://numpy.org/doc/%5D\(https://numpy.org/doc/\))**
+    Biblioteca fundamental para computação numérica em Python. É usada para manipular a matriz de similaridade e calcular a média de forma eficiente.
+
+  - **[Módulo `collections.Counter`](https://www.google.com/search?q=%5Bhttps://docs.python.org/3/library/collections.html%23collections.Counter%5D\(https://docs.python.org/3/library/collections.html%23collections.Counter\))**
+    Classe do Python usada para contar a frequência dos diferentes tipos de PII (`CPF`, `CNPJ`, etc.) encontrados no dataset.
+
+---
+
+### Análise de Similaridade de Textos 🤖
+
+  - **[Entendendo TF-IDF e Similaridade de Cossenos (Medium - Inglês)](https://www.google.com/search?q=https://medium.com/%40adityamisra/tackling-the-text-similarity-problem-using-tf-idf-and-cosine-similarity-f0c39683b593)**
+    Um artigo que explica de forma clara e prática como as técnicas de TF-IDF e a similaridade de cossenos funcionam juntas para determinar o quão parecidos dois documentos de texto são.
+
+  - **[Análise de Similaridade de Textos com Scikit-Learn (Towards Data Science - Inglês)](https://www.google.com/search?q=https://towardsdatascience.com/calculating-document-similarities-using-bert-and-other-models-4554b6b1a7e1)**
+    Artigo de introdução ao uso de TF-IDF e `scikit-learn` para tarefas de similaridade.
+
+---
+
+### Qualidade e Diversidade de Datasets 🧐
+
+  - **[A Importância da Qualidade de Dados em Machine Learning (Google Cloud - Inglês)](https://www.google.com/search?q=https://cloud.google.com/discover/what-is-data-quality)**
+
 
 ## 👥 Equipe
 

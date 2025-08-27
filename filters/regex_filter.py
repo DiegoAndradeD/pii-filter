@@ -22,17 +22,21 @@ def filter_by_regex(text: str) -> Tuple[str, List[PIIMapping]]:
         for match in pattern.finditer(text):
             all_matches.append({"match": match, "type": pii_type})
 
+    total_counts: Dict[str, int] = {pii_type: 0 for pii_type in PII_PATTERNS}
+    for item in all_matches:
+        total_counts[item["type"]] += 1
+
     all_matches.sort(key=lambda x: x["match"].start(), reverse=True)
 
-    placeholder_counts = {pii_type: 0 for pii_type in PII_PATTERNS}
+    current_counts: Dict[str, int] = total_counts.copy()
+
     for item in all_matches:
         match = item["match"]
         pii_type = item["type"]
-
         pii_value = match.group(0)
 
-        placeholder_counts[pii_type] += 1
-        placeholder = f"[{pii_type}_{placeholder_counts[pii_type]}]"
+        placeholder = f"[{pii_type}_{current_counts[pii_type]}]"
+        current_counts[pii_type] -= 1
 
         mappings_found.append(
             PIIMapping(placeholder=placeholder, original_value=pii_value, type=pii_type)
@@ -41,6 +45,7 @@ def filter_by_regex(text: str) -> Tuple[str, List[PIIMapping]]:
         modified_text = (
             modified_text[: match.start()] + placeholder + modified_text[match.end() :]
         )
+
     mappings_found.reverse()
 
     return modified_text, mappings_found
