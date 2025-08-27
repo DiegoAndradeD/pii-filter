@@ -263,7 +263,7 @@ Além da documentação oficial, estes são alguns dos textos e artigos consulta
 * \[DENILSON XAVIER OLIVEIRA]
 * \[JOÃO VICTOR AZIZ LIMA DE SANTANA]
 * \[LOREN VITORIA CAVALCANTE SANTOS]
-* \[NEILLANE DE CARVALHO SÁ BARRETO DO ROSARIO]
+* \[NEILLANE DE CARVALHO]
 
 ---
 
