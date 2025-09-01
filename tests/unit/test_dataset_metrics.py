@@ -1,14 +1,30 @@
+"""
+
+Dataset analysis module for HR text prompts.
+
+This module provides functions to load a JSONL dataset, analyze text prompts
+for personally identifiable information (PII), compute statistics on PII
+occurrences, text lengths, and semantic diversity, and verify dataset quality.
+
+It includes a Pytest-compatible test to ensure the dataset is sufficiently
+diverse for PII-related tasks.
+"""
+
 import json
 from collections import Counter
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from filters.regex_filter import filter_by_regex
+
+from core.constants import PORTUGUESE_STOP_WORDS
+from services.regex_service import RegexService
 
 DATASET_FILE = "hr_dataset.jsonl"
+regex_service = RegexService()
 
 
 def load_dataset(file_path):
+    """Load the dataset from a JSONL file with improved error handling."""
     prompts = []
     with open(file_path, "r", encoding="utf-8") as f:
         for line in f:
@@ -20,6 +36,19 @@ def load_dataset(file_path):
 
 
 def analyze_dataset(dataset):
+    """
+    Analyze the dataset and compute statistics.
+
+    Returns a dictionary containing:
+        - total_prompts: number of text entries
+        - total_pii: total PII instances found
+        - pii_type_distribution: count per PII type
+        - avg_pii_per_prompt: average PII per prompt
+        - avg_text_length: average number of words per prompt
+        - max_text_length: maximum words in a prompt
+        - min_text_length: minimum words in a prompt
+        - semantic_diversity: measure of semantic variation in texts
+    """
     total_prompts = len(dataset)
     total_pii = 0
     type_counter = Counter()
@@ -29,7 +58,7 @@ def analyze_dataset(dataset):
     for entry in dataset:
         text = entry["text"]
         texts.append(text)
-        _, mappings = filter_by_regex(text)
+        _, mappings = regex_service.filter_by_regex(text)
         total_pii += len(mappings)
         type_counter.update([m.type for m in mappings])
         text_lengths.append(len(text.split()))
@@ -39,33 +68,7 @@ def analyze_dataset(dataset):
     max_text_length = max(text_lengths) if text_lengths else 0
     min_text_length = min(text_lengths) if text_lengths else 0
 
-    portuguese_stop_words = [
-        "a",
-        "o",
-        "e",
-        "de",
-        "do",
-        "da",
-        "em",
-        "um",
-        "uma",
-        "que",
-        "para",
-        "com",
-        "não",
-        "se",
-        "os",
-        "as",
-        "por",
-        "no",
-        "na",
-        "dos",
-        "das",
-        "como",
-        "mais",
-        "mas",
-    ]
-    vectorizer = TfidfVectorizer(stop_words=portuguese_stop_words)
+    vectorizer = TfidfVectorizer(stop_words=PORTUGUESE_STOP_WORDS)
     tfidf_matrix = vectorizer.fit_transform(texts)
     similarity_matrix = cosine_similarity(tfidf_matrix)
     upper_tri_indices = np.triu_indices_from(similarity_matrix, k=1)
@@ -86,6 +89,13 @@ def analyze_dataset(dataset):
 
 
 def verify_dataset_diversity(stats):
+    """
+    Evaluate the dataset statistics and check if it meets diversity criteria.
+
+    Returns:
+        - is_diverse (bool): True if dataset passes all checks
+        - messages (list): list of issues found, empty if is_diverse is True
+    """
     messages = []
     if stats["total_prompts"] < 50:
         messages.append("Very small dataset")
@@ -103,6 +113,11 @@ def verify_dataset_diversity(stats):
 
 
 def test_dataset_diversity():
+    """
+    Pytest test to ensure the dataset is diverse enough for PII tasks.
+
+    Loads the dataset, analyzes statistics, prints results, and asserts diversity.
+    """
     dataset = load_dataset(DATASET_FILE)
     stats = analyze_dataset(dataset)
 
