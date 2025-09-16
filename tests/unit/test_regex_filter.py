@@ -219,7 +219,7 @@ class TestRegexFilter:
 def test_filter_by_regex_dataset(prompt_entry):
     """Tests the filter with the provided dataset."""
     prompt_id = prompt_entry.get("id", "N/A")
-    # logger.info("--- Starting test for ID: %s ---", prompt_id)
+    logger.info("--- Starting test for ID: %s ---", prompt_id)
 
     original_text = prompt_entry["text"]
 
@@ -227,10 +227,10 @@ def test_filter_by_regex_dataset(prompt_entry):
     if not original_text or not isinstance(original_text, str):
         pytest.skip(f"Invalid text for ID {prompt_id}")
 
-    # logger.info(
-    #     "Texto original (primeiros 200 chars): %s...",
-    #     original_text[:200].replace("\n", " "),
-    # )
+    logger.info(
+        "Texto original (primeiros 200 chars): %s...",
+        original_text[:200].replace("\n", " "),
+    )
 
     try:
         # Tests with validation enabled
@@ -239,12 +239,12 @@ def test_filter_by_regex_dataset(prompt_entry):
         )
 
         # Also tests without validation for comparison
-        # _, mappings_no_val = regex_service.filter_by_regex(
-        #     original_text, validate_pii_data=False
-        # )
+        _, mappings_no_val = regex_service.filter_by_regex(
+            original_text, validate_pii_data=False
+        )
 
-        # logger.info("Com validação: %d PIIs encontrados", len(mappings))
-        # logger.info("Sem validação: %d PIIs encontrados", len(mappings_no_val))
+        logger.info("Com validação: %d PIIs encontrados", len(mappings))
+        logger.info("Sem validação: %d PIIs encontrados", len(mappings_no_val))
 
         if mappings:
             # logger.info("Text has been modified. PII found:")
@@ -286,7 +286,7 @@ def test_filter_by_regex_dataset(prompt_entry):
             assert mapping.type in PII_PATTERNS
             assert mapping.placeholder in filtered_text
 
-        # logger.info("Teste para ID %s passou com sucesso!\n", prompt_id)
+        logger.info("Teste para ID %s passou com sucesso!\n", prompt_id)
 
     except Exception as e:
         logger.error("Error during ID test %s: %s", prompt_id, str(e))

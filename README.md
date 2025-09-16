@@ -97,7 +97,7 @@ pip freeze > requirements.txt
 Com o ambiente virtual ativado, inicie o servidor Uvicorn:
 
 ```bash
-uvicorn main:app --reload
+uvicorn src.main:app --reload
 ```
 
 * `main`: refere-se ao arquivo `main.py`.

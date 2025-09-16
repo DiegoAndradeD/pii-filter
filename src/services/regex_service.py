@@ -5,10 +5,10 @@ Service for filtering and restoring PII in text by regex patterns.
 import logging
 from typing import Dict, List, Tuple, Any
 
-from core.constants import PII_PATTERNS
-from models.models import PIIMapping
-from utils.normalizers import normalize_pii_value
-from utils.validators import validate_pii
+from src.core.constants import PII_PATTERNS
+from src.models.models import PIIMapping
+from src.utils.normalizers import normalize_pii_value
+from src.utils.validators import validate_pii
 
 # It's good practice to set up the logger at the module scope.
 # The class will then use an instance of this logger.

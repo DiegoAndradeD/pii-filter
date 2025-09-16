@@ -1,25 +1,13 @@
-"""FastAPI service for processing prompts and filtering PII (Personally Identifiable Information)."""
+# app/api/proxy.py
+from fastapi import APIRouter
 
-from fastapi import FastAPI
+from src.models.models import PIIMapping, ProcessedResponse, PromptRequest
+from src.services.regex_service import RegexService
 
-from models.models import PIIMapping, ProcessedResponse, PromptRequest
-from services.regex_service import RegexService
-
-
-app = FastAPI(
-    title="PII FILTER",
-    description="",
-    version="0.1.0",
-)
+router = APIRouter()
 
 
-@app.get("/")
-def read_root():
-    """Simple health check endpoint that returns a welcome message."""
-    return {"message": "Welcome"}
-
-
-@app.post("/process-prompt", response_model=ProcessedResponse)
+@router.post("/process-prompt", response_model=ProcessedResponse)
 def process_prompt(request: PromptRequest):
     """
     Processes a text prompt by filtering PII and detecting sensitive topics.
@@ -29,12 +17,6 @@ def process_prompt(request: PromptRequest):
     2. (TODO) Apply NER filter.
     3. (TODO) Detect sensitive topics using external LLM.
     4. (TODO) De-sanitize LLM response.
-
-    Args:
-        request (PromptRequest): The incoming prompt request.
-
-    Returns:
-        ProcessedResponse: The prompt text with PII masked and detected sensitive topics.
     """
     original_text = request.original_prompt
     pii_masked: list[PIIMapping] = []
@@ -42,7 +24,9 @@ def process_prompt(request: PromptRequest):
     regex_service = RegexService()
 
     # --- Step 1: Regex Filter ---
-    regex_filtered_text, regex_mapping = regex_service.filter_by_regex(original_text)
+    regex_filtered_text, regex_mapping = regex_service.filter_by_regex(
+        original_text, validate_pii_data=False
+    )
     original_text = regex_filtered_text
     pii_masked.extend(regex_mapping)
 
