@@ -15,10 +15,10 @@ from typing import List, Dict, Any
 import logging
 import pytest
 
-from core.constants import PII_PATTERNS
-from models.models import PIIMapping
-from services.regex_service import RegexService
-from utils.validators import validate_cnpj, validate_cpf
+from src.core.constants import PII_PATTERNS
+from src.models.models import PIIMapping
+from src.services.regex_service import RegexService
+from src.utils.validators import validate_cnpj, validate_cpf
 
 # Configuração de logging para os testes
 logging.basicConfig(

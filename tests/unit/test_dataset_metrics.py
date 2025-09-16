@@ -16,8 +16,9 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from core.constants import PORTUGUESE_STOP_WORDS
-from services.regex_service import RegexService
+from src.core.constants import PORTUGUESE_STOP_WORDS
+from src.services.regex_service import RegexService
+
 
 DATASET_FILE = "hr_dataset.jsonl"
 regex_service = RegexService()
