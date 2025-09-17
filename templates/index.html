@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link href="{{ url_for('static', path='/main.css') }}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="chat-container">
+        <div class="messages" id="messages"></div>
+
+        <div class="loading" id="loading">Processando</div>
+      </div>
+
+      <div class="input-container">
+        <textarea
+          id="userInput"
+          placeholder="Digite sua mensagem aqui..."
+          rows="3"
+        ></textarea>
+        <button class="send-button" id="sendButton" onclick="sendMessage()">
+          Enviar
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const messages = document.getElementById("messages");
+      const userInput = document.getElementById("userInput");
+      const sendButton = document.getElementById("sendButton");
+      const loading = document.getElementById("loading");
+
+      function addMessage(content, isUser = false) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+        messageDiv.classList.add(isUser ? "user" : "assistant");
+
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("message-content");
+        contentDiv.textContent = content;
+
+        messageDiv.appendChild(contentDiv);
+        messages.appendChild(messageDiv);
+
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function showLoading() {
+        loading.style.display = "block";
+        sendButton.disabled = true;
+        sendButton.textContent = "Enviando...";
+      }
+
+      function hideLoading() {
+        loading.style.display = "none";
+        sendButton.disabled = false;
+        sendButton.textContent = "Enviar";
+      }
+
+      async function sendMessage() {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        addMessage(message, true);
+        userInput.value = "";
+        showLoading();
+
+        const MIN_LOADING_TIME = 800;
+
+        const startTime = Date.now();
+
+        try {
+          const response = await fetch("/api/process-prompt", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ original_prompt: message }),
+          });
+
+          if (!response.ok) {
+            throw new Error("Erro na resposta do servidor");
+          }
+
+          const data = await response.json();
+
+          const elapsedTime = Date.now() - startTime;
+          const remainingTime = MIN_LOADING_TIME - elapsedTime;
+
+          if (remainingTime > 0) {
+            await new Promise((resolve) => setTimeout(resolve, remainingTime));
+          }
+
+          addMessage(data.final_response || "Resposta recebida com sucesso!");
+          if (data.pii_masked && data.pii_masked.length > 0) {
+            console.log("PII mascaradas:", data.pii_masked);
+          }
+          if (
+            data.sensitive_topics_detected &&
+            data.sensitive_topics_detected.length > 0
+          ) {
+            console.log(
+              "Tópicos sensíveis detectados:",
+              data.sensitive_topics_detected
+            );
+          }
+        } catch (error) {
+          console.error("Erro ao chamar o proxy:", error);
+          addMessage("❌ Erro ao processar sua mensagem. Tente novamente.");
+        } finally {
+          hideLoading();
+        }
+      }
+
+      userInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      userInput.addEventListener("input", function () {
+        this.style.height = "auto";
+        this.style.height = Math.min(this.scrollHeight, 150) + "px";
+      });
+    </script>
+  </body>
+</html>
