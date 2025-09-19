@@ -128,9 +128,7 @@ class RegexService:
 
         # Counts occurrences to create unique placeholders (e.g., [CPF_1], [CPF_2]).
         total_counts: Dict[str, int] = {}
-        for item in reversed(
-            matches
-        ):  # Iterates in original order for correct counting
+        for item in reversed(matches):
             pii_type = item["type"]
             total_counts[pii_type] = total_counts.get(pii_type, 0) + 1
 
@@ -146,7 +144,10 @@ class RegexService:
             current_counts[pii_type] -= 1
 
             mapping = PIIMapping(
-                placeholder=placeholder, original_value=pii_value, type=pii_type
+                placeholder=placeholder,
+                original_value=pii_value,
+                type=pii_type,
+                span=match.span(),
             )
             mappings_found.append(mapping)
 
@@ -160,7 +161,6 @@ class RegexService:
                 self.logger.error("Error substituting text for %s: %s", pii_type, e)
                 continue
 
-        # The mappings list was built in reverse order, so we reverse it back.
         mappings_found.reverse()
         return modified_text, mappings_found
 
