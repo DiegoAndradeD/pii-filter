@@ -14,9 +14,7 @@ PII_PATTERNS: Dict[str, re.Pattern] = {
         r"\b[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}\b",
         re.IGNORECASE,
     ),
-    "TELEFONE": re.compile(
-        r"(?:\+55\s?)?(?:\(?\d{2}\)?\s?)?(?:9\s?)?\d{4,5}[-\s]?\d{4}\b"
-    ),
+    "TELEFONE": re.compile(r"\(\d{2}\)\s\d{4,5}[-\s]?\d{4}"),
     "CEP": re.compile(r"\b\d{5}-?\d{3}\b"),
     "RG": re.compile(r"\bRG\s*:?\s*\d{1,2}\.?\d{3}\.?\d{3}-?[0-9X]\b", re.IGNORECASE),
     "CARTAO_CREDITO": re.compile(r"\b(?:\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4})\b"),
