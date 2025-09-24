@@ -1,0 +1,247 @@
+[
+  {
+    "metadata": {
+      "id": "hr_prompt_005_demissao_justa_causa",
+      "category": "termination",
+      "intent": "generate_termination_letter",
+      "persona": "hr_manager",
+      "source_generator": "claude",
+      "timestamp_utc": "2025-09-23T17:10:00Z"
+    },
+    "prompt_text": "Redija uma carta de demissão por justa causa para Pedro Henrique Oliveira Santos, CPF 321.654.987-00, RG 98.765.432-1 SSP/SP, nascido em 18/12/1987. Matrícula: SEC-2018-1122, Analista de Segurança da Informação no departamento de TI. Endereço: Av. Brigadeiro Faria Lima, 2000, sl 1505, Jardim Paulistano, São Paulo-SP, CEP: 01452-000. Telefones: (11) 2345-6789 (fixo), (11) 98765-4321 (celular). E-mails: pedro.santos@seguranca.tech.br, pedroh.santos@yahoo.com.br. CNH categoria A: 99887766554, Passaporte: BR1122334, Título eleitor: 1122334455. Dados bancários: Santander, ag. 3456, cc 789012-3. Salário: R$ 9.500,00. Benefícios: Amil (dependentes: esposa Carla Santos e filho Gabriel Santos, 5 anos), vale alimentação R$ 1.200,00. Motivo da demissão: acesso não autorizado a sistemas internos e vazamento de informações confidenciais para concorrente. Evidências: logs de acesso mostrando login 'p.santos' acessando servidores restritos nos IPs 10.10.10.100 e 10.10.10.200 em horários não permitidos. Investigação interna comprovou violação da política de segurança. Histórico: contratado em 15/03/2018, uma promoção em 2021, sem advertências anteriores. Ele tem depressão tratada com Fluoxetina 20mg e faz terapia semanal. A rescisão é imediata, sem aviso prévio. Responsável pela decisão: Diretor de TI Marcus Vinícius Lima.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Pedro Henrique Oliveira Santos",
+        "span": [
+          50,
+          80
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "321.654.987-00",
+        "span": [
+          86,
+          100
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "98.765.432-1 SSP/SP",
+        "span": [
+          105,
+          124
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "18/12/1987",
+        "span": [
+          137,
+          147
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "SEC-2018-1122",
+        "span": [
+          160,
+          173
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Analista de Segurança da Informação",
+        "span": [
+          175,
+          210
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "TI",
+        "span": [
+          230,
+          232
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Av. Brigadeiro Faria Lima, 2000, sl 1505, Jardim Paulistano, São Paulo-SP",
+        "span": [
+          244,
+          317
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01452-000",
+        "span": [
+          324,
+          333
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 2345-6789",
+        "span": [
+          346,
+          360
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 98765-4321",
+        "span": [
+          369,
+          384
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "pedro.santos@seguranca.tech.br",
+        "span": [
+          405,
+          435
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "pedroh.santos@yahoo.com.br",
+        "span": [
+          437,
+          463
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "99887766554",
+        "span": [
+          482,
+          493
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BR1122334",
+        "span": [
+          507,
+          516
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "1122334455",
+        "span": [
+          534,
+          544
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Santander, ag. 3456, cc 789012-3",
+        "span": [
+          563,
+          595
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 9.500,00",
+        "span": [
+          606,
+          617
+        ]
+      },
+      {
+        "pii_type": "BENEFICIO",
+        "value": "Amil",
+        "span": [
+          631,
+          635
+        ]
+      },
+      {
+        "pii_type": "DEPENDENTE",
+        "value": "esposa Carla Santos",
+        "span": [
+          650,
+          669
+        ]
+      },
+      {
+        "pii_type": "DEPENDENTE",
+        "value": "filho Gabriel Santos, 5 anos",
+        "span": [
+          672,
+          700
+        ]
+      },
+      {
+        "pii_type": "BENEFICIO",
+        "value": "vale alimentação R$ 1.200,00",
+        "span": [
+          703,
+          731
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "p.santos",
+        "span": [
+          898,
+          906
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "10.10.10.100",
+        "span": [
+          947,
+          959
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "10.10.10.200",
+        "span": [
+          962,
+          974
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_PROFISSIONAL",
+        "value": "contratado em 15/03/2018, uma promoção em 2021",
+        "span": [
+          1080,
+          1126
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "depressão tratada com Fluoxetina 20mg",
+        "span": [
+          1165,
+          1202
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "faz terapia semanal",
+        "span": [
+          1205,
+          1224
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Marcus Vinícius Lima",
+        "span": [
+          1307,
+          1327
+        ]
+      }
+    ]
+  }
+]

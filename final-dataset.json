@@ -1,0 +1,933 @@
+[
+    {
+      "metadata": {
+        "id": "hr_prompt_001_advertencia_falta",
+        "category": "disciplinary_action",
+        "intent": "generate_warning_letter",
+        "persona": "hr_analyst",
+        "source_generator": "gemini",
+        "timestamp_utc": "2025-09-23T20:30:00Z"
+      },
+      "prompt_text": "Olá, preciso que você gere uma carta de advertência disciplinar para o funcionário a seguir por faltas injustificadas. Use um tom formal e cite o artigo 482 da CLT. Os dados são: Nome completo: Carlos Mendes Pereira, nascido em 15/05/1990. Matrícula: TEC-2022-0912, Cargo: Técnico de Manutenção Jr, Setor: Operações. CPF: 123.456.789-10, RG: 23.456.789-0 SSP/SP. O funcionário reside na Rua das Flores, 123, Bairro Centro, São Paulo-SP, CEP: 01001-000. Seu telefone é (11) 98765-4321 e o e-mail pessoal é carlos.m.pereira@emailpessoal.com. Ele faltou nos dias 18 e 19 de setembro de 2025 sem apresentar atestado. O registro de ponto confirma as ausências. Seu salário é de R$ 3.500,00 e o CNH dele é 01234567891. O histórico dele já inclui uma advertência verbal por atrasos em julho. O login de rede dele é 'carlos.pereira' e o último acesso foi via IP 192.168.1.10. Por favor, inclua um campo para a assinatura dele e do gestor, Marcos de Andrade.",
+      "ground_truth": [
+          { "pii_type": "NOME_COMPLETO", "value": "Carlos Mendes Pereira", "span": [182, 203] },
+          { "pii_type": "DATA_NASCIMENTO", "value": "15/05/1990", "span": [215, 225] },
+          { "pii_type": "MATRICULA", "value": "TEC-2022-0912", "span": [239, 252] },
+          { "pii_type": "CARGO", "value": "Técnico de Manutenção Jr", "span": [260, 285] },
+          { "pii_type": "DEPARTAMENTO", "value": "Operações", "span": [293, 302] },
+          { "pii_type": "CPF", "value": "123.456.789-10", "span": [309, 323] },
+          { "pii_type": "RG", "value": "23.456.789-0 SSP/SP", "span": [329, 349] },
+          { "pii_type": "ENDERECO_LOGRADOURO", "value": "Rua das Flores, 123, Bairro Centro, São Paulo-SP", "span": [379, 432] },
+          { "pii_type": "CEP", "value": "01001-000", "span": [439, 448] },
+          { "pii_type": "TELEFONE", "value": "(11) 98765-4321", "span": [464, 479] },
+          { "pii_type": "EMAIL", "value": "carlos.m.pereira@emailpessoal.com", "span": [501, 534] },
+          { "pii_type": "SALARIO", "value": "R$ 3.500,00", "span": [623, 634] },
+          { "pii_type": "CNH", "value": "01234567891", "span": [650, 661] },
+          { "pii_type": "HISTORICO_DISCIPLINAR", "value": "histórico dele já inclui uma advertência verbal por atrasos em julho", "span": [665, 736] },
+          { "pii_type": "USUARIO_REDE", "value": "carlos.pereira", "span": [756, 770] },
+          { "pii_type": "IP_ADDRESS", "value": "192.168.1.10", "span": [800, 812] },
+          { "pii_type": "NOME_COMPLETO", "value": "Marcos de Andrade", "span": [877, 894] }
+        ]
+    },
+    {
+      "metadata": {
+        "id": "hr_prompt_002_promocao_analista",
+        "category": "promotion",
+        "intent": "generate_promotion_letter",
+        "persona": "hr_manager",
+        "source_generator": "claude",
+        "timestamp_utc": "2025-09-23T14:30:00Z"
+      },
+      "prompt_text": "Preciso de uma carta de promoção para a funcionária Maria Fernanda Silva Santos, CPF 987.654.321-00, RG 45.678.901-2 SSP/RJ, nascida em 22/03/1988. Matrícula: ADM-2020-1455, atualmente Analista Financeira Pleno no departamento de Controladoria. Ela será promovida para Coordenadora Financeira com salário de R$ 8.500,00 (atual: R$ 6.200,00). Endereço: Av. Paulista, 1500, apt 205, Bela Vista, São Paulo-SP, CEP: 01310-100. Contatos: (11) 99887-6654 e maria.santos@empresaxyz.com.br (corporativo), mariafernanda.silva@gmail.com (pessoal). CNH: 98765432109, Passaporte: BR1234567, Título de eleitor: 0123456789. Dados bancários: Banco do Brasil, agência 1234-5, conta 67890-1. Ela tem plano de saúde Unimed (dependente: filho Lucas Santos, 8 anos) e vale alimentação de R$ 800,00. Histórico: última avaliação de desempenho foi 9.2/10, sem advertências. Login de rede: 'maria.santos', último acesso via IP 10.0.0.25, MAC Address: 00:1B:44:11:3A:B7. Resultado do último exame admissional: apto, pressão 120x80, colesterol 180mg/dl. A promoção é efetiva a partir de 01/10/2025.",
+      "ground_truth": [
+        {
+          "pii_type": "NOME_COMPLETO",
+          "value": "Maria Fernanda Silva Santos",
+          "span": [
+            52,
+            79
+          ]
+        },
+        {
+          "pii_type": "CPF",
+          "value": "987.654.321-00",
+          "span": [
+            85,
+            99
+          ]
+        },
+        {
+          "pii_type": "RG",
+          "value": "45.678.901-2 SSP/RJ",
+          "span": [
+            104,
+            123
+          ]
+        },
+        {
+          "pii_type": "DATA_NASCIMENTO",
+          "value": "22/03/1988",
+          "span": [
+            136,
+            146
+          ]
+        },
+        {
+          "pii_type": "MATRICULA",
+          "value": "ADM-2020-1455",
+          "span": [
+            159,
+            172
+          ]
+        },
+        {
+          "pii_type": "CARGO",
+          "value": "Analista Financeira Pleno",
+          "span": [
+            185,
+            210
+          ]
+        },
+        {
+          "pii_type": "DEPARTAMENTO",
+          "value": "Controladoria",
+          "span": [
+            230,
+            243
+          ]
+        },
+        {
+          "pii_type": "CARGO",
+          "value": "Coordenadora Financeira",
+          "span": [
+            269,
+            292
+          ]
+        },
+        {
+          "pii_type": "SALARIO",
+          "value": "R$ 8.500,00",
+          "span": [
+            308,
+            319
+          ]
+        },
+        {
+          "pii_type": "SALARIO",
+          "value": "R$ 6.200,00",
+          "span": [
+            328,
+            339
+          ]
+        },
+        {
+          "pii_type": "ENDERECO_LOGRADOURO",
+          "value": "Av. Paulista, 1500, apt 205, Bela Vista, São Paulo-SP",
+          "span": [
+            352,
+            405
+          ]
+        },
+        {
+          "pii_type": "CEP",
+          "value": "01310-100",
+          "span": [
+            412,
+            421
+          ]
+        },
+        {
+          "pii_type": "TELEFONE",
+          "value": "(11) 99887-6654",
+          "span": [
+            433,
+            448
+          ]
+        },
+        {
+          "pii_type": "EMAIL",
+          "value": "maria.santos@empresaxyz.com.br",
+          "span": [
+            451,
+            481
+          ]
+        },
+        {
+          "pii_type": "EMAIL",
+          "value": "mariafernanda.silva@gmail.com",
+          "span": [
+            497,
+            526
+          ]
+        },
+        {
+          "pii_type": "CNH",
+          "value": "98765432109",
+          "span": [
+            543,
+            554
+          ]
+        },
+        {
+          "pii_type": "PASSAPORTE",
+          "value": "BR1234567",
+          "span": [
+            568,
+            577
+          ]
+        },
+        {
+          "pii_type": "TITULO_ELEITOR",
+          "value": "0123456789",
+          "span": [
+            598,
+            608
+          ]
+        },
+        {
+          "pii_type": "NOME_BANCO",
+          "value": "Banco do Brasil",
+          "span": [
+            627,
+            642
+          ]
+        },
+        {
+          "pii_type": "AGENCIA_BANCARIA",
+          "value": "agência 1234-5",
+          "span": [
+            644,
+            658
+          ]
+        },
+        {
+          "pii_type": "CONTA_BANCARIA",
+          "value": "conta 67890-1",
+          "span": [
+            660,
+            673
+          ]
+        },
+        {
+          "pii_type": "BENEFICIO",
+          "value": "plano de saúde Unimed",
+          "span": [
+            683,
+            704
+          ]
+        },
+        {
+          "pii_type": "DEPENDENTE",
+          "value": "filho Lucas Santos, 8 anos",
+          "span": [
+            718,
+            744
+          ]
+        },
+        {
+          "pii_type": "BENEFICIO",
+          "value": "vale alimentação de R$ 800,00",
+          "span": [
+            748,
+            777
+          ]
+        },
+        {
+          "pii_type": "AVALIACAO_DESEMPENHO",
+          "value": "última avaliação de desempenho foi 9.2/10",
+          "span": [
+            790,
+            831
+          ]
+        },
+        {
+          "pii_type": "USUARIO_REDE",
+          "value": "maria.santos",
+          "span": [
+            867,
+            879
+          ]
+        },
+        {
+          "pii_type": "IP_ADDRESS",
+          "value": "10.0.0.25",
+          "span": [
+            903,
+            912
+          ]
+        },
+        {
+          "pii_type": "MAC_ADDRESS",
+          "value": "00:1B:44:11:3A:B7",
+          "span": [
+            927,
+            944
+          ]
+        },
+        {
+          "pii_type": "EXAME_MEDICO",
+          "value": "apto, pressão 120x80, colesterol 180mg/dl",
+          "span": [
+            985,
+            1026
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "id": "hr_prompt_003_suspensao_comportamento",
+        "category": "disciplinary_action",
+        "intent": "generate_suspension_notice",
+        "persona": "hr_analyst",
+        "source_generator": "claude",
+        "timestamp_utc": "2025-09-23T15:45:00Z"
+      },
+      "prompt_text": "Redija uma notificação de suspensão disciplinar para João Paulo Rodrigues da Costa, funcionário da área de Vendas. Dados pessoais: CPF 456.789.123-45, RG 12.345.678-9 SSP/MG, nascido em 10/11/1985. Matrícula: VEN-2019-0387, cargo de Vendedor Sênior. Endereço: Rua José de Alencar, 789, Liberdade, Belo Horizonte-MG, CEP: 30140-070. Telefones: (31) 3333-4567 (comercial) e (31) 99123-4567 (celular). E-mails: joao.costa@vendas.com.br e joaopaulo.rc@outlook.com. CNH categoria B: 11223344556, Passaporte: BR9876543, Título de eleitor: 9876543210. Dados bancários: Caixa Econômica Federal, ag. 0987, conta 12345-6. Salário atual: R$ 4.800,00 mais comissões. Benefícios: Unimed família (esposa Ana Costa e filha Beatriz Costa, 12 anos), VR R$ 600,00. O funcionário foi flagrado em comportamento inadequado com colega de trabalho durante expediente, conforme relatório de testemunhas e câmeras de segurança do setor. Histórico: advertência por atraso em maio/2025. Login de rede 'j.costa', último acesso IP 172.16.0.50. Ele está em tratamento para ansiedade com Clonazepam 2mg. A suspensão é de 5 dias úteis sem remuneração, de 25/09 a 01/10/2025. Supervisor responsável: Roberto Silva Lima.",
+     "ground_truth": [
+          {
+            "pii_type": "NOME_COMPLETO",
+            "value": "João Paulo Rodrigues da Costa",
+            "span": [53, 82]
+          },
+          {
+            "pii_type": "DEPARTAMENTO",
+            "value": "Vendas",
+            "span": [107, 113]
+          },
+          {
+            "pii_type": "CPF",
+            "value": "456.789.123-45",
+            "span": [135, 149]
+          },
+          {
+            "pii_type": "RG",
+            "value": "12.345.678-9 SSP/MG",
+            "span": [154, 173]
+          },
+          {
+            "pii_type": "DATA_NASCIMENTO",
+            "value": "10/11/1985",
+            "span": [186, 196]
+          },
+          {
+            "pii_type": "MATRICULA",
+            "value": "VEN-2019-0387",
+            "span": [209, 222]
+          },
+          {
+            "pii_type": "CARGO",
+            "value": "Vendedor Sênior",
+            "span": [233, 248]
+          },
+          {
+            "pii_type": "ENDERECO_LOGRADOURO",
+            "value": "Rua José de Alencar, 789, Liberdade, Belo Horizonte-MG",
+            "span": [260, 314]
+          },
+          {
+            "pii_type": "CEP",
+            "value": "30140-070",
+            "span": [321, 330]
+          },
+          {
+            "pii_type": "TELEFONE",
+            "value": "(31) 3333-4567",
+            "span": [343, 357]
+          },
+          {
+            "pii_type": "TELEFONE",
+            "value": "(31) 99123-4567",
+            "span": [372, 387]
+          },
+          {
+            "pii_type": "EMAIL",
+            "value": "joao.costa@vendas.com.br",
+            "span": [408, 432]
+          },
+          {
+            "pii_type": "EMAIL",
+            "value": "joaopaulo.rc@outlook.com",
+            "span": [435, 459]
+          },
+          {
+            "pii_type": "CNH",
+            "value": "11223344556",
+            "span": [478, 489]
+          },
+          {
+            "pii_type": "PASSAPORTE",
+            "value": "BR9876543",
+            "span": [503, 512]
+          },
+          {
+            "pii_type": "TITULO_ELEITOR",
+            "value": "9876543210",
+            "span": [533, 543]
+          },
+          {
+            "pii_type": "NOME_BANCO",
+            "value": "Caixa Econômica Federal",
+            "span": [562, 587]
+          },
+          {
+            "pii_type": "AGENCIA_BANCARIA",
+            "value": "ag. 0987",
+            "span": [589, 597]
+          },
+          {
+            "pii_type": "CONTA_BANCARIA",
+            "value": "conta 12345-6",
+            "span": [599, 612]
+          },
+          {
+            "pii_type": "SALARIO",
+            "value": "R$ 4.800,00",
+            "span": [627, 638]
+          },
+          {
+            "pii_type": "BENEFICIO",
+            "value": "Unimed família",
+            "span": [667, 681]
+          },
+          {
+            "pii_type": "DEPENDENTE",
+            "value": "esposa Ana Costa",
+            "span": [683, 699]
+          },
+          {
+            "pii_type": "DEPENDENTE",
+            "value": "filha Beatriz Costa, 12 anos",
+            "span": [702, 730]
+          },
+          {
+            "pii_type": "BENEFICIO",
+            "value": "VR R$ 600,00",
+            "span": [733, 745]
+          },
+          {
+            "pii_type": "HISTORICO_DISCIPLINAR",
+            "value": "advertência por atraso em maio/2025",
+            "span": [923, 958]
+          },
+          {
+            "pii_type": "USUARIO_REDE",
+            "value": "j.costa",
+            "span": [975, 982]
+          },
+          {
+            "pii_type": "IP_ADDRESS",
+            "value": "172.16.0.50",
+            "span": [1002, 1013]
+          },
+          {
+            "pii_type": "CONDICAO_MEDICA",
+            "value": "tratamento para ansiedade com Clonazepam 2mg",
+            "span": [1027, 1071]
+          },
+          {
+            "pii_type": "NOME_COMPLETO",
+            "value": "Roberto Silva Lima",
+            "span": [1167, 1185]
+          }
+        ]
+    },
+    {
+      "metadata": {
+        "id": "hr_prompt_004_ferias_programadas",
+        "category": "vacation_management",
+        "intent": "generate_vacation_approval",
+        "persona": "hr_coordinator",
+        "source_generator": "claude",
+        "timestamp_utc": "2025-09-23T16:20:00Z"
+      },
+      "prompt_text": "Elabore um comunicado de aprovação de férias para a funcionária Ana Carolina Ferreira Mendes, matrícula ENG-2021-0678, Engenheira de Produção no setor de Manufatura. CPF: 789.123.456-78, RG: 34.567.890-1 SSP/RS, nascida em 05/07/1992. Endereço residencial: Rua Independência, 456, Centro, Porto Alegre-RS, CEP: 90050-200. Contato: (51) 3456-7890 e ana.mendes@producao.ind.br (corporativo), anacarolina.fm@hotmail.com (pessoal). CNH categoria AB: 55667788990, Passaporte brasileiro: BR5566778, Título de eleitor: 5566778899. Dados bancários: Itaú, agência 4455, conta corrente 123456-7. Salário mensal: R$ 7.200,00. Benefícios: Bradesco Saúde (inclui dependente mãe Dolores Mendes, 68 anos, diabética tipo 2), vale refeição R$ 950,00. As férias solicitadas são de 30 dias, período de 15/10/2025 a 13/11/2025. Saldo de férias: 30 dias disponíveis do período aquisitivo 2024/2025. Ela terá direito ao adicional de 1/3 constitucional: R$ 2.400,00. Login de rede: 'a.mendes', último login via IP 192.168.10.15, MAC: AA:BB:CC:DD:EE:FF. Histórico médico: alergia à dipirona, hipertensão controlada com Losartana 50mg. A funcionária está com desempenho excelente (nota 9.5 na última avaliação). Gestor aprovador: Eng. Ricardo Almeida Santos.",
+      "ground_truth": [
+        {
+          "pii_type": "NOME_COMPLETO",
+          "value": "Ana Carolina Ferreira Mendes",
+          "span": [
+            64,
+            92
+          ]
+        },
+        {
+          "pii_type": "MATRICULA",
+          "value": "ENG-2021-0678",
+          "span": [
+            104,
+            117
+          ]
+        },
+        {
+          "pii_type": "CARGO",
+          "value": "Engenheira de Produção",
+          "span": [
+            119,
+            141
+          ]
+        },
+        {
+          "pii_type": "DEPARTAMENTO",
+          "value": "Manufatura",
+          "span": [
+            154,
+            164
+          ]
+        },
+        {
+          "pii_type": "CPF",
+          "value": "789.123.456-78",
+          "span": [
+            171,
+            185
+          ]
+        },
+        {
+          "pii_type": "RG",
+          "value": "34.567.890-1 SSP/RS",
+          "span": [
+            191,
+            210
+          ]
+        },
+        {
+          "pii_type": "DATA_NASCIMENTO",
+          "value": "05/07/1992",
+          "span": [
+            223,
+            233
+          ]
+        },
+        {
+          "pii_type": "ENDERECO_LOGRADOURO",
+          "value": "Rua Independência, 456, Centro, Porto Alegre-RS",
+          "span": [
+            257,
+            304
+          ]
+        },
+        {
+          "pii_type": "CEP",
+          "value": "90050-200",
+          "span": [
+            311,
+            320
+          ]
+        },
+        {
+          "pii_type": "TELEFONE",
+          "value": "(51) 3456-7890",
+          "span": [
+            331,
+            345
+          ]
+        },
+        {
+          "pii_type": "EMAIL",
+          "value": "ana.mendes@producao.ind.br",
+          "span": [
+            348,
+            374
+          ]
+        },
+        {
+          "pii_type": "EMAIL",
+          "value": "anacarolina.fm@hotmail.com",
+          "span": [
+            390,
+            416
+          ]
+        },
+        {
+          "pii_type": "CNH",
+          "value": "55667788990",
+          "span": [
+            446,
+            457
+          ]
+        },
+        {
+          "pii_type": "PASSAPORTE",
+          "value": "BR5566778",
+          "span": [
+            482,
+            491
+          ]
+        },
+        {
+          "pii_type": "TITULO_ELEITOR",
+          "value": "5566778899",
+          "span": [
+            512,
+            522
+          ]
+        },
+        {
+          "pii_type": "BANCO",
+          "value": "Itaú, agência 4455, conta corrente 123456-7",
+          "span": [
+            541,
+            584
+          ]
+        },
+        {
+          "pii_type": "SALARIO",
+          "value": "R$ 7.200,00",
+          "span": [
+            602,
+            613
+          ]
+        },
+        {
+          "pii_type": "BENEFICIO",
+          "value": "Bradesco Saúde",
+          "span": [
+            627,
+            641
+          ]
+        },
+        {
+          "pii_type": "DEPENDENTE",
+          "value": "dependente mãe Dolores Mendes, 68 anos",
+          "span": [
+            650,
+            688
+          ]
+        },
+        {
+          "pii_type": "CONDICAO_MEDICA",
+          "value": "diabética tipo 2",
+          "span": [
+            690,
+            706
+          ]
+        },
+        {
+          "pii_type": "BENEFICIO",
+          "value": "vale refeição R$ 950,00",
+          "span": [
+            709,
+            732
+          ]
+        },
+        {
+          "pii_type": "FERIAS",
+          "value": "30 dias, período de 15/10/2025 a 13/11/2025",
+          "span": [
+            763,
+            806
+          ]
+        },
+        {
+          "pii_type": "SALARIO",
+          "value": "R$ 2.400,00",
+          "span": [
+            931,
+            942
+          ]
+        },
+        {
+          "pii_type": "USUARIO_REDE",
+          "value": "a.mendes",
+          "span": [
+            960,
+            968
+          ]
+        },
+        {
+          "pii_type": "IP_ADDRESS",
+          "value": "192.168.10.15",
+          "span": [
+            991,
+            1004
+          ]
+        },
+        {
+          "pii_type": "MAC_ADDRESS",
+          "value": "AA:BB:CC:DD:EE:FF",
+          "span": [
+            1011,
+            1028
+          ]
+        },
+        {
+          "pii_type": "CONDICAO_MEDICA",
+          "value": "alergia à dipirona",
+          "span": [
+            1048,
+            1066
+          ]
+        },
+        {
+          "pii_type": "CONDICAO_MEDICA",
+          "value": "hipertensão controlada com Losartana 50mg",
+          "span": [
+            1068,
+            1109
+          ]
+        },
+        {
+          "pii_type": "AVALIACAO_DESEMPENHO",
+          "value": "nota 9.5 na última avaliação",
+          "span": [
+            1156,
+            1184
+          ]
+        },
+        {
+          "pii_type": "NOME_COMPLETO",
+          "value": "Ricardo Almeida Santos",
+          "span": [
+            1210,
+            1232
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "id": "hr_prompt_005_demissao_justa_causa",
+        "category": "termination",
+        "intent": "generate_termination_letter",
+        "persona": "hr_manager",
+        "source_generator": "claude",
+        "timestamp_utc": "2025-09-23T17:10:00Z"
+      },
+      "prompt_text": "Redija uma carta de demissão por justa causa para Pedro Henrique Oliveira Santos, CPF 321.654.987-00, RG 98.765.432-1 SSP/SP, nascido em 18/12/1987. Matrícula: SEC-2018-1122, Analista de Segurança da Informação no departamento de TI. Endereço: Av. Brigadeiro Faria Lima, 2000, sl 1505, Jardim Paulistano, São Paulo-SP, CEP: 01452-000. Telefones: (11) 2345-6789 (fixo), (11) 98765-4321 (celular). E-mails: pedro.santos@seguranca.tech.br, pedroh.santos@yahoo.com.br. CNH categoria A: 99887766554, Passaporte: BR1122334, Título eleitor: 1122334455. Dados bancários: Santander, ag. 3456, cc 789012-3. Salário: R$ 9.500,00. Benefícios: Amil (dependentes: esposa Carla Santos e filho Gabriel Santos, 5 anos), vale alimentação R$ 1.200,00. Motivo da demissão: acesso não autorizado a sistemas internos e vazamento de informações confidenciais para concorrente. Evidências: logs de acesso mostrando login 'p.santos' acessando servidores restritos nos IPs 10.10.10.100 e 10.10.10.200 em horários não permitidos. Investigação interna comprovou violação da política de segurança. Histórico: contratado em 15/03/2018, uma promoção em 2021, sem advertências anteriores. Ele tem depressão tratada com Fluoxetina 20mg e faz terapia semanal. A rescisão é imediata, sem aviso prévio. Responsável pela decisão: Diretor de TI Marcus Vinícius Lima.",
+      "ground_truth": [
+        {
+          "pii_type": "NOME_COMPLETO",
+          "value": "Pedro Henrique Oliveira Santos",
+          "span": [
+            50,
+            80
+          ]
+        },
+        {
+          "pii_type": "CPF",
+          "value": "321.654.987-00",
+          "span": [
+            86,
+            100
+          ]
+        },
+        {
+          "pii_type": "RG",
+          "value": "98.765.432-1 SSP/SP",
+          "span": [
+            105,
+            124
+          ]
+        },
+        {
+          "pii_type": "DATA_NASCIMENTO",
+          "value": "18/12/1987",
+          "span": [
+            137,
+            147
+          ]
+        },
+        {
+          "pii_type": "MATRICULA",
+          "value": "SEC-2018-1122",
+          "span": [
+            160,
+            173
+          ]
+        },
+        {
+          "pii_type": "CARGO",
+          "value": "Analista de Segurança da Informação",
+          "span": [
+            175,
+            210
+          ]
+        },
+        {
+          "pii_type": "DEPARTAMENTO",
+          "value": "TI",
+          "span": [
+            230,
+            232
+          ]
+        },
+        {
+          "pii_type": "ENDERECO_LOGRADOURO",
+          "value": "Av. Brigadeiro Faria Lima, 2000, sl 1505, Jardim Paulistano, São Paulo-SP",
+          "span": [
+            244,
+            317
+          ]
+        },
+        {
+          "pii_type": "CEP",
+          "value": "01452-000",
+          "span": [
+            324,
+            333
+          ]
+        },
+        {
+          "pii_type": "TELEFONE",
+          "value": "(11) 2345-6789",
+          "span": [
+            346,
+            360
+          ]
+        },
+        {
+          "pii_type": "TELEFONE",
+          "value": "(11) 98765-4321",
+          "span": [
+            369,
+            384
+          ]
+        },
+        {
+          "pii_type": "EMAIL",
+          "value": "pedro.santos@seguranca.tech.br",
+          "span": [
+            405,
+            435
+          ]
+        },
+        {
+          "pii_type": "EMAIL",
+          "value": "pedroh.santos@yahoo.com.br",
+          "span": [
+            437,
+            463
+          ]
+        },
+        {
+          "pii_type": "CNH",
+          "value": "99887766554",
+          "span": [
+            482,
+            493
+          ]
+        },
+        {
+          "pii_type": "PASSAPORTE",
+          "value": "BR1122334",
+          "span": [
+            507,
+            516
+          ]
+        },
+        {
+          "pii_type": "TITULO_ELEITOR",
+          "value": "1122334455",
+          "span": [
+            534,
+            544
+          ]
+        },
+        {
+          "pii_type": "BANCO",
+          "value": "Santander, ag. 3456, cc 789012-3",
+          "span": [
+            563,
+            595
+          ]
+        },
+        {
+          "pii_type": "SALARIO",
+          "value": "R$ 9.500,00",
+          "span": [
+            606,
+            617
+          ]
+        },
+        {
+          "pii_type": "BENEFICIO",
+          "value": "Amil",
+          "span": [
+            631,
+            635
+          ]
+        },
+        {
+          "pii_type": "DEPENDENTE",
+          "value": "esposa Carla Santos",
+          "span": [
+            650,
+            669
+          ]
+        },
+        {
+          "pii_type": "DEPENDENTE",
+          "value": "filho Gabriel Santos, 5 anos",
+          "span": [
+            672,
+            700
+          ]
+        },
+        {
+          "pii_type": "BENEFICIO",
+          "value": "vale alimentação R$ 1.200,00",
+          "span": [
+            703,
+            731
+          ]
+        },
+        {
+          "pii_type": "USUARIO_REDE",
+          "value": "p.santos",
+          "span": [
+            898,
+            906
+          ]
+        },
+        {
+          "pii_type": "IP_ADDRESS",
+          "value": "10.10.10.100",
+          "span": [
+            947,
+            959
+          ]
+        },
+        {
+          "pii_type": "IP_ADDRESS",
+          "value": "10.10.10.200",
+          "span": [
+            962,
+            974
+          ]
+        },
+        {
+          "pii_type": "HISTORICO_PROFISSIONAL",
+          "value": "contratado em 15/03/2018, uma promoção em 2021",
+          "span": [
+            1080,
+            1126
+          ]
+        },
+        {
+          "pii_type": "CONDICAO_MEDICA",
+          "value": "depressão tratada com Fluoxetina 20mg",
+          "span": [
+            1165,
+            1202
+          ]
+        },
+        {
+          "pii_type": "CONDICAO_MEDICA",
+          "value": "faz terapia semanal",
+          "span": [
+            1205,
+            1224
+          ]
+        },
+        {
+          "pii_type": "NOME_COMPLETO",
+          "value": "Marcus Vinícius Lima",
+          "span": [
+            1307,
+            1327
+          ]
+        }
+      ]
+    }
+  ]
