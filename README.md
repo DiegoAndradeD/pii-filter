@@ -128,6 +128,72 @@ Após iniciar o servidor, a maneira mais fácil de interagir com a API é atrav�
 
 ---
 
+Perfeito! Aqui está uma sugestão de seção de README para explicar como rodar os testes usando `pytest`, incluindo divisão de testes e algumas flags úteis:
+
+---
+
+## 🧪 Como Rodar os Testes
+
+Todos os testes estão localizados na pasta `tests`, divididos em subpastas:
+
+* `unit`: testes unitários (verificam funções isoladas)
+* `integration`: testes de integração (verificam endpoints e interações entre componentes)
+
+### Rodando todos os testes
+
+Para executar todos os testes, use o comando:
+
+```bash
+pytest tests/
+```
+
+### Rodando apenas testes unitários ou de integração
+
+* Unitários:
+
+```bash
+pytest tests/unit/
+```
+
+* Integração:
+
+```bash
+pytest tests/integration/
+```
+
+### Dicas úteis do pytest
+
+* Para ver os logs detalhados durante a execução:
+
+```bash
+pytest -o log_cli_level=INFO
+```
+
+* Para rodar testes com mais verbosidade (mostra cada teste que está sendo executado):
+
+```bash
+pytest -v
+```
+
+* Para reexecutar apenas os testes que falharam na última execução:
+
+```bash
+pytest --lf
+```
+
+* Para mostrar capturas de saída e logs diretamente no console (útil para debug):
+
+```bash
+pytest -s
+```
+
+> 💡 **Dica:** Você pode combinar flags, por exemplo:
+> `pytest -v -o log_cli_level=INFO -s tests/`
+> para ver todos os detalhes de cada teste e logs durante a execução.
+
+---
+
+
 ## 📖 Referências
 
 Para auxiliar no desenvolvimento e entendimento do projeto, listamos abaixo links de documentação e ferramentas importantes.

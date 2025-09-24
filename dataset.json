@@ -1,308 +1,44 @@
 [
-    {
-      "metadata": {
-        "id": "hr_001_advertencia_2024",
-        "category": "disciplinary_action",
-        "intent": "employee_warning",
-        "persona": "hr_manager",
-        "source_generator": "claude",
-        "timestamp_utc": "2024-09-17T14:30:00Z"
-      },
-      "prompt_text": "ADVERTÊNCIA DISCIPLINAR - CONFIDENCIAL\n\nFuncionário: Carlos Eduardo Santos Silva\nCPF: 123.456.789-01\nMatrícula: FN-2024-0847\nCargo: Analista de Marketing Pleno\nSetor: Marketing Digital\nE-mail: carlos.silva@empresaxyz.com.br\nTelefone: (11) 99887-6543\n\nMotivo da Advertência: Uso inadequado de recursos tecnológicos da empresa durante horário de trabalho. Foi identificado acesso a sites de entretenimento e redes sociais pessoais no período de 14h às 16h30 do dia 15/09/2024.\n\nEvidências: Log de acesso do sistema mostra conexão do dispositivo MAC Address: 00:1B:44:11:3A:B7 aos domínios facebook.com, instagram.com e youtube.com por período prolongado.\n\nEsta advertência será registrada em seu prontuário funcional. Reincidência poderá acarretar medidas disciplinares mais severas, incluindo suspensão ou desligamento.",
-      "ground_truth": [
-        {
-          "pii_type": "NOME_COMPLETO",
-          "value": "Carlos Eduardo Santos Silva",
-          "span": [54, 80]
-        },
-        {
-          "pii_type": "CPF",
-          "value": "123.456.789-01",
-          "span": [86, 100]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "FN-2024-0847",
-          "span": [112, 124]
-        },
-        {
-          "pii_type": "EMAIL",
-          "value": "carlos.silva@empresaxyz.com.br",
-          "span": [189, 221]
-        },
-        {
-          "pii_type": "TELEFONE",
-          "value": "(11) 99887-6543",
-          "span": [232, 247]
-        },
-        {
-          "pii_type": "MAC_ADDRESS",
-          "value": "00:1B:44:11:3A:B7",
-          "span": [552, 569]
-        }
-      ]
+  {
+    "metadata": {
+      "id": "hr_prompt_005_demissao_justa_causa",
+      "category": "termination",
+      "intent": "generate_termination_letter",
+      "persona": "hr_manager",
+      "source_generator": "claude",
+      "timestamp_utc": "2025-09-23T17:10:00Z"
     },
-    {
-      "metadata": {
-        "id": "hr_002_promocao_2024",
-        "category": "career_advancement",
-        "intent": "employee_promotion",
-        "persona": "hr_director",
-        "source_generator": "claude",
-        "timestamp_utc": "2024-09-17T15:45:00Z"
-      },
-      "prompt_text": "COMUNICADO DE PROMOÇÃO INTERNA\n\nPrezada Maria Fernanda Costa Oliveira,\n\nTemos o prazer de comunicar sua promoção para o cargo de Gerente de Vendas Sênior, efetiva a partir de 01/10/2024.\n\nDados do funcionário:\n- Nome: Maria Fernanda Costa Oliveira\n- CPF: 987.654.321-88\n- Matrícula: GV-2021-1205\n- E-mail corporativo: m.oliveira@vendas.corp.br\n- Telefone: (21) 98765-4321\n- Cargo anterior: Supervisora de Vendas\n- Novo cargo: Gerente de Vendas Sênior\n- Setor: Vendas Corporativas - Região Sudeste\n\nSeu novo salário será de R$ 12.500,00 mensais, além dos benefícios já vigentes. Esta decisão foi baseada em seu excelente desempenho no último trimestre, onde você superou as metas em 127% e demonstrou liderança exemplar.\n\nParabéns pelo reconhecimento merecido!\n\nAtenciosamente,\nDepartamento de Recursos Humanos",
-      "ground_truth": [
-        {
-          "pii_type": "NOME_COMPLETO",
-          "value": "Maria Fernanda Costa Oliveira",
-          "span": [42, 70]
-        },
-        {
-          "pii_type": "NOME_COMPLETO",
-          "value": "Maria Fernanda Costa Oliveira",
-          "span": [219, 247]
-        },
-        {
-          "pii_type": "CPF",
-          "value": "987.654.321-88",
-          "span": [255, 269]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "GV-2021-1205",
-          "span": [282, 294]
-        },
-        {
-          "pii_type": "EMAIL",
-          "value": "m.oliveira@vendas.corp.br",
-          "span": [318, 344]
-        },
-        {
-          "pii_type": "TELEFONE",
-          "value": "(21) 98765-4321",
-          "span": [356, 371]
-        }
-      ]
-    },
-    {
-      "metadata": {
-        "id": "hr_003_ferias_2024",
-        "category": "time_off_management",
-        "intent": "vacation_approval",
-        "persona": "hr_analyst",
-        "source_generator": "claude",
-        "timestamp_utc": "2024-09-17T16:20:00Z"
-      },
-      "prompt_text": "SOLICITAÇÃO DE FÉRIAS APROVADA\n\nFuncionário: João Pedro Almeida Santos\nCPF: 456.789.123-45\nMatrícula: TI-2022-0392\nCargo: Desenvolvedor Full Stack\nSetor: Tecnologia da Informação\nE-mail: joao.santos@tech.empresa.com\nTelefone celular: (85) 91234-5678\n\nPeríodo de férias solicitado: 02/11/2024 a 01/12/2024 (30 dias)\nTipo: Férias regulamentares (1º período do ano)\nSubstituição durante ausência: Ana Clara Ribeiro (Matrícula: TI-2023-0156)\n\nObservações importantes:\n- Funcionário possui 45 dias de férias acumuladas\n- Período aprovado pela chefia imediata em 10/09/2024\n- Último acesso ao sistema: 16/09/2024 às 18:45 via IP 192.168.1.105\n- Equipamentos da empresa (notebook Dell, serial: DL789456123) deverão ser entregues no setor de TI até 01/11/2024\n\nStatus: APROVADO\nAprovado por: Sandra Lima - Coordenadora de RH",
-      "ground_truth": [
-        {
-          "pii_type": "NOME_COMPLETO",
-          "value": "João Pedro Almeida Santos",
-          "span": [46, 71]
-        },
-        {
-          "pii_type": "CPF",
-          "value": "456.789.123-45",
-          "span": [77, 91]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "TI-2022-0392",
-          "span": [103, 115]
-        },
-        {
-          "pii_type": "EMAIL",
-          "value": "joao.santos@tech.empresa.com",
-          "span": [188, 217]
-        },
-        {
-          "pii_type": "TELEFONE",
-          "value": "(85) 91234-5678",
-          "span": [237, 252]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "TI-2023-0156",
-          "span": [378, 390]
-        },
-        {
-          "pii_type": "IP_ADDRESS",
-          "value": "192.168.1.105",
-          "span": [584, 597]
-        },
-        {
-          "pii_type": "SERIAL_NUMBER",
-          "value": "DL789456123",
-          "span": [645, 656]
-        }
-      ]
-    },
-    {
-      "metadata": {
-        "id": "hr_004_suspensao_2024",
-        "category": "disciplinary_action",
-        "intent": "employee_suspension",
-        "persona": "hr_manager",
-        "source_generator": "claude",
-        "timestamp_utc": "2024-09-17T17:10:00Z"
-      },
-      "prompt_text": "NOTIFICAÇÃO DE SUSPENSÃO DISCIPLINAR\n\nDestinatário: Roberto Carlos Ferreira Lima\nCPF: 789.123.456-67\nMatrícula: OP-2023-0521\nCargo: Operador de Produção III\nSetor: Produção - Linha A\nEndereço: Rua das Flores, 123 - Jardim Primavera - São Paulo/SP - CEP: 01234-567\nE-mail: roberto.lima@producao.ind.br\nTelefone: (11) 94567-8901\n\nFato gerador: Descumprimento grave das normas de segurança do trabalho. No dia 12/09/2024, às 14:20h, o funcionário foi flagrado operando equipamentos sem os EPIs obrigatórios (capacete e óculos de proteção), colocando em risco sua integridade física e a de colegas.\n\nTestemunhas: Supervisor José Antonio Silva (Mat. SUP-2020-0089) e operador Paulo Roberto Santos (Mat. OP-2022-0334).\n\nPenalidade aplicada: Suspensão disciplinar por 3 (três) dias úteis, sem remuneração, nos dias 20, 21 e 23 de setembro de 2024.\n\nRegistro de acesso: Última entrada registrada no sistema biométrico às 07:58 do dia 16/09/2024, identificação digital ID: BIO-455789.\n\nO funcionário deverá comparecer no RH no dia 24/09/2024 às 08:00h para retomada das atividades.",
-      "ground_truth": [
-        {
-          "pii_type": "NOME_COMPLETO",
-          "value": "Roberto Carlos Ferreira Lima",
-          "span": [51, 78]
-        },
-        {
-          "pii_type": "CPF",
-          "value": "789.123.456-67",
-          "span": [84, 98]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "OP-2023-0521",
-          "span": [110, 122]
-        },
-        {
-          "pii_type": "ENDERECO",
-          "value": "Rua das Flores, 123 - Jardim Primavera - São Paulo/SP - CEP: 01234-567",
-          "span": [177, 248]
-        },
-        {
-          "pii_type": "EMAIL",
-          "value": "roberto.lima@producao.ind.br",
-          "span": [257, 286]
-        },
-        {
-          "pii_type": "TELEFONE",
-          "value": "(11) 94567-8901",
-          "span": [297, 312]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "SUP-2020-0089",
-          "span": [608, 621]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "OP-2022-0334",
-          "span": [656, 668]
-        },
-        {
-          "pii_type": "ID_BIOMETRICO",
-          "value": "BIO-455789",
-          "span": [914, 924]
-        }
-      ]
-    },
-    {
-      "metadata": {
-        "id": "hr_005_desligamento_2024",
-        "category": "termination",
-        "intent": "employee_termination",
-        "persona": "hr_director",
-        "source_generator": "claude",
-        "timestamp_utc": "2024-09-17T18:05:00Z"
-      },
-      "prompt_text": "COMUNICADO DE DESLIGAMENTO - CONFIDENCIAL\n\nFuncionária: Ana Beatriz Rodrigues Costa\nCPF: 321.654.987-90\nRG: 45.678.901-X SSP/RJ\nMatrícula: ADM-2021-0678\nCargo: Assistente Administrativo Sênior\nSetor: Administração Geral\nData de admissão: 15/03/2021\nData de desligamento: 30/09/2024\nE-mail: ana.costa@admin.grupo.com.br\nTelefone residencial: (21) 3456-7890\nCelular: (21) 99654-3210\n\nMotivo do desligamento: Reestruturação organizacional - Eliminação do cargo por otimização de processos.\n\nTipo: Dispensa sem justa causa, com todos os direitos trabalhistas assegurados.\n\nPendências para quitação:\n- Entrega do badge de acesso (código: BDG-7841) até 27/09/2024\n- Devolução do notebook HP, patrimônio nº 2024-NB-0457\n- Exclusão do usuário de rede: ana.costa.adm (último login: 15/09/2024 12:34)\n- Desativação do ramal 2547\n\nValores a receber: Aviso prévio indenizado, 13º proporcional, férias vencidas + 1/3, FGTS + 40%.\n\nEntrevista de desligamento agendada para 25/09/2024 às 15:00h com a psicóloga organizacional Dra. Patrícia Mendes (CRP 05/12345).\n\nResponsável pelo processo: Gerente de RH Lucas Martins Silva (Mat. RH-2019-0012)",
-      "ground_truth": [
-        {
-          "pii_type": "NOME_COMPLETO",
-          "value": "Ana Beatriz Rodrigues Costa",
-          "span": [
-            56,
-            83
-          ]
-        },
-        {
-          "pii_type": "CPF",
-          "value": "321.654.987-90",
-          "span": [
-            89,
-            103
-          ]
-        },
-        {
-          "pii_type": "RG",
-          "value": "45.678.901-X SSP/RJ",
-          "span": [
-            108,
-            128
-          ]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "ADM-2021-0678",
-          "span": [
-            140,
-            153
-          ]
-        },
-        {
-          "pii_type": "EMAIL",
-          "value": "ana.costa@admin.grupo.com.br",
-          "span": [
-            290,
-            319
-          ]
-        },
-        {
-          "pii_type": "TELEFONE",
-          "value": "(21) 3456-7890",
-          "span": [
-            341,
-            355
-          ]
-        },
-        {
-          "pii_type": "TELEFONE",
-          "value": "(21) 99654-3210",
-          "span": [
-            365,
-            380
-          ]
-        },
-        {
-          "pii_type": "BADGE_ID",
-          "value": "BDG-7841",
-          "span": [
-            642,
-            650
-          ]
-        },
-        {
-          "pii_type": "PATRIMONIO",
-          "value": "2024-NB-0457",
-          "span": [
-            713,
-            726
-          ]
-        },
-        {
-          "pii_type": "USUARIO_REDE",
-          "value": "ana.costa.adm",
-          "span": [
-            749,
-            762
-          ]
-        },
-        {
-          "pii_type": "CRP",
-          "value": "CRP 05/12345",
-          "span": [
-            1069,
-            1081
-          ]
-        },
-        {
-          "pii_type": "MATRICULA",
-          "value": "RH-2019-0012",
-          "span": [
-            1157,
-            1169
-          ]
-        }
-      ]
-    }
-  ]
+    "prompt_text": "Redija uma carta de demissão por justa causa para Pedro Henrique Oliveira Santos, CPF 321.654.987-00, RG 98.765.432-1 SSP/SP, nascido em 18/12/1987. Matrícula: SEC-2018-1122, Analista de Segurança da Informação no departamento de TI. Endereço: Av. Brigadeiro Faria Lima, 2000, sl 1505, Jardim Paulistano, São Paulo-SP, CEP: 01452-000. Telefones: (11) 2345-6789 (fixo), (11) 98765-4321 (celular). E-mails: pedro.santos@seguranca.tech.br, pedroh.santos@yahoo.com.br. CNH categoria A: 99887766554, Passaporte: BR1122334, Título eleitor: 1122334455. Dados bancários: Santander, ag. 3456, cc 789012-3. Salário: R$ 9.500,00. Benefícios: Amil (dependentes: esposa Carla Santos e filho Gabriel Santos, 5 anos), vale alimentação R$ 1.200,00. Motivo da demissão: acesso não autorizado a sistemas internos e vazamento de informações confidenciais para concorrente. Evidências: logs de acesso mostrando login 'p.santos' acessando servidores restritos nos IPs 10.10.10.100 e 10.10.10.200 em horários não permitidos. Investigação interna comprovou violação da política de segurança. Histórico: contratado em 15/03/2018, uma promoção em 2021, sem advertências anteriores. Ele tem depressão tratada com Fluoxetina 20mg e faz terapia semanal. A rescisão é imediata, sem aviso prévio. Responsável pela decisão: Diretor de TI Marcus Vinícius Lima.",
+    "ground_truth": [
+      {"pii_type": "NOME_COMPLETO", "value": "Pedro Henrique Oliveira Santos", "span": [64, 95]},
+      {"pii_type": "CPF", "value": "321.654.987-00", "span": [101, 115]},
+      {"pii_type": "RG", "value": "98.765.432-1 SSP/SP", "span": [121, 141]},
+      {"pii_type": "DATA_NASCIMENTO", "value": "18/12/1987", "span": [153, 163]},
+      {"pii_type": "MATRICULA", "value": "SEC-2018-1122", "span": [176, 190]},
+      {"pii_type": "CARGO", "value": "Analista de Segurança da Informação", "span": [192, 228]},
+      {"pii_type": "DEPARTAMENTO", "value": "TI", "span": [246, 248]},
+      {"pii_type": "ENDERECO_LOGRADOURO", "value": "Av. Brigadeiro Faria Lima, 2000, sl 1505, Jardim Paulistano, São Paulo-SP", "span": [260, 335]},
+      {"pii_type": "CEP", "value": "01452-000", "span": [342, 351]},
+      {"pii_type": "TELEFONE", "value": "(11) 2345-6789", "span": [364, 378]},
+      {"pii_type": "TELEFONE", "value": "(11) 98765-4321", "span": [387, 402]},
+      {"pii_type": "EMAIL", "value": "pedro.santos@seguranca.tech.br", "span": [423, 454]},
+      {"pii_type": "EMAIL", "value": "pedroh.santos@yahoo.com.br", "span": [456, 483]},
+      {"pii_type": "CNH", "value": "99887766554", "span": [502, 513]},
+      {"pii_type": "PASSAPORTE", "value": "BR1122334", "span": [526, 535]},
+      {"pii_type": "TITULO_ELEITOR", "value": "1122334455", "span": [553, 563]},
+      {"pii_type": "BANCO", "value": "Santander, ag. 3456, cc 789012-3", "span": [582, 615]},
+      {"pii_type": "SALARIO", "value": "R$ 9.500,00", "span": [626, 637]},
+      {"pii_type": "BENEFICIO", "value": "Amil", "span": [651, 655]},
+      {"pii_type": "DEPENDENTE", "value": "esposa Carla Santos", "span": [669, 688]},
+      {"pii_type": "DEPENDENTE", "value": "filho Gabriel Santos, 5 anos", "span": [691, 720]},
+      {"pii_type": "BENEFICIO", "value": "vale alimentação R$ 1.200,00", "span": [723, 750]},
+      {"pii_type": "USUARIO_REDE", "value": "p.santos", "span": [929, 938]},
+      {"pii_type": "IP_ADDRESS", "value": "10.10.10.100", "span": [966, 978]},
+      {"pii_type": "IP_ADDRESS", "value": "10.10.10.200", "span": [981, 993]},
+      {"pii_type": "HISTORICO_PROFISSIONAL", "value": "contratado em 15/03/2018, uma promoção em 2021", "span": [1125, 1173]},
+      {"pii_type": "CONDICAO_MEDICA", "value": "depressão tratada com Fluoxetina 20mg", "span": [1204, 1242]},
+      {"pii_type": "CONDICAO_MEDICA", "value": "faz terapia semanal", "span": [1245, 1264]},
+      {"pii_type": "NOME_COMPLETO", "value": "Marcus Vinícius Lima", "span": [1364, 1383]}
+    ]
+  }
+]
