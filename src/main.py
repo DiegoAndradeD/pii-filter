@@ -8,15 +8,14 @@ from fastapi.staticfiles import StaticFiles
 from src.api import proxy
 from src.views import main_view
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 app = FastAPI(
     title="PII FILTER",
-    description="",
+    description="Proxy para filtragem de PII e tópicos sensíveis em prompts.",
     version="0.1.0",
 )
 
 app.include_router(proxy.router, prefix="/api")
 app.include_router(main_view.router)
-
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
