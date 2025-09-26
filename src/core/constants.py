@@ -56,3 +56,17 @@ PORTUGUESE_STOP_WORDS = [
     "mais",
     "mas",
 ]
+
+# NER-based PII types mapping
+NER_PII_TYPES = {
+    "NOME_PESSOA": "Nome de pessoa física",
+    "ORGANIZACAO": "Nome de organização/empresa", 
+    "LOCAL": "Nome de local/endereço",
+    "EVENTO": "Nome de evento",
+    "OBRA_ARTE": "Obra de arte/produto cultural",
+    "LEI": "Referência legal/legislação",
+    "IDIOMA": "Referência a idioma",
+}
+
+# All supported PII types (regex + NER)
+ALL_PII_TYPES = list(PII_PATTERNS.keys()) + list(NER_PII_TYPES.keys())
