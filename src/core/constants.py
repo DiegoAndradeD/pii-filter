@@ -4,7 +4,7 @@ Each pattern is compiled for better performance.
 """
 
 import re
-from typing import Dict
+from typing import Dict, List
 
 
 PII_PATTERNS: Dict[str, re.Pattern] = {
@@ -28,6 +28,28 @@ PII_PATTERNS: Dict[str, re.Pattern] = {
         r"\b(?:conta|cc|c/c)\s*:?\s*\d{4,8}[-\s]?\d{1,2}\b", re.IGNORECASE
     ),
 }
+
+SENSITIVE_CATEGORIES: List[str] = [
+    "CONDIÇÃO_DE_SAUDE",
+    "INFORMAÇÃO_FINANCEIRA_DETALHADA",
+    "HISTORICO_DISCIPLINAR",
+    "PROBLEMA_PESSOAL_FAMILIAR",
+    "ORIENTAÇÃO_SEXUAL",
+    "CRENÇA_RELIGIOSA",
+    "OPINIÃO_POLÍTICA",
+    "DADOS_BIOMÉTRICOS",
+    "AVALIACAO_DESEMPENHO",
+    "INFORMACAO_PSICOLOGICA",
+    "SENHA",
+    "USUARIO_REDE",
+    "IP_ADDRESS",
+    "MAC_ADDRESS",
+    "REGISTRO_PONTO",
+    "DOCUMENTO_URL",
+    "FOTO_URL",
+    "INFORMACAO_SENSIVEL",
+    "HISTORICO_PROFISSIONAL",
+]
 
 
 PORTUGUESE_STOP_WORDS = [
