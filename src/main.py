@@ -4,9 +4,12 @@ and filtering PII (Personally Identifiable Information)."""
 from pathlib import Path
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from dotenv import load_dotenv
 
 from src.api import proxy
 from src.views import main_view
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
 
