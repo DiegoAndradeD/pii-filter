@@ -11,6 +11,7 @@ import json
 import logging
 from typing import List, Tuple
 import requests
+from src.core.constants import SENSITIVE_CATEGORIES
 from src.models.models import PIIMapping
 
 logger = logging.getLogger(__name__)
@@ -38,21 +39,10 @@ class LocalLLMService:
         """
         Creates a specialized system prompt for the LLM to perform extraction.
         """
-        sensitive_categories = [
-            "CONDIÇÃO_DE_SAUDE",
-            "INFORMAÇÃO_FINANCEIRA_DETALHADA",
-            "HISTORICO_DISCIPLINAR",
-            "PROBLEMA_PESSOAL_FAMILIAR",
-            "ORIENTAÇÃO_SEXUAL",
-            "CRENÇA_RELIGIOSA",
-            "OPINIÃO_POLÍTICA",
-            "DADOS_BIOMÉTRICOS",
-        ]
 
-        # A instrução agora é para EXTRAIR o trecho exato.
         return (
             "Você é um especialista em LGPD. Sua tarefa é analisar o texto e EXTRAIR os trechos exatos "
-            f"que correspondem às seguintes categorias de dados sensíveis: {sensitive_categories}. "
+            f"que correspondem às seguintes categorias de dados sensíveis: {SENSITIVE_CATEGORIES}. "
             'Retorne APENAS um objeto JSON com uma chave "sensitive_fragments", que contém uma lista de objetos. '
             'Cada objeto deve ter duas chaves: "category" (a categoria identificada) e "exact_text" '
             "(o trecho de texto exato que você encontrou). Se nada for encontrado, retorne uma lista vazia. "

@@ -929,5 +929,6283 @@
         ]
       }
     ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_006_licenca_medica_longa",
+      "category": "health_and_safety",
+      "intent": "process_medical_leave",
+      "persona": "hr_benefits_administrator",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:45:05Z"
+    },
+    "prompt_text": "Processar licença médica de longa duração para a colaboradora Beatriz Almeida Santos. Matrícula: ADM-2017-0050. Cargo: Assistente Administrativa, Setor: Facilities. Nascida em 05/03/1995. CPF: 567.890.123-45, RG: 67.890.123-6 SSP/SC. Endereço: Servidão das Orquídeas, 15, Bairro Campeche, Florianópolis-SC, CEP: 88063-000. Telefone (48) 98877-6655. E-mail pessoal: bia.almeida.santos@emailparticular.com.br. A colaboradora apresentou atestado médico (link simulado: https://example.com/laudos/ADM-2017-0050.pdf) com diagnóstico de 'Transtorno de Ansiedade Generalizada (CID F41.1)' e recomendação de afastamento por 90 dias. A medicação em uso inclui Sertralina 100mg e Clonazepam 2mg. O histórico de saúde dela no plano corporativo já indicava um tratamento prévio para enxaqueca crônica. Seu salário de R$ 4.100,00 será complementado pelo INSS. Dados bancários para eventuais depósitos: Banco Regional S.A., agência 4321, conta 87654-3. A senha para acessar os documentos criptografados dela é uma dica: 'NomeDoGato+AnoNascimento'. Ela não tem CNH, mas o passaporte é BRT987123. Título de eleitor: 4567 8901 2345. Último acesso à rede foi do IP 200.221.1.80 pelo login 'beatriz.santos'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Beatriz Almeida Santos",
+        "span": [
+          62,
+          84
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ADM-2017-0050",
+        "span": [
+          97,
+          110
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Assistente Administrativa",
+        "span": [
+          119,
+          144
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Facilities",
+        "span": [
+          153,
+          163
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "05/03/1995",
+        "span": [
+          176,
+          186
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "567.890.123-45",
+        "span": [
+          193,
+          207
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "67.890.123-6 SSP/SC",
+        "span": [
+          213,
+          232
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Servidão das Orquídeas, 15, Bairro Campeche, Florianópolis-SC",
+        "span": [
+          244,
+          305
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "88063-000",
+        "span": [
+          312,
+          321
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(48) 98877-6655",
+        "span": [
+          332,
+          347
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "bia.almeida.santos@emailparticular.com.br",
+        "span": [
+          365,
+          406
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://example.com/laudos/ADM-2017-0050.pdf",
+        "span": [
+          466,
+          510
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "Transtorno de Ansiedade Generalizada (CID F41.1)",
+        "span": [
+          532,
+          580
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "afastamento por 90 dias",
+        "span": [
+          600,
+          623
+        ]
+      },
+      {
+        "pii_type": "MEDICACAO",
+        "value": "Sertralina 100mg e Clonazepam 2mg",
+        "span": [
+          651,
+          684
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "tratamento prévio para enxaqueca crônica",
+        "span": [
+          748,
+          788
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 4.100,00",
+        "span": [
+          805,
+          816
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Regional S.A.",
+        "span": [
+          889,
+          908
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "4321",
+        "span": [
+          918,
+          922
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "87654-3",
+        "span": [
+          930,
+          937
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "NomeDoGato+AnoNascimento",
+        "span": [
+          1007,
+          1031
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRT987123",
+        "span": [
+          1070,
+          1079
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "4567 8901 2345",
+        "span": [
+          1100,
+          1114
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "200.221.1.80",
+        "span": [
+          1147,
+          1159
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "beatriz.santos",
+        "span": [
+          1172,
+          1186
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_007_realocacao_funcionario",
+      "category": "employee_relocation",
+      "intent": "prepare_relocation_package",
+      "persona": "hr_mobility_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:47:06Z"
+    },
+    "prompt_text": "Preparar pacote de realocação para o engenheiro Fernando Henrique Meirelles, Matrícula: ENG-2019-0188. Ele está sendo transferido da unidade de Porto Alegre para a de Recife, mantendo o cargo de Engenheiro de Software Sênior no setor de P&D. CPF: 678.901.234-56, RG: 78.901.234-7 SSP/RS, nascido em 22/07/1991. Seu endereço atual é Rua das Hortênsias, 555, Gramado-RS, CEP: 95670-000 e o novo endereço temporário será na Avenida Boa Viagem, 4321, Recife-PE, CEP: 51021-000. Salário atual: R$ 13.500,00. O pacote inclui um bônus de realocação de R$ 20.000,00, a ser depositado em sua conta 65432-1, agência 3456 do Banco Sul S.A. Seu e-mail corporativo é fernando.meirelles@empresa.com.br e o pessoal é fhm.91@emailpessoal.com, telefone: (51) 98765-4321. Precisamos dos dados de sua esposa, Carolina Meirelles, e filho, Davi Meirelles (nascido em 12/03/2019), para auxílio na transferência escolar. CNH: 06789012345, Passaporte: BRS765432. Título de eleitor: 3456 7890 1234. O último acesso ao sistema foi do IP 201.182.50.70. Link da foto para novo crachá: https://example.com/fotos/ENG-2019-0188.jpg.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fernando Henrique Meirelles",
+        "span": [
+          48,
+          75
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ENG-2019-0188",
+        "span": [
+          88,
+          101
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Engenheiro de Software Sênior",
+        "span": [
+          195,
+          224
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "P&D",
+        "span": [
+          237,
+          240
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "678.901.234-56",
+        "span": [
+          247,
+          261
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "78.901.234-7 SSP/RS",
+        "span": [
+          267,
+          286
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "22/07/1991",
+        "span": [
+          299,
+          309
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua das Hortênsias, 555, Gramado-RS",
+        "span": [
+          332,
+          367
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "95670-000",
+        "span": [
+          374,
+          383
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Avenida Boa Viagem, 4321, Recife-PE",
+        "span": [
+          421,
+          456
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "51021-000",
+        "span": [
+          463,
+          472
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 13.500,00",
+        "span": [
+          489,
+          501
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "bônus de realocação de R$ 20.000,00",
+        "span": [
+          522,
+          557
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "65432-1",
+        "span": [
+          589,
+          596
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "3456",
+        "span": [
+          606,
+          610
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Sul S.A.",
+        "span": [
+          614,
+          628
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "fernando.meirelles@empresa.com.br",
+        "span": [
+          654,
+          687
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "fhm.91@emailpessoal.com",
+        "span": [
+          702,
+          725
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(51) 98765-4321",
+        "span": [
+          737,
+          752
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Carolina Meirelles",
+        "span": [
+          790,
+          808
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Davi Meirelles",
+        "span": [
+          819,
+          833
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO_DEPENDENTE",
+        "value": "12/03/2019",
+        "span": [
+          846,
+          856
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "para auxílio na transferência escolar",
+        "span": [
+          859,
+          896
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "06789012345",
+        "span": [
+          903,
+          914
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRS765432",
+        "span": [
+          928,
+          937
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "3456 7890 1234",
+        "span": [
+          958,
+          972
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "201.182.50.70",
+        "span": [
+          1011,
+          1024
+        ]
+      },
+      {
+        "pii_type": "FOTO_URL",
+        "value": "https://example.com/fotos/ENG-2019-0188.jpg",
+        "span": [
+          1057,
+          1100
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_008_plano_melhoria_desempenho",
+      "category": "performance_management",
+      "intent": "draft_performance_improvement_plan",
+      "persona": "hr_business_partner",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:47:07Z"
+    },
+    "prompt_text": "Elaborar um Plano de Melhoria de Desempenho (PIP) para a funcionária Amanda Nunes. Matrícula: SUP-2021-0415, Cargo: Analista de Suporte Técnico, Setor: Atendimento ao Cliente. O PIP terá início em 01/10/2025. Dados dela: CPF 789.012.345-67, RG 89.012.345-8 SSP/PE, nascida em 18/02/1996. E-mail corporativo: amanda.nunes@empresa.com.br. Salário: R$ 4.800,00. As avaliações de desempenho confidenciais recentes apontam queda de 30% na nota de satisfação do cliente e aumento de 50% no tempo médio de resolução de chamados. Registros de ponto mostram atrasos recorrentes nas últimas 3 semanas. Em conversa, a gestora, Sra. Carla Dias, notou que Amanda 'parece desmotivada e com dificuldade de concentração', uma informação psicológica relevante. A senha dela para o portal de desempenho é 'RecifeSol*96'. O login de rede 'amanda.nunes' foi acessado hoje pelo IP 187.60.112.4 e MAC Address 9C:B6:D0:E7:F3:A0. É necessário definir metas claras de melhoria para os próximos 60 dias. A funcionária possui um histórico disciplinar sem ocorrências prévias.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Amanda Nunes",
+        "span": [
+          69,
+          81
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "SUP-2021-0415",
+        "span": [
+          94,
+          107
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Analista de Suporte Técnico",
+        "span": [
+          116,
+          143
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Atendimento ao Cliente",
+        "span": [
+          152,
+          174
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "01/10/2025",
+        "span": [
+          197,
+          207
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "789.012.345-67",
+        "span": [
+          225,
+          239
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "89.012.345-8 SSP/PE",
+        "span": [
+          244,
+          263
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "18/02/1996",
+        "span": [
+          276,
+          286
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "amanda.nunes@empresa.com.br",
+        "span": [
+          308,
+          335
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 4.800,00",
+        "span": [
+          346,
+          357
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "As avaliações de desempenho confidenciais recentes apontam queda de 30% na nota de satisfação do cliente e aumento de 50% no tempo médio de resolução de chamados",
+        "span": [
+          359,
+          520
+        ]
+      },
+      {
+        "pii_type": "REGISTRO_PONTO",
+        "value": "Registros de ponto mostram atrasos recorrentes nas últimas 3 semanas",
+        "span": [
+          522,
+          590
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Carla Dias",
+        "span": [
+          621,
+          631
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "'parece desmotivada e com dificuldade de concentração'",
+        "span": [
+          650,
+          704
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "RecifeSol*96",
+        "span": [
+          788,
+          800
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "amanda.nunes",
+        "span": [
+          820,
+          832
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "187.60.112.4",
+        "span": [
+          860,
+          872
+        ]
+      },
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "9C:B6:D0:E7:F3:A0",
+        "span": [
+          887,
+          904
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "A funcionária possui um histórico disciplinar sem ocorrências prévias",
+        "span": [
+          978,
+          1047
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_009_inscricao_beneficios_admissao",
+      "category": "onboarding",
+      "intent": "generate_benefits_enrollment_form",
+      "persona": "hr_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:47:08Z"
+    },
+    "prompt_text": "Gerar e-mail de boas-vindas para o novo contratado, Lucas Martins, com formulário de inscrição em benefícios. Data de início: 06/10/2025. Cargo: Designer Gráfico, Setor: Criação. Matrícula provisória: CRIA-2025-0550. Dados pessoais para cadastro: Nascido em 15/09/1998, CPF 890.123.456-78, RG 90.123.456-9 SSP/SP, Título de Eleitor 2345 6789 0123. Endereço: Alameda Jaú, 1234, Apto 82, Bairro Jardins, São Paulo-SP, CEP: 01420-002. E-mail pessoal: lucas.martins.design@emailpessoal.com, Celular: (11) 97654-3210. O salário inicial é de R$ 6.500,00, a ser pago na conta 12345-6, agência 2345 do Banco Capital S.A. Ele precisa escolher entre os planos de saúde 'Alfa' ou 'Beta' e informar os dados do dependente para inclusão (esposa: Mariana Costa, nascida em 20/05/1999). Ele também tem direito a vale-alimentação. Link para upload da foto 3x4: https://example.com/upload/CRIA-2025-0550. CNH e Passaporte não informados.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Lucas Martins",
+        "span": [
+          52,
+          65
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "06/10/2025",
+        "span": [
+          126,
+          136
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Designer Gráfico",
+        "span": [
+          145,
+          161
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Criação",
+        "span": [
+          170,
+          177
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "CRIA-2025-0550",
+        "span": [
+          201,
+          215
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "15/09/1998",
+        "span": [
+          258,
+          268
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "890.123.456-78",
+        "span": [
+          274,
+          288
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "90.123.456-9 SSP/SP",
+        "span": [
+          293,
+          312
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "2345 6789 0123",
+        "span": [
+          332,
+          346
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Alameda Jaú, 1234, Apto 82, Bairro Jardins, São Paulo-SP",
+        "span": [
+          358,
+          414
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01420-002",
+        "span": [
+          421,
+          430
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "lucas.martins.design@emailpessoal.com",
+        "span": [
+          448,
+          485
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 97654-3210",
+        "span": [
+          496,
+          511
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 6.500,00",
+        "span": [
+          536,
+          547
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "12345-6",
+        "span": [
+          569,
+          576
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "2345",
+        "span": [
+          586,
+          590
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Capital S.A.",
+        "span": [
+          594,
+          612
+        ]
+      },
+      {
+        "pii_type": "BENEFICIOS",
+        "value": "planos de saúde 'Alfa' ou 'Beta'",
+        "span": [
+          643,
+          675
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Mariana Costa",
+        "span": [
+          733,
+          746
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO_DEPENDENTE",
+        "value": "20/05/1999",
+        "span": [
+          759,
+          769
+        ]
+      },
+      {
+        "pii_type": "BENEFICIOS",
+        "value": "vale-alimentação",
+        "span": [
+          797,
+          813
+        ]
+      },
+      {
+        "pii_type": "FOTO_URL",
+        "value": "https://example.com/upload/CRIA-2025-0550",
+        "span": [
+          845,
+          886
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_010_investigacao_interna_afastamento",
+      "category": "employee_relations",
+      "intent": "draft_internal_investigation_notice",
+      "persona": "hr_compliance_officer",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:47:09Z"
+    },
+    "prompt_text": "Redigir notificação confidencial de afastamento remunerado para Ricardo Pereira, matrícula COMP-2016-0023, cargo Comprador Sênior, Setor de Suprimentos. O afastamento se inicia imediatamente, em 30/09/2025. O motivo é uma investigação interna sobre 'alegações de conflito de interesses' em negociações com fornecedores ocorridas entre junho e agosto de 2025. Dados do funcionário: CPF 901.234.567-89, RG 12.345.678-0 SSP/RJ, CNH 09012345678. Seu e-mail corporativo ricardo.pereira@empresa.com.br e seu login 'ricardo.p' serão suspensos. A estação de trabalho dele (IP 192.168.10.50, MAC 40:8D:5C:8F:2A:1B) será auditada. Seus dados bancários (Banco Mercantil, ag. 6789, c/c 98765-4) podem ser relevantes. Seu histórico disciplinar inclui uma advertência verbal em 2022 por 'não conformidade em relatório de despesas', um dado sensível. Telefone pessoal para contato durante o afastamento: (21) 97531-8642. Reside em Rua do Catete, 300, Rio de Janeiro-RJ, 22220-001.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Pereira",
+        "span": [
+          64,
+          79
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "COMP-2016-0023",
+        "span": [
+          91,
+          105
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Comprador Sênior",
+        "span": [
+          113,
+          129
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Suprimentos",
+        "span": [
+          140,
+          151
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "30/09/2025",
+        "span": [
+          195,
+          205
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "investigação interna sobre 'alegações de conflito de interesses'",
+        "span": [
+          222,
+          286
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "901.234.567-89",
+        "span": [
+          385,
+          399
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "12.345.678-0 SSP/RJ",
+        "span": [
+          404,
+          423
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "09012345678",
+        "span": [
+          429,
+          440
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "ricardo.pereira@empresa.com.br",
+        "span": [
+          465,
+          495
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "ricardo.p",
+        "span": [
+          509,
+          518
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "192.168.10.50",
+        "span": [
+          568,
+          581
+        ]
+      },
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "40:8D:5C:8F:2A:1B",
+        "span": [
+          587,
+          604
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Mercantil",
+        "span": [
+          643,
+          658
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "6789",
+        "span": [
+          664,
+          668
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "98765-4",
+        "span": [
+          674,
+          681
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "histórico disciplinar inclui uma advertência verbal em 2022 por 'não conformidade em relatório de despesas'",
+        "span": [
+          709,
+          816
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(21) 97531-8642",
+        "span": [
+          889,
+          904
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua do Catete, 300, Rio de Janeiro-RJ",
+        "span": [
+          916,
+          953
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "22220-001",
+        "span": [
+          955,
+          964
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_011_anuncio_aposentadoria",
+      "category": "offboarding",
+      "intent": "prepare_retirement_announcement",
+      "persona": "hr_communications_manager",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:47:10Z"
+    },
+    "prompt_text": "Preparar o comunicado interno de aposentadoria da Sra. Helena Costa, nossa querida Gerente Financeira (matrícula FIN-1995-0001) do departamento Financeiro. Sua última data de trabalho será 31/10/2025, após 30 anos de serviço. Dados dela: Nascida em 10/08/1965, CPF 012.345.678-90, RG 23.456.789-1 SSP/SP. Reside na Rua Augusta, 2500, São Paulo-SP, CEP 01412-100, para envio de documentos finais. O e-mail pessoal para contato futuro é helena.costa.aposentada@emailpessoal.com.br. O pacote de aposentadoria inclui um bônus final de R$ 50.000,00, a ser depositado na conta 78901-2, agência 0123, do Banco Nacional S.A. Ela compartilhou uma história pessoal sobre 'ter começado como estagiária na mesma sala onde hoje é gerente', que podemos usar no texto. Passaporte BRH123987, pois planeja uma viagem à Itália. Título de eleitor: 8901 2345 6789. Telefone: (11) 98234-1234. Link da foto dela de 1995 para o post: https://example.com/fotos/FIN-1995-0001_old.jpg.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Helena Costa",
+        "span": [
+          55,
+          67
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Gerente Financeira",
+        "span": [
+          83,
+          101
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "FIN-1995-0001",
+        "span": [
+          113,
+          126
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Financeiro",
+        "span": [
+          144,
+          154
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "31/10/2025",
+        "span": [
+          189,
+          199
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "10/08/1965",
+        "span": [
+          249,
+          259
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "012.345.678-90",
+        "span": [
+          265,
+          279
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "23.456.789-1 SSP/SP",
+        "span": [
+          284,
+          303
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Augusta, 2500, São Paulo-SP",
+        "span": [
+          315,
+          346
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01412-100",
+        "span": [
+          352,
+          361
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "helena.costa.aposentada@emailpessoal.com.br",
+        "span": [
+          435,
+          478
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "pacote de aposentadoria inclui um bônus final de R$ 50.000,00",
+        "span": [
+          482,
+          543
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "78901-2",
+        "span": [
+          571,
+          578
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "0123",
+        "span": [
+          588,
+          592
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Nacional S.A.",
+        "span": [
+          597,
+          616
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "Ela compartilhou uma história pessoal sobre 'ter começado como estagiária na mesma sala onde hoje é gerente', que podemos usar no texto",
+        "span": [
+          617,
+          752
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRH123987",
+        "span": [
+          765,
+          774
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "8901 2345 6789",
+        "span": [
+          829,
+          843
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 98234-1234",
+        "span": [
+          855,
+          870
+        ]
+      },
+      {
+        "pii_type": "FOTO_URL",
+        "value": "https://example.com/fotos/FIN-1995-0001_old.jpg",
+        "span": [
+          911,
+          958
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_012_licenca_familiar_doenca",
+      "category": "leave_management",
+      "intent": "process_family_medical_leave_request",
+      "persona": "hr_benefits_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:49:24Z"
+    },
+    "prompt_text": "Processar solicitação de licença não remunerada por motivo de doença em pessoa da família para o funcionário Gabriel Lima de Souza. Matrícula: LOG-2018-0133, Cargo: Analista de Logística, Setor: Distribuição. Período da licença: 01/11/2025 a 30/11/2025. O funcionário, CPF 123.123.123-12 e RG 12.123.123-1 SSP/AM, nascido em 25/04/1990, precisa cuidar de seu pai, Jorge de Souza, que, segundo atestado médico, está 'em recuperação de um AVC isquêmico severo'. O documento está em anexo: https://example.com/laudos/LOG-2018-0133.pdf. O salário dele de R$ 6.200,00 será suspenso no período. Seus dados bancários são: Banco da Amazônia S.A., agência 1010, conta 10101-1. Ele reside na Estrada da Ponta Negra, 777, Manaus-AM, CEP: 69037-000. E-mail corporativo: gabriel.souza@empresa.com.br, celular pessoal: (92) 98765-5678. Ele não possui histórico de advertências. Título de eleitor: 7890 1234 5678. Passaporte: BRP998877. A senha dele para o portal RH é 'Manaus2025$'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Gabriel Lima de Souza",
+        "span": [
+          109,
+          130
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "LOG-2018-0133",
+        "span": [
+          143,
+          156
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Analista de Logística",
+        "span": [
+          165,
+          186
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Distribuição",
+        "span": [
+          195,
+          207
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "01/11/2025 a 30/11/2025",
+        "span": [
+          229,
+          252
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "123.123.123-12",
+        "span": [
+          273,
+          287
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "12.123.123-1 SSP/AM",
+        "span": [
+          293,
+          312
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "25/04/1990",
+        "span": [
+          325,
+          335
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Jorge de Souza",
+        "span": [
+          364,
+          378
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "em recuperação de um AVC isquêmico severo",
+        "span": [
+          416,
+          457
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://example.com/laudos/LOG-2018-0133.pdf",
+        "span": [
+          487,
+          531
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 6.200,00",
+        "span": [
+          551,
+          562
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco da Amazônia S.A.",
+        "span": [
+          615,
+          637
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "1010",
+        "span": [
+          647,
+          651
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "10101-1",
+        "span": [
+          659,
+          666
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Estrada da Ponta Negra, 777, Manaus-AM",
+        "span": [
+          682,
+          720
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "69037-000",
+        "span": [
+          727,
+          736
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "gabriel.souza@empresa.com.br",
+        "span": [
+          758,
+          786
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(92) 98765-5678",
+        "span": [
+          805,
+          820
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "Ele não possui histórico de advertências",
+        "span": [
+          822,
+          862
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "7890 1234 5678",
+        "span": [
+          883,
+          897
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRP998877",
+        "span": [
+          911,
+          920
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Manaus2025$",
+        "span": [
+          955,
+          966
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_013_relato_canal_etica",
+      "category": "employee_relations",
+      "intent": "document_ethics_hotline_report",
+      "persona": "hr_compliance_officer",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:49:25Z"
+    },
+    "prompt_text": "Registrar denúncia confidencial recebida pelo canal de ética. A denúncia foi feita por um funcionário que prefere não se identificar, e alega que a Gerente de Compras, Sra. Patrícia Ramos de Andrade, matrícula COMP-2015-0019, tem favorecido um fornecedor em troca de vantagens pessoais. O relato menciona um jantar no dia 15/09/2025, cujas fotos estariam em https://example.com/evidencias/jantar.jpg. Dados da acusada: Patrícia Ramos de Andrade, CPF 234.234.234-23, RG 23.234.234-2 SSP/SC. Cargo: Gerente de Compras, Setor: Suprimentos. Login de rede 'patricia.andrade'. O último acesso dela partiu do IP 189.12.34.56 e MAC A1:B2:C3:D4:E5:F6. Salário: R$ 18.500,00 mais bônus anual variável, o que, segundo o denunciante, a motiva. Seu e-mail pessoal é paty.randrade@emailprivado.com.br e o telefone é (48) 98888-9999. É preciso iniciar uma investigação sigilosa.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Patrícia Ramos de Andrade",
+        "span": [
+          173,
+          198
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "COMP-2015-0019",
+        "span": [
+          210,
+          224
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "tem favorecido um fornecedor em troca de vantagens pessoais",
+        "span": [
+          226,
+          285
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "15/09/2025",
+        "span": [
+          322,
+          332
+        ]
+      },
+      {
+        "pii_type": "FOTO_URL",
+        "value": "https://example.com/evidencias/jantar.jpg",
+        "span": [
+          358,
+          399
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Patrícia Ramos de Andrade",
+        "span": [
+          419,
+          444
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "234.234.234-23",
+        "span": [
+          450,
+          464
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "23.234.234-2 SSP/SC",
+        "span": [
+          469,
+          488
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Gerente de Compras",
+        "span": [
+          497,
+          515
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Suprimentos",
+        "span": [
+          524,
+          535
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "patricia.andrade",
+        "span": [
+          552,
+          568
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "189.12.34.56",
+        "span": [
+          605,
+          617
+        ]
+      },
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "A1:B2:C3:D4:E5:F6",
+        "span": [
+          624,
+          641
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 18.500,00",
+        "span": [
+          652,
+          664
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "bônus anual variável",
+        "span": [
+          670,
+          690
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "paty.randrade@emailprivado.com.br",
+        "span": [
+          753,
+          786
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(48) 98888-9999",
+        "span": [
+          802,
+          817
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_014_negociacao_reajuste_salarial",
+      "category": "compensation_and_benefits",
+      "intent": "document_salary_negotiation",
+      "persona": "hr_manager",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:49:26Z"
+    },
+    "prompt_text": "Registrar a negociação de reajuste salarial com o funcionário Tiago Alves, matrícula DTI-2020-0200, Arquiteto de Cloud no setor de Infraestrutura de TI. Tiago, CPF 345.345.345-34 e RG 34.345.345-3 SSP/PR, solicitou um reajuste de R$ 15.000,00 para R$ 18.000,00, apresentando uma proposta de outra empresa. Na conversa, ele mencionou que 'a necessidade se deve a um financiamento imobiliário recente', uma informação financeira sensível. Com base em sua avaliação de desempenho confidencial ('Excepcional') e para retê-lo, foi aprovado o novo salário de R$ 17.500,00. Endereço dele: Rua 24 Horas, 100, Curitiba-PR, CEP 80010-010. CNH: 03453453453. Dados bancários para atualização: Banco Inovação S.A., agência 5555, conta 55555-5. A senha de seu portal de RH tem a dica 'TimeDoCoracao+Ano'. Telefone: (41) 91234-4321, e-mail pessoal: tiago.alves.cloud@emailpessoal.com.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Tiago Alves",
+        "span": [
+          62,
+          73
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "DTI-2020-0200",
+        "span": [
+          85,
+          98
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Arquiteto de Cloud",
+        "span": [
+          100,
+          118
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Infraestrutura de TI",
+        "span": [
+          131,
+          151
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Tiago",
+        "span": [
+          153,
+          158
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "345.345.345-34",
+        "span": [
+          164,
+          178
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "34.345.345-3 SSP/PR",
+        "span": [
+          184,
+          203
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 15.000,00",
+        "span": [
+          230,
+          242
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 18.000,00",
+        "span": [
+          248,
+          260
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "'a necessidade se deve a um financiamento imobiliário recente'",
+        "span": [
+          337,
+          399
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "avaliação de desempenho confidencial ('Excepcional')",
+        "span": [
+          453,
+          505
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 17.500,00",
+        "span": [
+          553,
+          565
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua 24 Horas, 100, Curitiba-PR",
+        "span": [
+          582,
+          612
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "80010-010",
+        "span": [
+          618,
+          627
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "03453453453",
+        "span": [
+          634,
+          645
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Inovação S.A.",
+        "span": [
+          681,
+          700
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "5555",
+        "span": [
+          710,
+          714
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "55555-5",
+        "span": [
+          722,
+          729
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "TimeDoCoracao+Ano",
+        "span": [
+          771,
+          788
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(41) 91234-4321",
+        "span": [
+          801,
+          816
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "tiago.alves.cloud@emailpessoal.com",
+        "span": [
+          834,
+          868
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_015_relatorio_acidente_trabalho",
+      "category": "health_and_safety",
+      "intent": "create_workplace_accident_report",
+      "persona": "safety_officer",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:49:27Z"
+    },
+    "prompt_text": "Gerar a Comunicação de Acidente de Trabalho (CAT) para a funcionária Joana Medeiros. Ela sofreu um acidente na fábrica em 30/09/2025, às 10:30. Dados da funcionária: Matrícula OPE-2022-0999, Cargo: Operadora de Máquinas, Setor: Produção. Nascida em 12/12/1999, CPF 456.456.456-45, RG 45.456.456-4 SSP/BA. Endereço: Caminho de Areia, 25, Bairro Ribeira, Salvador-BA, CEP 40421-540. O acidente resultou em 'queimadura de segundo grau no antebraço direito' ao manusear uma prensa. Foi atendida na Clínica Saúde do Trabalhador. Link para o laudo: https://example.com/laudos/OPE-2022-0999.pdf. Foi recomendado afastamento de 7 dias. O salário dela é de R$ 3.100,00. Contato de emergência é sua mãe, Maria Medeiros, telefone (71) 98765-1122. O telefone pessoal da Joana é (71) 98123-4567.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Joana Medeiros",
+        "span": [
+          69,
+          83
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "30/09/2025",
+        "span": [
+          122,
+          132
+        ]
+      },
+      {
+        "pii_type": "HORARIO",
+        "value": "10:30",
+        "span": [
+          137,
+          142
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2022-0999",
+        "span": [
+          176,
+          189
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Operadora de Máquinas",
+        "span": [
+          198,
+          219
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Produção",
+        "span": [
+          228,
+          236
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "12/12/1999",
+        "span": [
+          249,
+          259
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "456.456.456-45",
+        "span": [
+          265,
+          279
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "45.456.456-4 SSP/BA",
+        "span": [
+          284,
+          303
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Caminho de Areia, 25, Bairro Ribeira, Salvador-BA",
+        "span": [
+          315,
+          364
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "40421-540",
+        "span": [
+          370,
+          379
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "queimadura de segundo grau no antebraço direito",
+        "span": [
+          405,
+          452
+        ]
+      },
+      {
+        "pii_type": "NOME_EMPRESA_TERCEIRA",
+        "value": "Clínica Saúde do Trabalhador",
+        "span": [
+          494,
+          522
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://example.com/laudos/OPE-2022-0999.pdf",
+        "span": [
+          543,
+          587
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "afastamento de 7 dias",
+        "span": [
+          605,
+          626
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 3.100,00",
+        "span": [
+          648,
+          659
+        ]
+      },
+      {
+        "pii_type": "NOME_CONTATO_EMERGENCIA",
+        "value": "Maria Medeiros",
+        "span": [
+          694,
+          708
+        ]
+      },
+      {
+        "pii_type": "TELEFONE_CONTATO_EMERGENCIA",
+        "value": "(71) 98765-1122",
+        "span": [
+          719,
+          734
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(71) 98123-4567",
+        "span": [
+          766,
+          781
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_016_verificacao_referencia_candidato",
+      "category": "recruitment",
+      "intent": "request_candidate_reference_check",
+      "persona": "recruiter",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:49:28Z"
+    },
+    "prompt_text": "Preparar e-mail para verificação de referências do candidato finalista para a vaga de Coordenador de Marketing, Sr. Rafael Cardoso. A referência é a Sra. Lúcia Guimarães, ex-gestora dele na empresa 'Acme Inc'. Dados do candidato: Rafael Cardoso, CPF 567.567.567-56, RG 56.567.567-5 SSP/GO. Nascido em 01/01/1992. Reside na Avenida T-63, 1500, Goiânia-GO, CEP 74230-100. Contatos: (62) 99999-8888, e-mail: rafa.cardoso.mkt@emailpessoal.com. Passaporte: BRC456789. Precisamos confirmar o período de trabalho e o último cargo. Gostaríamos de perguntar à referência sobre um dado sensível: 'Como ele lidou com a reestruturação da equipe em 2023?'. O candidato informou uma faixa salarial anterior de R$ 9.000,00, que precisamos validar. A senha que ele usou no nosso portal de carreiras foi 'Goiânia@MKT2025'.",
+    "ground_truth": [
+      {
+        "pii_type": "CARGO",
+        "value": "Coordenador de Marketing",
+        "span": [
+          86,
+          110
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Rafael Cardoso",
+        "span": [
+          116,
+          130
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Lúcia Guimarães",
+        "span": [
+          154,
+          169
+        ]
+      },
+      {
+        "pii_type": "NOME_EMPRESA_TERCEIRA",
+        "value": "Acme Inc",
+        "span": [
+          199,
+          207
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Rafael Cardoso",
+        "span": [
+          230,
+          244
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "567.567.567-56",
+        "span": [
+          250,
+          264
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "56.567.567-5 SSP/GO",
+        "span": [
+          269,
+          288
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "01/01/1992",
+        "span": [
+          301,
+          311
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Avenida T-63, 1500, Goiânia-GO",
+        "span": [
+          323,
+          353
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "74230-100",
+        "span": [
+          359,
+          368
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(62) 99999-8888",
+        "span": [
+          380,
+          395
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "rafa.cardoso.mkt@emailpessoal.com",
+        "span": [
+          405,
+          438
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRC456789",
+        "span": [
+          452,
+          461
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "'Como ele lidou com a reestruturação da equipe em 2023?'",
+        "span": [
+          586,
+          642
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 9.000,00",
+        "span": [
+          696,
+          707
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Goiânia@MKT2025",
+        "span": [
+          788,
+          803
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_017_discrepancia_folha_pagamento",
+      "category": "payroll",
+      "intent": "investigate_payroll_discrepancy",
+      "persona": "payroll_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:55:00Z"
+    },
+    "prompt_text": "Abrir chamado para investigar discrepância na folha de pagamento de Outubro/2025 para a colaboradora Tatiana Ribeiro. Matrícula: FIN-2022-0814, Cargo: Analista Contábil, Setor: Contabilidade. CPF: 678.678.678-67, RG: 67.678.678-6 SSP/RJ. Tatiana alega que as 12 horas extras trabalhadas no dia 20/09/2025 não foram pagas. O salário base dela é R$ 5.500,00 e o valor depositado foi R$ 4.850,00 (líquido), mas deveria ser maior. O pagamento é feito na conta 22334-4, agência 2233 do Banco Central do Comércio S.A. O registro de ponto confirma o login 'tatiana.r' das 08:00 às 20:00 no dia em questão. Seu e-mail corporativo é tatiana.ribeiro@empresa.com.br e seu telefone é (21) 98877-1122. Endereço: Rua da Passagem, 90, Rio de Janeiro-RJ, CEP: 22290-030.",
+    "ground_truth": [
+      {
+        "pii_type": "DATA",
+        "value": "Outubro/2025",
+        "span": [
+          68,
+          80
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Tatiana Ribeiro",
+        "span": [
+          101,
+          116
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "FIN-2022-0814",
+        "span": [
+          129,
+          142
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Analista Contábil",
+        "span": [
+          151,
+          168
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Contabilidade",
+        "span": [
+          177,
+          190
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "678.678.678-67",
+        "span": [
+          197,
+          211
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "67.678.678-6 SSP/RJ",
+        "span": [
+          217,
+          236
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Tatiana",
+        "span": [
+          238,
+          245
+        ]
+      },
+      {
+        "pii_type": "REGISTRO_PONTO",
+        "value": "12 horas extras trabalhadas no dia 20/09/2025",
+        "span": [
+          259,
+          304
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 5.500,00",
+        "span": [
+          344,
+          355
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "valor depositado foi R$ 4.850,00 (líquido), mas deveria ser maior",
+        "span": [
+          360,
+          425
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "22334-4",
+        "span": [
+          456,
+          463
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "2233",
+        "span": [
+          473,
+          477
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Central do Comércio S.A.",
+        "span": [
+          481,
+          511
+        ]
+      },
+      {
+        "pii_type": "REGISTRO_PONTO",
+        "value": "O registro de ponto confirma o login 'tatiana.r' das 08:00 às 20:00 no dia em questão",
+        "span": [
+          512,
+          597
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "tatiana.ribeiro@empresa.com.br",
+        "span": [
+          624,
+          654
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(21) 98877-1122",
+        "span": [
+          672,
+          687
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua da Passagem, 90, Rio de Janeiro-RJ",
+        "span": [
+          699,
+          737
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "22290-030",
+        "span": [
+          744,
+          753
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_018_acomodacao_local_trabalho",
+      "category": "health_and_safety",
+      "intent": "process_workplace_accommodation_request",
+      "persona": "hr_generalist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:55:01Z"
+    },
+    "prompt_text": "Analisar pedido de acomodação no local de trabalho para a funcionária Vanessa Dias, nascida em 11/05/1989. Matrícula: JUR-2019-0101, Cargo: Advogada Jr., Setor: Jurídico. Vanessa, CPF 789.789.789-78, apresentou um laudo médico (link: https://example.com/laudos/JUR-2019-0101.pdf) com diagnóstico de 'Síndrome de Sjögren', uma condição médica sensível que causa secura ocular severa. Ela solicita um umidificador de ar para sua mesa e permissão para pausas mais frequentes. Seu desempenho recente teve uma leve queda, que ela atribui à condição. Endereço dela: SHIN QL 10, Casa 5, Brasília-DF, CEP: 71525-000. CNH: 07897897897. E-mail pessoal: vanessa.dias.adv@emailpessoal.com.br, celular: (61) 97766-5544. Login de rede: 'vanessa.dias'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Vanessa Dias",
+        "span": [
+          70,
+          82
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "11/05/1989",
+        "span": [
+          95,
+          105
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "JUR-2019-0101",
+        "span": [
+          118,
+          131
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Advogada Jr.",
+        "span": [
+          140,
+          152
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Jurídico",
+        "span": [
+          161,
+          169
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Vanessa",
+        "span": [
+          171,
+          178
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "789.789.789-78",
+        "span": [
+          184,
+          198
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://example.com/laudos/JUR-2019-0101.pdf",
+        "span": [
+          234,
+          278
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "'Síndrome de Sjögren'",
+        "span": [
+          299,
+          320
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "secura ocular severa",
+        "span": [
+          361,
+          381
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "Seu desempenho recente teve uma leve queda, que ela atribui à condição",
+        "span": [
+          473,
+          543
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "SHIN QL 10, Casa 5, Brasília-DF",
+        "span": [
+          560,
+          591
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "71525-000",
+        "span": [
+          598,
+          607
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "07897897897",
+        "span": [
+          614,
+          625
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "vanessa.dias.adv@emailpessoal.com.br",
+        "span": [
+          643,
+          679
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(61) 97766-5544",
+        "span": [
+          690,
+          705
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "vanessa.dias",
+        "span": [
+          723,
+          735
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_019_inscricao_treinamento_avancado",
+      "category": "training_and_development",
+      "intent": "enroll_employee_in_advanced_training",
+      "persona": "td_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:55:02Z"
+    },
+    "prompt_text": "Inscrever a funcionária Carolina Farias no curso 'Liderança Exponencial'. A inscrição requer aprovação baseada em desempenho. Dados da funcionária: Matrícula MKT-2017-0030, Cargo: Gerente de Produto, Setor: Marketing. CPF: 890.890.890-89. A avaliação de desempenho confidencial dela nos últimos dois ciclos foi 9.3 e 9.5, acima do pré-requisito de 9.0. Seu salário é R$ 16.200,00. Precisamos do passaporte dela, BRC987654, e do Título de Eleitor 6789 0123 4567 para o cadastro no portal da instituição. Seu login de rede é 'carolina.farias' e o último acesso foi do IP 177.45.67.89. Ela já completou os cursos de 'Gestão de Projetos' e 'Comunicação Assertiva'. A dica de senha para o portal de T&D é 'NomeDoCachorro+2021'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Carolina Farias",
+        "span": [
+          24,
+          39
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "MKT-2017-0030",
+        "span": [
+          158,
+          171
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Gerente de Produto",
+        "span": [
+          180,
+          198
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Marketing",
+        "span": [
+          207,
+          216
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "890.890.890-89",
+        "span": [
+          223,
+          237
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "A avaliação de desempenho confidencial dela nos últimos dois ciclos foi 9.3 e 9.5, acima do pré-requisito de 9.0",
+        "span": [
+          239,
+          351
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 16.200,00",
+        "span": [
+          367,
+          379
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRC987654",
+        "span": [
+          412,
+          421
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "6789 0123 4567",
+        "span": [
+          446,
+          460
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "carolina.farias",
+        "span": [
+          524,
+          539
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "177.45.67.89",
+        "span": [
+          569,
+          581
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_PROFISSIONAL",
+        "value": "Ela já completou os cursos de 'Gestão de Projetos' e 'Comunicação Assertiva'",
+        "span": [
+          583,
+          659
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "NomeDoCachorro+2021",
+        "span": [
+          701,
+          720
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_020_documentacao_entrevista_desligamento",
+      "category": "offboarding",
+      "intent": "document_exit_interview",
+      "persona": "hr_business_partner",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:55:03Z"
+    },
+    "prompt_text": "Documentar a entrevista de desligamento de André Schmidt, que encerra seu contrato em 10/10/2025. Matrícula: VEND-2020-0311, Cargo: Executivo de Vendas, Setor: Vendas Corporativas. André, CPF 901.901.901-90 e RG 90.901.901-9 SSP/RS, está saindo para uma posição sênior na 'Concorrente S.A.'. O feedback confidencial dele foi: 'falta de um plano de carreira claro e microgerenciamento por parte da gestão direta'. O pacote de rescisão dele totaliza R$ 25.432,10, a ser pago na conta 9876-5, agência 8765, do Banco do Pampa. Endereço final para envio dos documentos: Rua das Missões, 300, Apto 201, Porto Alegre-RS, CEP 90650-001. Contato pessoal: (51) 98888-7777, e-mail: andre.schmidt.vendas@emailpessoal.com.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "André Schmidt",
+        "span": [
+          43,
+          56
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "10/10/2025",
+        "span": [
+          86,
+          96
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2020-0311",
+        "span": [
+          109,
+          123
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Executivo de Vendas",
+        "span": [
+          132,
+          151
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Vendas Corporativas",
+        "span": [
+          160,
+          179
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "André",
+        "span": [
+          181,
+          186
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "901.901.901-90",
+        "span": [
+          192,
+          206
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "90.901.901-9 SSP/RS",
+        "span": [
+          212,
+          231
+        ]
+      },
+      {
+        "pii_type": "NOME_EMPRESA_TERCEIRA",
+        "value": "Concorrente S.A.",
+        "span": [
+          273,
+          289
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "'falta de um plano de carreira claro e microgerenciamento por parte da gestão direta'",
+        "span": [
+          326,
+          411
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "pacote de rescisão dele totaliza R$ 25.432,10",
+        "span": [
+          415,
+          460
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "9876-5",
+        "span": [
+          482,
+          488
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "8765",
+        "span": [
+          498,
+          502
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco do Pampa",
+        "span": [
+          507,
+          521
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua das Missões, 300, Apto 201, Porto Alegre-RS",
+        "span": [
+          565,
+          612
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "90650-001",
+        "span": [
+          618,
+          627
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(51) 98888-7777",
+        "span": [
+          646,
+          661
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "andre.schmidt.vendas@emailpessoal.com",
+        "span": [
+          671,
+          708
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_021_atualizacao_dados_cadastrais",
+      "category": "employee_data_management",
+      "intent": "update_employee_personal_data",
+      "persona": "hr_data_entry_clerk",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T21:55:04Z"
+    },
+    "prompt_text": "Processar a solicitação de atualização cadastral da funcionária Laura Oliveira, que passou a se chamar Laura Oliveira Santos após o casamento. Matrícula: ADM-2021-0620, Setor: Administrativo, Cargo: Recepcionista. O endereço antigo era na Rua das Gaivotas, 123, Florianópolis-SC. O novo endereço é Avenida Beira Mar, 987, Florianópolis-SC, CEP 88015-000. Ela adicionou como dependente seu esposo, Felipe Santos, nascido em 20/02/1993. Anexo a certidão de casamento: https://example.com/certidoes/ADM-2021-0620.pdf. Seus documentos (CPF: 012.012.012-12, RG: 12.012.012-1 SSP/SC, CNH: 01201201212) precisam ser atualizados no sistema. Último login para fazer o pedido foi do IP 200.10.20.30 com MAC 1A:2B:3C:4D:5E:6F. O e-mail pessoal dela é laura.o.santos@emailpessoal.com e o telefone (48) 98765-4321.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Laura Oliveira",
+        "span": [
+          64,
+          78
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Laura Oliveira Santos",
+        "span": [
+          103,
+          124
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ADM-2021-0620",
+        "span": [
+          154,
+          167
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Administrativo",
+        "span": [
+          176,
+          190
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Recepcionista",
+        "span": [
+          199,
+          212
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua das Gaivotas, 123, Florianópolis-SC",
+        "span": [
+          239,
+          278
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Avenida Beira Mar, 987, Florianópolis-SC",
+        "span": [
+          298,
+          338
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "88015-000",
+        "span": [
+          344,
+          353
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Felipe Santos",
+        "span": [
+          397,
+          410
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO_DEPENDENTE",
+        "value": "20/02/1993",
+        "span": [
+          423,
+          433
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://example.com/certidoes/ADM-2021-0620.pdf",
+        "span": [
+          466,
+          513
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "012.012.012-12",
+        "span": [
+          537,
+          551
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "12.012.012-1 SSP/SC",
+        "span": [
+          557,
+          576
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "01201201212",
+        "span": [
+          583,
+          594
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "200.10.20.30",
+        "span": [
+          676,
+          688
+        ]
+      },
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "1A:2B:3C:4D:5E:6F",
+        "span": [
+          697,
+          714
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "laura.o.santos@emailpessoal.com",
+        "span": [
+          740,
+          771
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(48) 98765-4321",
+        "span": [
+          785,
+          800
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_022_calculo_rescisao_complexa",
+      "category": "payroll",
+      "intent": "calculate_complex_severance_package",
+      "persona": "payroll_manager",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:01:05Z"
+    },
+    "prompt_text": "Olá, preciso de ajuda para calcular um pacote de rescisão bem chato. É para o Diretor de Vendas, Marcelo Fagundes, matrícula VEND-2015-0007, que está sendo desligado em 15/10/2025. Os dados dele são: CPF 102.938.475-66, RG 10.293.847-5 SSP/MG. Nascido em 03/02/1978. O salário base é R$ 28.000,00. O contrato dele tem uma cláusula de bônus garantido pró-rata, que em 2025 foi de R$ 120.000,00. Ele tem 18 dias de férias vencidas e mais 25/30 avos de férias proporcionais. O banco dele é o Banco Empresarial S.A., agência 0001, conta 123456-7. Ele mora na Av. do Contorno, 9000, Belo Horizonte-MG, CEP 30110-062. O e-mail pessoal é marcelo.fagundes.vendas@emailpessoal.com.br e o telefone é (31) 99999-1010. Ele também tem um saldo de R$ 12.345,67 de despesas a reembolsar (link para os recibos: https://example.com/reembolsos/VEND-2015-0007.zip). O login de rede 'marcelo.f' e o IP de seu laptop (172.18.20.30) precisam ser bloqueados na data do desligamento. O passaporte dele é BRM112233. Por favor, detalhe todos os cálculos para eu apresentar ao financeiro.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Marcelo Fagundes",
+        "span": [
+          97,
+          113
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2015-0007",
+        "span": [
+          125,
+          139
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "15/10/2025",
+        "span": [
+          169,
+          179
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "102.938.475-66",
+        "span": [
+          204,
+          218
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "10.293.847-5 SSP/MG",
+        "span": [
+          223,
+          242
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "03/02/1978",
+        "span": [
+          255,
+          265
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 28.000,00",
+        "span": [
+          284,
+          296
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "bônus garantido pró-rata, que em 2025 foi de R$ 120.000,00",
+        "span": [
+          334,
+          392
+        ]
+      },
+      {
+        "pii_type": "PERIODO_FERIAS",
+        "value": "18 dias de férias vencidas",
+        "span": [
+          402,
+          428
+        ]
+      },
+      {
+        "pii_type": "PERIODO_FERIAS",
+        "value": "25/30 avos de férias proporcionais",
+        "span": [
+          436,
+          470
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Empresarial S.A.",
+        "span": [
+          489,
+          511
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "0001",
+        "span": [
+          521,
+          525
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "123456-7",
+        "span": [
+          533,
+          541
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Av. do Contorno, 9000, Belo Horizonte-MG",
+        "span": [
+          555,
+          595
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "30110-062",
+        "span": [
+          601,
+          610
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "marcelo.fagundes.vendas@emailpessoal.com.br",
+        "span": [
+          631,
+          674
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(31) 99999-1010",
+        "span": [
+          690,
+          705
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "saldo de R$ 12.345,67 de despesas a reembolsar",
+        "span": [
+          725,
+          771
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://example.com/reembolsos/VEND-2015-0007.zip",
+        "span": [
+          795,
+          844
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "marcelo.f",
+        "span": [
+          864,
+          873
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "172.18.20.30",
+        "span": [
+          897,
+          909
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRM112233",
+        "span": [
+          980,
+          989
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_023_comunicado_vazamento_dados",
+      "category": "employee_relations",
+      "intent": "draft_internal_communication_data_breach",
+      "persona": "hr_director",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:01:06Z"
+    },
+    "prompt_text": "Preciso que você me ajude a escrever um e-mail para todos os funcionários sobre um incidente de segurança. O tom deve ser transparente, mas calmo. Tivemos um acesso não autorizado a uma pasta na nossa rede interna no dia 28/09/2025. A pasta continha cópias de holerites de agosto de 2025. A investigação inicial, conduzida pelo nosso time de TI, identificou que o acesso partiu do login 'visitante01', que deveria ter sido desativado. O IP de origem é externo, 203.0.113.75, e o MAC Address do dispositivo é desconhecido. Alguns dados expostos incluem Nome Completo, CPF e Salário. Um exemplo de funcionário afetado é a Ana Júlia Medeiros, matrícula ADM-2023-1020, CPF 203.948.576-77. Ela mora na Rua dos Pinheiros, 580, São Paulo-SP, CEP 05422-001. O e-mail dela é ana.medeiros@empresa.com.br. Precisamos informar os próximos passos, como a redefinição de senhas obrigatória (a senha antiga dela era 'Aninha@Pinheiros23') e a contratação de um serviço de monitoramento de crédito. Por favor, faça um rascunho bem claro e direto.",
+    "ground_truth": [
+      {
+        "pii_type": "DATA",
+        "value": "28/09/2025",
+        "span": [
+          221,
+          231
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "visitante01",
+        "span": [
+          388,
+          399
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "203.0.113.75",
+        "span": [
+          461,
+          473
+        ]
+      },
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "desconhecido",
+        "span": [
+          508,
+          520
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ana Júlia Medeiros",
+        "span": [
+          620,
+          638
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ADM-2023-1020",
+        "span": [
+          650,
+          663
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "203.948.576-77",
+        "span": [
+          669,
+          683
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua dos Pinheiros, 580, São Paulo-SP",
+        "span": [
+          697,
+          733
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "05422-001",
+        "span": [
+          739,
+          748
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "ana.medeiros@empresa.com.br",
+        "span": [
+          766,
+          793
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Aninha@Pinheiros23",
+        "span": [
+          902,
+          920
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_024_brainstorm_perguntas_entrevista",
+      "category": "recruitment",
+      "intent": "generate_interview_questions_specialized_role",
+      "persona": "tech_recruiter",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:01:07Z"
+    },
+    "prompt_text": "E aí, tudo bem? Estou montando a entrevista para a vaga de 'Engenheiro de Dados Clínicos' e queria uma ajuda pra criar umas perguntas. É uma vaga bem específica. O candidato precisa ter experiência com o sistema 'MedData-X' e a plataforma de análise 'BioStat Suite'. O último projeto dele, 'Projeto Ômega', envolveu a anonimização de dados de 10 mil pacientes, cujos prontuários continham dados como RG (ex: 30.495.867-X) e resultados de exames laboratoriais (ex: Glicemia: 105 mg/dL). A vaga exige certificação 'HIPAA Certified Professional'. O candidato que estamos de olho é o Fernando Bastos, que mora na Rua Haddock Lobo, 595, e tem o Título de Eleitor 5849 3028 4756. O e-mail dele é fernando.bastos.dados@emailpessoal.com. Pense em umas 5 perguntas comportamentais sobre ética e 5 técnicas sobre SQL e Python para manipulação de dados sensíveis. Algo que me ajude a ver se o cara manja mesmo. Valeu!",
+    "ground_truth": [
+      {
+        "pii_type": "CARGO",
+        "value": "Engenheiro de Dados Clínicos",
+        "span": [
+          60,
+          88
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "experiência com o sistema 'MedData-X'",
+        "span": [
+          186,
+          223
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "plataforma de análise 'BioStat Suite'",
+        "span": [
+          228,
+          265
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "anonimização de dados de 10 mil pacientes",
+        "span": [
+          318,
+          359
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "30.495.867-X",
+        "span": [
+          408,
+          420
+        ]
+      },
+      {
+        "pii_type": "RESULTADO_EXAME",
+        "value": "Glicemia: 105 mg/dL",
+        "span": [
+          464,
+          483
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_PROFISSIONAL",
+        "value": "certificação 'HIPAA Certified Professional'",
+        "span": [
+          499,
+          542
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fernando Bastos",
+        "span": [
+          580,
+          595
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Haddock Lobo, 595",
+        "span": [
+          609,
+          630
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "5849 3028 4756",
+        "span": [
+          658,
+          672
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "fernando.bastos.dados@emailpessoal.com",
+        "span": [
+          690,
+          728
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_025_roteiro_conversa_dificil",
+      "category": "performance_management",
+      "intent": "create_script_for_difficult_conversation",
+      "persona": "hr_business_partner",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:01:08Z"
+    },
+    "prompt_text": "Oi, preciso criar um roteiro pra uma conversa muito delicada com uma funcionária, a Letícia Marques, matrícula MKT-2019-0115. Ela é Designer Gráfica no time de Criação. O desempenho dela caiu muito nos últimos 2 meses. Ela, que sempre foi proativa, agora perde prazos e a qualidade do trabalho diminuiu. A gestora, Flávia, me passou que o login dela, 'leticia.m', fica inativo por longos períodos durante o dia. Em uma conversa informal, a Letícia comentou comigo que está 'passando por um divórcio complicado e que começou a tomar um remédio para ansiedade, o Escitalopram 10mg'. Essa informação psicológica é super sensível. Não quero que a conversa pareça uma acusação. Quero focar em como podemos ajudá-la, talvez com uma licença ou flexibilização. Os dados dela são CPF 405.869.778-99 e ela mora na Rua Girassol, 500, São Paulo-SP. O salário dela é de R$ 7.800,00. Me ajude a estruturar os pontos principais dessa conversa, por favor.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Letícia Marques",
+        "span": [
+          84,
+          99
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "MKT-2019-0115",
+        "span": [
+          111,
+          124
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Designer Gráfica",
+        "span": [
+          132,
+          148
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Criação",
+        "span": [
+          160,
+          167
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "O desempenho dela caiu muito nos últimos 2 meses. Ela, que sempre foi proativa, agora perde prazos e a qualidade do trabalho diminuiu",
+        "span": [
+          169,
+          302
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Flávia",
+        "span": [
+          315,
+          321
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "leticia.m",
+        "span": [
+          352,
+          361
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "passando por um divórcio complicado",
+        "span": [
+          474,
+          509
+        ]
+      },
+      {
+        "pii_type": "MEDICACAO",
+        "value": "remédio para ansiedade, o Escitalopram 10mg",
+        "span": [
+          535,
+          578
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "Essa informação psicológica é super sensível",
+        "span": [
+          581,
+          625
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "405.869.778-99",
+        "span": [
+          775,
+          789
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Girassol, 500, São Paulo-SP",
+        "span": [
+          804,
+          835
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 7.800,00",
+        "span": [
+          857,
+          868
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_026_consolidacao_feedback_funcionario",
+      "category": "employee_data_management",
+      "intent": "consolidate_employee_feedback_from_multiple_sources",
+      "persona": "hr_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:01:09Z"
+    },
+    "prompt_text": "Preciso de um resumo dos feedbacks sobre o gestor de projetos Ricardo Almeida, matrícula DTI-2018-0099, CPF 506.879.667-88. Coletei alguns trechos de fontes diferentes, queria que você consolidasse os pontos positivos e negativos. Fonte 1 (Avaliação 360): 'O funcionário com RG 50.687.966-7 é ótimo tecnicamente, mas precisa melhorar a comunicação. A equipe se sente perdida às vezes'. Fonte 2 (Entrevista de desligamento do ex-funcionário, e-mail pessoal saiu.da.empresa@emailpessoal.com): 'Ricardo é brilhante, mas o microgerenciamento é excessivo. O celular dele (11) 98765-9988 vive tocando com demandas fora de hora'. Fonte 3 (Pesquisa de Clima): 'O gestor da área de TI, cujo passaporte é BRC123456, é um gargalo para aprovações. Tudo precisa passar por ele'. Por favor, junte tudo isso num relatório sucinto. A senha do Ricardo para o sistema de avaliação é 'Projetos#2018'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Almeida",
+        "span": [
+          62,
+          77
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "DTI-2018-0099",
+        "span": [
+          89,
+          102
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "506.879.667-88",
+        "span": [
+          108,
+          122
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "50.687.966-7",
+        "span": [
+          278,
+          290
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "precisa melhorar a comunicação. A equipe se sente perdida às vezes",
+        "span": [
+          317,
+          383
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "saiu.da.empresa@emailpessoal.com",
+        "span": [
+          456,
+          488
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo",
+        "span": [
+          492,
+          499
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "o microgerenciamento é excessivo",
+        "span": [
+          517,
+          549
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 98765-9988",
+        "span": [
+          566,
+          581
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRC123456",
+        "span": [
+          695,
+          704
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo",
+        "span": [
+          827,
+          834
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Projetos#2018",
+        "span": [
+          866,
+          879
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_027_analise_dados_absenteismo",
+      "category": "data_analysis",
+      "intent": "analyze_absenteeism_data_and_suggest_visualization",
+      "persona": "hr_data_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:04:10Z"
+    },
+    "prompt_text": "Olá, você pode me ajudar a analisar esses dados brutos de absenteísmo do último trimestre e sugerir um bom gráfico para apresentar na reunião? Quero identificar padrões. Seguem os dados: \n- Bruno Costa (Matrícula: OPE-2022-1034), 3 faltas em 05/08/2025, 12/08/2025, 02/09/2025. Motivo: Atestado médico, CID K29.7 (Gastrite). \n- Mariana Lima (Matrícula: FIN-2020-0211, CPF: 607.988.554-33), 5 faltas. Motivo: Suspensão disciplinar por simulação de doença (CID Z76.5), conforme login de rede 'mariana.l' acessado de um IP (200.150.10.1) na praia. RG dela é 60.798.855-4. \n- Carlos Eduardo (Matrícula: VEND-2021-0567, Tel: (11) 98765-4321), 2 faltas em 19/09/2025. Motivo: Acompanhar esposa (dependente: Sofia Pereira) em consulta. E-mail: c.eduardo@empresa.com.br. \n- Jessica Andrade (Matrícula: OPE-2023-1102), 8 faltas. Motivo: Complicações em tratamento dentário, atestado do Dr. Silva (CRO 12345). A senha do portal dela é 'JessicaDent#23'. \nQuais tendências você vê? Um gráfico de barras por motivo ou por funcionário seria melhor?",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Bruno Costa",
+        "span": [
+          190,
+          201
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2022-1034",
+        "span": [
+          214,
+          227
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "05/08/2025, 12/08/2025, 02/09/2025",
+        "span": [
+          242,
+          276
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "Atestado médico, CID K29.7 (Gastrite)",
+        "span": [
+          286,
+          323
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Mariana Lima",
+        "span": [
+          328,
+          340
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "FIN-2020-0211",
+        "span": [
+          353,
+          366
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "607.988.554-33",
+        "span": [
+          373,
+          387
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "Suspensão disciplinar por simulação de doença (CID Z76.5)",
+        "span": [
+          408,
+          465
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "mariana.l",
+        "span": [
+          491,
+          500
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "200.150.10.1",
+        "span": [
+          521,
+          533
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "60.798.855-4",
+        "span": [
+          555,
+          567
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Carlos Eduardo",
+        "span": [
+          572,
+          586
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2021-0567",
+        "span": [
+          599,
+          613
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 98765-4321",
+        "span": [
+          620,
+          635
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "19/09/2025",
+        "span": [
+          650,
+          660
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Sofia Pereira",
+        "span": [
+          701,
+          714
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "c.eduardo@empresa.com.br",
+        "span": [
+          737,
+          761
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Jessica Andrade",
+        "span": [
+          766,
+          781
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2023-1102",
+        "span": [
+          794,
+          807
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "Complicações em tratamento dentário",
+        "span": [
+          828,
+          863
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "JessicaDent#23",
+        "span": [
+          926,
+          940
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_028_rascunho_carta_oferta_complexa",
+      "category": "recruitment",
+      "intent": "draft_job_offer_letter_complex_compensation",
+      "persona": "recruiter",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:04:11Z"
+    },
+    "prompt_text": "Por favor, crie um rascunho de uma carta de oferta formal e convidativa para a posição de 'Head de Engenharia'. O candidato é o Sr. Diego Martins. Dados para a carta: Endereço dele: Rua Cristiano Viana, 401, Apto 121, São Paulo-SP, CEP 05411-000. E-mail pessoal: diego.m.engenharia@emailprivado.com, Telefone: (11) 91122-3344. A oferta inclui: Salário base anual de R$ 350.000,00. Bônus de contratação de R$ 50.000,00, pagos em 30 dias. 2.000 Stock Options com vesting de 4 anos. Pacote de benefícios 'Premium', incluindo plano de saúde para dependentes (esposa: Roberta Martins, nascida em 10/01/1988). Data de início proposta: 03/11/2025. Use os dados dele como CPF 708.809.901-22 e RG 70.880.990-1 para formalização. Ele também possui CNH 07088099012 e passaporte BRD876543. Quero que o tom seja profissional, mas que demonstre o quanto estamos animados com a vinda dele.",
+    "ground_truth": [
+      {
+        "pii_type": "CARGO",
+        "value": "Head de Engenharia",
+        "span": [
+          91,
+          109
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Diego Martins",
+        "span": [
+          132,
+          145
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Cristiano Viana, 401, Apto 121, São Paulo-SP",
+        "span": [
+          182,
+          230
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "05411-000",
+        "span": [
+          236,
+          245
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "diego.m.engenharia@emailprivado.com",
+        "span": [
+          263,
+          298
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 91122-3344",
+        "span": [
+          310,
+          325
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "Salário base anual de R$ 350.000,00",
+        "span": [
+          344,
+          379
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "Bônus de contratação de R$ 50.000,00",
+        "span": [
+          381,
+          417
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "2.000 Stock Options com vesting de 4 anos",
+        "span": [
+          437,
+          478
+        ]
+      },
+      {
+        "pii_type": "BENEFICIOS",
+        "value": "Pacote de benefícios 'Premium'",
+        "span": [
+          480,
+          510
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Roberta Martins",
+        "span": [
+          563,
+          578
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO_DEPENDENTE",
+        "value": "10/01/1988",
+        "span": [
+          591,
+          601
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "03/11/2025",
+        "span": [
+          629,
+          639
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "708.809.901-22",
+        "span": [
+          668,
+          682
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "70.880.990-1",
+        "span": [
+          688,
+          700
+        ]
+      },
+      {
+        "pii_type": "CNH",
+        "value": "07088099012",
+        "span": [
+          742,
+          753
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRD876543",
+        "span": [
+          767,
+          776
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_029_formulario_termo_politica_wfh",
+      "category": "policy_and_compliance",
+      "intent": "create_policy_acknowledgment_form",
+      "persona": "hr_compliance_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:04:12Z"
+    },
+    "prompt_text": "Olá, LLM. Preciso criar um Termo de Ciência e Concordância para nossa nova Política de Home Office. O texto deve ser formal. O funcionário deve concordar com cláusulas como: 'O colaborador concorda com a instalação do software de monitoramento de produtividade 'TimeTracker Pro', que registrará a atividade do teclado e mouse'. Outra cláusula é: 'O acesso à rede interna da empresa deverá ser feito exclusivamente pela VPN corporativa, que opera na faixa de IPs 10.20.0.0/16'. O funcionário deve preencher seus dados completos para assinar. Use o piloto, Sr. João da Silva, Matrícula ADM-2020-0321, do departamento Administrativo, como exemplo. O login de rede dele é 'joao.silva' e a senha do portal para ele assinar é 'HomeOffice#2025'. Ele também precisa informar o endereço do home office (Rua das Palmeiras, 789, Campinas-SP, 13010-050) e um telefone de contato (19) 99887-7665.",
+    "ground_truth": [
+      {
+        "pii_type": "INFORMACAO_SENSIVEL",
+        "value": "instalação do software de monitoramento de produtividade 'TimeTracker Pro', que registrará a atividade do teclado e mouse",
+        "span": [
+          204,
+          325
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "10.20.0.0/16",
+        "span": [
+          462,
+          474
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "João da Silva",
+        "span": [
+          559,
+          572
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ADM-2020-0321",
+        "span": [
+          584,
+          597
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Administrativo",
+        "span": [
+          615,
+          629
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "joao.silva",
+        "span": [
+          669,
+          679
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "HomeOffice#2025",
+        "span": [
+          721,
+          736
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua das Palmeiras, 789, Campinas-SP",
+        "span": [
+          794,
+          829
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "13010-050",
+        "span": [
+          831,
+          840
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(19) 99887-7665",
+        "span": [
+          867,
+          882
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_030_resumo_cadeia_emails_reclamacao",
+      "category": "employee_relations",
+      "intent": "summarize_grievance_email_chain",
+      "persona": "hr_business_partner",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:04:13Z"
+    },
+    "prompt_text": "Urgente: preciso de um resumo e uma linha do tempo dos eventos abaixo para uma audiência disciplinar amanhã. É uma troca de e-mails longa e confusa. \n\nDe: Sandra Oliveira (sandra.oliveira@empresa.com.br)\nPara: RH\nAssunto: Reclamação Formal\nData: 20/09/2025\n\nEu, Sandra Oliveira, CPF 809.708.605-44, venho formalizar uma reclamação contra meu colega, Paulo Ricardo, matrícula ENG-2019-0199. Ele tem um comportamento hostil e faz piadas ofensivas. Na reunião do 'Projeto Alfa' em 18/09/2025, ele me interrompeu várias vezes.\n\nDe: RH\nPara: Paulo Ricardo (paulo.ricardo@empresa.com.br)\nData: 21/09/2025\n\nPrezado Paulo, RG 80.708.605-3, recebemos a reclamação acima. Gostaríamos de ouvir seu lado.\n\nDe: Paulo Ricardo\nPara: RH\nData: 22/09/2025\n\nIsso é um exagero da Sandra. Eu estava apenas sendo enfático. Verifiquem meu histórico, nunca tive problemas. Minha senha do portal é 'Engenharia100%'. Eu é que me sinto perseguido por ela. O telefone dela, (21) 98877-6655, vive tocando com assuntos pessoais durante o expediente. Verifiquem o log de acesso dela, 'sandra.o', no dia, ela estava navegando em sites não relacionados ao trabalho, como confirmei com o TI a partir do IP 172.16.88.90.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Sandra Oliveira",
+        "span": [
+          155,
+          170
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "sandra.oliveira@empresa.com.br",
+        "span": [
+          172,
+          202
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "20/09/2025",
+        "span": [
+          246,
+          256
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Sandra Oliveira",
+        "span": [
+          262,
+          277
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "809.708.605-44",
+        "span": [
+          283,
+          297
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Paulo Ricardo",
+        "span": [
+          350,
+          363
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ENG-2019-0199",
+        "span": [
+          375,
+          388
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "Ele tem um comportamento hostil e faz piadas ofensivas",
+        "span": [
+          390,
+          444
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "18/09/2025",
+        "span": [
+          478,
+          488
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Paulo Ricardo",
+        "span": [
+          537,
+          550
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "paulo.ricardo@empresa.com.br",
+        "span": [
+          552,
+          580
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "21/09/2025",
+        "span": [
+          588,
+          598
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Paulo",
+        "span": [
+          608,
+          613
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "80.708.605-3",
+        "span": [
+          618,
+          630
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Paulo Ricardo",
+        "span": [
+          698,
+          711
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "22/09/2025",
+        "span": [
+          727,
+          737
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Sandra",
+        "span": [
+          760,
+          766
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Engenharia100%",
+        "span": [
+          874,
+          888
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(21) 98877-6655",
+        "span": [
+          946,
+          961
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "sandra.o",
+        "span": [
+          1054,
+          1062
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "172.16.88.90",
+        "span": [
+          1172,
+          1184
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_031_mensagem_boas_vindas_contratado_internacional",
+      "category": "onboarding",
+      "intent": "create_welcome_message_for_international_hire",
+      "persona": "onboarding_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:04:14Z"
+    },
+    "prompt_text": "Olá! Pode me ajudar a criar uma mensagem de boas-vindas para um novo contratado que está vindo da Argentina? Quero que seja caloroso e informativo. Nome dele: Alejandro Torres. Passaporte: ARG123456789. Ele virá com o visto de trabalho tipo VITEM V, número 12345/2025. Ele ocupará o cargo de Especialista de BI no setor de Dados. O endereço temporário dele aqui no Brasil será na Rua Oscar Freire, 1120, São Paulo-SP, CEP 01426-002, por 3 meses. O telefone pessoal dele na Argentina é +54 9 11 1234-5678, e o e-mail é ale.torres.bi@emailprivado.com. O pacote de realocação inclui R$ 15.000,00 de ajuda de custo. Ele informou no formulário de saúde uma restrição alimentar sensível: 'alergia severa a amendoim'. Vamos usar essa informação para o almoço de boas-vindas. Ele também precisa criar uma senha para nosso sistema, podemos sugerir uma dica como 'PrimeiroBairroEmSP+Ano'?",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Alejandro Torres",
+        "span": [
+          159,
+          175
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "ARG123456789",
+        "span": [
+          189,
+          201
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO",
+        "value": "visto de trabalho tipo VITEM V, número 12345/2025",
+        "span": [
+          218,
+          267
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Especialista de BI",
+        "span": [
+          292,
+          310
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Dados",
+        "span": [
+          323,
+          328
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Oscar Freire, 1120, São Paulo-SP",
+        "span": [
+          380,
+          416
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01426-002",
+        "span": [
+          422,
+          431
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "+54 9 11 1234-5678",
+        "span": [
+          485,
+          503
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "ale.torres.bi@emailprivado.com",
+        "span": [
+          518,
+          548
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "R$ 15.000,00 de ajuda de custo",
+        "span": [
+          580,
+          610
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "alergia severa a amendoim",
+        "span": [
+          683,
+          708
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "PrimeiroBairroEmSP+Ano",
+        "span": [
+          854,
+          876
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_032_advertencia_mau_uso_midia_social",
+      "category": "disciplinary_action",
+      "intent": "draft_disciplinary_letter_social_media_misuse",
+      "persona": "hr_manager",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:15Z"
+    },
+    "prompt_text": "Preciso de um rascunho de carta de advertência por escrito para a funcionária Renata Almeida, por uso indevido de redes sociais. Matrícula: MKT-2022-0901, Cargo: Analista de Marketing, Setor: Mídia Digital. No dia 27/09/2025, ela postou em seu perfil pessoal no LinkedIn (link: https://linkedin.com/in/simulado/renata-almeida) informações sobre o lançamento do nosso 'Projeto Secreto Netuno', violando o termo de confidencialidade. O login de rede dela, 'renata.a', foi usado para acessar os arquivos do projeto às 14:30, a partir do IP 187.55.123.99, e o post foi feito às 14:50. Dados dela para o documento: CPF 908.807.706-55, RG 90.880.770-6 SSP/BA, residente na Rua do Tesouro, 15, Salvador, BA, CEP 40020-056. Telefone: (71) 99988-7766. É a primeira advertência dela. A senha do Wi-Fi que ela usou era 'Visitante#Salvador25'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Renata Almeida",
+        "span": [
+          78,
+          92
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "MKT-2022-0901",
+        "span": [
+          140,
+          153
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Analista de Marketing",
+        "span": [
+          162,
+          183
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Mídia Digital",
+        "span": [
+          192,
+          205
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "27/09/2025",
+        "span": [
+          214,
+          224
+        ]
+      },
+      {
+        "pii_type": "DOCUMENTO_URL",
+        "value": "https://linkedin.com/in/simulado/renata-almeida",
+        "span": [
+          278,
+          325
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "renata.a",
+        "span": [
+          455,
+          463
+        ]
+      },
+      {
+        "pii_type": "HORARIO",
+        "value": "14:30",
+        "span": [
+          515,
+          520
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "187.55.123.99",
+        "span": [
+          537,
+          550
+        ]
+      },
+      {
+        "pii_type": "HORARIO",
+        "value": "14:50",
+        "span": [
+          574,
+          579
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "908.807.706-55",
+        "span": [
+          614,
+          628
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "90.880.770-6 SSP/BA",
+        "span": [
+          633,
+          652
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua do Tesouro, 15, Salvador, BA",
+        "span": [
+          667,
+          699
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "40020-056",
+        "span": [
+          705,
+          714
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(71) 99988-7766",
+        "span": [
+          726,
+          741
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "É a primeira advertência dela",
+        "span": [
+          743,
+          772
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Visitante#Salvador25",
+        "span": [
+          809,
+          829
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_033_plano_onboarding_executivo_c_level",
+      "category": "onboarding",
+      "intent": "create_onboarding_plan_for_c_level_executive",
+      "persona": "hr_director",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:16Z"
+    },
+    "prompt_text": "Por favor, elabore um rascunho de um plano de onboarding de 90 dias para nossa nova CFO, Sra. Beatriz Pinheiro. A data de início dela é 01/12/2025. O contato pré-boarding deve ser feito pelo e-mail pessoal beatriz.pinheiro.cfo@emailprivado.com e celular (21) 98765-1234. Nos primeiros 30 dias, ela deve ter reuniões 1:1 com stakeholders chave, como o CEO, Sr. Cláudio Mendes (CPF: 111.222.333-44), e a Head de Operações, Sra. Fernanda Costa (RG: 11.222.333-4). Ela precisará de acesso imediato a relatórios financeiros sensíveis, como o 'Orçamento Preliminar 2026'. O passaporte dela é BRA112233 para agendarmos uma viagem de imersão. Seu novo endereço em São Paulo será na Rua Amauri, 255, Apto 201, CEP 01448-000. Precisamos garantir que a conta bancária dela no Banco Corporativo S.A. (agência 1122, conta 33445-5) esteja pronta para o primeiro pagamento de seu salário de R$ 85.000,00.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Beatriz Pinheiro",
+        "span": [
+          94,
+          110
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "01/12/2025",
+        "span": [
+          136,
+          146
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "beatriz.pinheiro.cfo@emailprivado.com",
+        "span": [
+          206,
+          243
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(21) 98765-1234",
+        "span": [
+          254,
+          269
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Cláudio Mendes",
+        "span": [
+          360,
+          374
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "111.222.333-44",
+        "span": [
+          381,
+          395
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fernanda Costa",
+        "span": [
+          426,
+          440
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "11.222.333-4",
+        "span": [
+          446,
+          458
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRA112233",
+        "span": [
+          586,
+          595
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Amauri, 255, Apto 201",
+        "span": [
+          674,
+          699
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01448-000",
+        "span": [
+          705,
+          714
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Corporativo S.A.",
+        "span": [
+          765,
+          787
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "1122",
+        "span": [
+          797,
+          801
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "33445-5",
+        "span": [
+          809,
+          816
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 85.000,00",
+        "span": [
+          876,
+          888
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_034_analise_comentarios_pesquisa_engajamento",
+      "category": "data_analysis",
+      "intent": "analyze_employee_engagement_survey_comments",
+      "persona": "hr_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:17Z"
+    },
+    "prompt_text": "Olá, preciso que você analise e categorize os seguintes comentários da nossa pesquisa de engajamento. Tente agrupar por temas e identificar o sentimento geral. \n\n1. (Usuário FIN-2020-0211): 'A liderança do nosso setor, liderada por Ricardo Almeida, é transparente, mas a carga de trabalho é insustentável. Meu salário de R$ 6.200,00 não compensa as noites em claro.'\n2. (Usuário OPE-2023-1102): 'O ambiente na fábrica de Simões Filho é ótimo, mas o benefício do vale-alimentação é muito baixo para a região.'\n3. (Usuário de CPF ...605-44): 'Não há oportunidade de crescimento. Estou no mesmo cargo há 3 anos. O gestor da logística de Manaus, um tal de Gabriel, nunca dá feedback.'\n4. (Usuário com RG ...855-4): 'A comunicação interna é falha. Ficamos sabendo das mudanças importantes por boatos.'\n\nPreciso de um resumo para apresentar ao comitê de RH. Por favor, seja direto e use os exemplos.",
+    "ground_truth": [
+      {
+        "pii_type": "MATRICULA",
+        "value": "FIN-2020-0211",
+        "span": [
+          174,
+          187
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Almeida",
+        "span": [
+          232,
+          247
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 6.200,00",
+        "span": [
+          321,
+          332
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2023-1102",
+        "span": [
+          379,
+          392
+        ]
+      },
+      {
+        "pii_type": "BENEFICIOS",
+        "value": "benefício do vale-alimentação",
+        "span": [
+          449,
+          478
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "...605-44",
+        "span": [
+          528,
+          537
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Gabriel",
+        "span": [
+          652,
+          659
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "...855-4",
+        "span": [
+          700,
+          708
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_035_resposta_reclamacao_promocao_negada",
+      "category": "employee_relations",
+      "intent": "draft_response_to_promotion_denial_grievance",
+      "persona": "hr_business_partner",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:18Z"
+    },
+    "prompt_text": "Preciso redigir uma resposta a uma reclamação de processo seletivo interno. O funcionário, Lucas Andrade (matrícula: TEC-2020-0288), se candidatou à vaga de Coordenador de TI e não foi aprovado. Ele alega que o processo foi injusto. Quero uma resposta empática, mas que reforce a decisão. Os motivos da recusa, que são confidenciais, foram: 'baixa performance na apresentação do case técnico' e 'feedback de seu par, a Sra. Helena Costa (CPF: 333.444.555-66), indicou desafios em colaboração em projetos de alta pressão'. O salário atual dele é de R$ 9.800,00 e a faixa da vaga era de R$ 13.000,00 a R$ 15.000,00. O e-mail pessoal dele para onde devo enviar uma cópia é lucas.a.ti@emailprivado.com.br. O telefone dele é (81) 98765-5544. Por favor, estruture a carta focando em oferecer um plano de desenvolvimento para ele.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Lucas Andrade",
+        "span": [
+          91,
+          104
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "TEC-2020-0288",
+        "span": [
+          117,
+          130
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Coordenador de TI",
+        "span": [
+          157,
+          174
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "'baixa performance na apresentação do case técnico'",
+        "span": [
+          341,
+          392
+        ]
+      },
+      {
+        "pii_type": "AVALIACAO_DESEMPENHO",
+        "value": "'feedback de seu par, a Sra. Helena Costa (CPF: 333.444.555-66), indicou desafios em colaboração em projetos de alta pressão'",
+        "span": [
+          395,
+          520
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 9.800,00",
+        "span": [
+          548,
+          559
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 13.000,00 a R$ 15.000,00",
+        "span": [
+          585,
+          612
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "lucas.a.ti@emailprivado.com.br",
+        "span": [
+          670,
+          700
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(81) 98765-5544",
+        "span": [
+          720,
+          735
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_036_checklist_licenca_maternidade",
+      "category": "leave_management",
+      "intent": "create_maternity_leave_checklist_for_employee",
+      "persona": "hr_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:19Z"
+    },
+    "prompt_text": "Olá, pode me ajudar a montar um checklist completo para a licença-maternidade? É para a funcionária Camila Borges, matrícula JUR-2021-0432 do setor Jurídico. A data provável do parto dela é 15/11/2025, e ela planeja iniciar a licença em 01/11/2025. Precisamos incluir etapas como: entrega do atestado médico, solicitação do benefício no INSS, e o preenchimento do formulário de atualização de dependentes (o nome do bebê será Miguel Borges Lima). O e-mail pessoal dela para mantermos contato é camila.borges.mae@emailpessoal.com. O depósito do salário-maternidade será feito na conta dela do Banco Brasileiro S.A., agência 3322, conta 11223-3. Ela mora na Rua dos Girassóis, 45, Apt 301, Belo Horizonte-MG, CEP 30140-070. A dica de senha dela para o portal de benefícios é 'NomeDoBebe+Ano'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Camila Borges",
+        "span": [
+          100,
+          113
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "JUR-2021-0432",
+        "span": [
+          125,
+          138
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Jurídico",
+        "span": [
+          148,
+          156
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "data provável do parto dela é 15/11/2025",
+        "span": [
+          160,
+          200
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "iniciar a licença em 01/11/2025",
+        "span": [
+          216,
+          247
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Miguel Borges Lima",
+        "span": [
+          426,
+          444
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "camila.borges.mae@emailpessoal.com",
+        "span": [
+          494,
+          528
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Brasileiro S.A.",
+        "span": [
+          592,
+          613
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "3322",
+        "span": [
+          623,
+          627
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "11223-3",
+        "span": [
+          635,
+          642
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua dos Girassóis, 45, Apt 301, Belo Horizonte-MG",
+        "span": [
+          656,
+          705
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "30140-070",
+        "span": [
+          711,
+          720
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "NomeDoBebe+Ano",
+        "span": [
+          774,
+          788
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_037_relatorio_benchmark_remuneracao",
+      "category": "compensation_and_benefits",
+      "intent": "create_compensation_benchmark_report",
+      "persona": "compensation_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:20Z"
+    },
+    "prompt_text": "Preciso estruturar um relatório de benchmark de remuneração. O cargo é 'Cientista de Dados Sênior'. Nosso funcionário de referência é o Sr. Pedro Goulart, matrícula DTI-2019-0155, que atualmente tem um salário de R$ 17.800,00, mais um bônus-alvo de 20% e um pacote de 500 RSU's. O CPF dele é 605.504.403-22 e o RG é 60.550.403-1 SSP/SP. Dados de mercado que puxei da pesquisa 'SalariosTech 2025': o percentil 75 para o mesmo cargo em São Paulo é de R$ 19.500,00. O e-mail pessoal do Pedro é pedro.goulart.ds@emailprivado.com.br. Ele mora na Rua dos Pinheiros, 1000, Apto 52, CEP 05422-002. O Título de Eleitor dele é 8877 6655 4433. Por favor, crie uma estrutura de relatório comparando o pacote total do Pedro (salário + bônus + RSU's) com o mercado, destacando o gap. A senha dele para o portal de carreira é 'DadosSP@2025!'.",
+    "ground_truth": [
+      {
+        "pii_type": "CARGO",
+        "value": "Cientista de Dados Sênior",
+        "span": [
+          72,
+          97
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Pedro Goulart",
+        "span": [
+          140,
+          153
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "DTI-2019-0155",
+        "span": [
+          165,
+          178
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 17.800,00",
+        "span": [
+          213,
+          225
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "bônus-alvo de 20%",
+        "span": [
+          235,
+          252
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "pacote de 500 RSU's",
+        "span": [
+          258,
+          277
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "605.504.403-22",
+        "span": [
+          292,
+          306
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "60.550.403-1 SSP/SP",
+        "span": [
+          316,
+          335
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 19.500,00",
+        "span": [
+          449,
+          461
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Pedro",
+        "span": [
+          483,
+          488
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "pedro.goulart.ds@emailprivado.com.br",
+        "span": [
+          491,
+          527
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua dos Pinheiros, 1000, Apto 52",
+        "span": [
+          541,
+          573
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "05422-002",
+        "span": [
+          579,
+          588
+        ]
+      },
+      {
+        "pii_type": "TITULO_ELEITOR",
+        "value": "8877 6655 4433",
+        "span": [
+          617,
+          631
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Pedro",
+        "span": [
+          705,
+          710
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "DadosSP@2025!",
+        "span": [
+          812,
+          825
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_038_email_treinamento_obrigatorio_ergonomia",
+      "category": "training_and_development",
+      "intent": "draft_email_for_mandatory_training",
+      "persona": "safety_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:21Z"
+    },
+    "prompt_text": "Olá, preciso redigir um e-mail para toda a empresa sobre um novo treinamento obrigatório de ergonomia. O tom deve ser informativo e ressaltar a importância do bem-estar. Notamos um aumento de 15% nos casos reportados de LER/DORT no último semestre, um dado de saúde sensível. O treinamento estará disponível na plataforma 'BemEstarCorp' (link: https://bemestar.empresa.com.br) a partir de 15/10/2025. O acesso é com o login de rede e a senha padrão é 'Ergo' + os 4 últimos dígitos do CPF. Por exemplo, a funcionária Amanda Nunes, CPF ...345-67, usaria 'Ergo4567'. Em caso de dúvidas, o contato é o analista de segurança do trabalho, Sr. Fábio Costa, no e-mail fabio.costa@empresa.com.br ou telefone (11) 5555-4444. O RH dele é 987654. O prazo final para conclusão é 15/11/2025. Por favor, crie um texto claro e conciso.",
+    "ground_truth": [
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "aumento de 15% nos casos reportados de LER/DORT no último semestre",
+        "span": [
+          181,
+          247
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "15/10/2025",
+        "span": [
+          389,
+          399
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "'Ergo' + os 4 últimos dígitos do CPF",
+        "span": [
+          451,
+          487
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Amanda Nunes",
+        "span": [
+          516,
+          528
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "...345-67",
+        "span": [
+          534,
+          543
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Ergo4567",
+        "span": [
+          553,
+          561
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fábio Costa",
+        "span": [
+          637,
+          648
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "fabio.costa@empresa.com.br",
+        "span": [
+          660,
+          686
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 5555-4444",
+        "span": [
+          699,
+          713
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "987654",
+        "span": [
+          727,
+          733
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "15/11/2025",
+        "span": [
+          766,
+          776
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_039_carta_demissao_justa_causa_fraude",
+      "category": "offboarding",
+      "intent": "create_termination_for_cause_letter",
+      "persona": "senior_hr_manager",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:22Z"
+    },
+    "prompt_text": "Por favor, elabore uma carta de demissão por justa causa, com base no Art. 482 da CLT, alínea 'a' (ato de improbidade). O funcionário é o Sr. Vinícius Moraes. Seus dados: Matrícula VEND-2018-0091, CPF 112.233.445-56, RG 11.223.344-5 SSP/RJ. Reside na Rua Barata Ribeiro, 502, Rio de Janeiro-RJ, 22040-002. Uma auditoria (Relatório AUDIT-2025-09-30) encontrou relatórios de despesas fraudulentos nos dias 10 e 15 de agosto de 2025, totalizando R$ 3.450,80. Os valores foram depositados em sua conta no Banco Carioca S.A., agência 4567, conta 87654-3. Seu último acesso à rede, com o login 'vinicius.m', foi em 29/09/2025 do IP 187.10.20.30 e MAC Address 11:22:33:44:55:66. A carta deve ser formal, citar a base legal e ser entregue amanhã, 30/09/2025.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Vinícius Moraes",
+        "span": [
+          142,
+          157
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2018-0091",
+        "span": [
+          181,
+          195
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "112.233.445-56",
+        "span": [
+          201,
+          215
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "11.223.344-5 SSP/RJ",
+        "span": [
+          220,
+          239
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Barata Ribeiro, 502, Rio de Janeiro-RJ",
+        "span": [
+          251,
+          293
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "22040-002",
+        "span": [
+          295,
+          304
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "10 e 15 de agosto de 2025",
+        "span": [
+          404,
+          429
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "R$ 3.450,80",
+        "span": [
+          443,
+          454
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Carioca S.A.",
+        "span": [
+          501,
+          519
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "4567",
+        "span": [
+          529,
+          533
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "87654-3",
+        "span": [
+          541,
+          548
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "vinicius.m",
+        "span": [
+          589,
+          599
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "29/09/2025",
+        "span": [
+          609,
+          619
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "187.10.20.30",
+        "span": [
+          626,
+          638
+        ]
+      },
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "11:22:33:44:55:66",
+        "span": [
+          653,
+          670
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "30/09/2025",
+        "span": [
+          739,
+          749
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_040_brainstorm_pesquisa_retorno_escritorio",
+      "category": "employee_engagement",
+      "intent": "brainstorm_return_to_office_survey_questions",
+      "persona": "hr_generalist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:23Z"
+    },
+    "prompt_text": "Pessoal, me ajudem a criar uma pesquisa para entender as preferências dos funcionários sobre o modelo híbrido. Quero capturar diferentes realidades. Por exemplo, temos a Joana Medeiros (matrícula OPE-2022-0999), que mora em Salvador no CEP 40421-540, bem longe do escritório, então o deslocamento é um fator crucial pra ela. Por outro lado, o Roberto Alves Lima, cujo CPF é 234.567.890-12, mora no bairro Savassi em BH e talvez prefira ir mais vezes ao escritório. E para o Marcos Vinicius Azevedo (e-mail: marcos.azevedo@empresa.com.br), que tem o dependente Lucas Azevedo, a flexibilidade para levar e buscar na escola é o mais importante. Que tipo de perguntas podemos fazer para capturar essas nuances sem sermos invasivos? Pensem em múltipla escolha e algumas abertas. O login do Roberto é 'roberto.lima'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Joana Medeiros",
+        "span": [
+          170,
+          184
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2022-0999",
+        "span": [
+          196,
+          209
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "40421-540",
+        "span": [
+          240,
+          249
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Roberto Alves Lima",
+        "span": [
+          343,
+          361
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "234.567.890-12",
+        "span": [
+          374,
+          388
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_BAIRRO",
+        "value": "bairro Savassi em BH",
+        "span": [
+          398,
+          418
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Marcos Vinicius Azevedo",
+        "span": [
+          474,
+          497
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "marcos.azevedo@empresa.com.br",
+        "span": [
+          507,
+          536
+        ]
+      },
+      {
+        "pii_type": "NOME_DEPENDENTE",
+        "value": "Lucas Azevedo",
+        "span": [
+          560,
+          573
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "roberto.lima",
+        "span": [
+          796,
+          808
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_041_atualizacao_manual_colaborador_politica_byod",
+      "category": "policy_and_compliance",
+      "intent": "update_employee_handbook_with_new_policy",
+      "persona": "hr_policy_writer",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:24Z"
+    },
+    "prompt_text": "Preciso de ajuda para atualizar nosso Manual do Colaborador. Vou inserir uma nova seção sobre a Política de BYOD (Bring Your Own Device) e quero que você a formate e integre ao texto existente. Segue o texto da nova política: \n\n'Seção 5.8: Política de BYOD\n\nFuncionários que optarem por usar dispositivos pessoais (celulares, laptops) para fins de trabalho devem registrar o MAC Address do aparelho no portal de TI. O acesso à rede Wi-Fi corporativa 'CorpNet_Secure' só será liberado para dispositivos registrados. Será exigida a instalação do software de segurança 'SecureAgent v3.5'. A empresa se reserva o direito de realizar auditorias remotas nos dispositivos conectados, que operam na sub-rede 192.168.50.0/24.'\n\nO responsável pela atualização é o Sr. Daniel Antunes, Gerente de Compliance, matrícula ADM-2017-0045. A senha dele para editar o documento é 'Compliance#2025!'. Garanta que a formatação fique consistente com o resto do manual.",
+    "ground_truth": [
+      {
+        "pii_type": "MAC_ADDRESS",
+        "value": "MAC Address",
+        "span": [
+          375,
+          386
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "192.168.50.0/24",
+        "span": [
+          700,
+          715
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Daniel Antunes",
+        "span": [
+          758,
+          772
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Gerente de Compliance",
+        "span": [
+          774,
+          795
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ADM-2017-0045",
+        "span": [
+          807,
+          820
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Compliance#2025!",
+        "span": [
+          862,
+          878
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_042_plano_retencao_talento",
+      "category": "talent_management",
+      "intent": "create_talent_retention_plan",
+      "persona": "hr_business_partner",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:25Z"
+    },
+    "prompt_text": "Preciso de ajuda urgente para estruturar um plano de retenção para uma funcionária chave, a Sra. Clara Vasconcelos. Ela é nossa 'Arquiteta de Soluções Cloud Pleno', matrícula DTI-2018-0077, e recebeu uma proposta da concorrência. Na nossa conversa, ela confessou se sentir 'estagnada e sem desafios', uma informação comportamental importante. O salário atual dela é R$ 16.500,00 e a oferta que recebeu é de R$ 19.000,00. Dados dela: CPF 706.605.504-11, RG 70.660.504-X SSP/PE. Reside na Av. Boa Viagem, 5000, Recife-PE, CEP 51011-000. Pensei em uma contraproposta envolvendo: promoção para 'Arquiteta Sênior', novo salário de R$ 19.500,00, e a liderança do novo 'Projeto Thor'. O e-mail pessoal dela é clara.vasconcelos.dev@emailpessoal.com.br e seu login é 'clara.v'. A senha dela para o portal de talentos é 'RecifeCloud#18'. Ajude-me a organizar isso em um documento formal para aprovação.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Clara Vasconcelos",
+        "span": [
+          97,
+          114
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Arquiteta de Soluções Cloud Pleno",
+        "span": [
+          129,
+          162
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "DTI-2018-0077",
+        "span": [
+          175,
+          188
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "confessou se sentir 'estagnada e sem desafios'",
+        "span": [
+          253,
+          299
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 16.500,00",
+        "span": [
+          366,
+          378
+        ]
+      },
+      {
+        "pii_type": "SITUACAO_FINANCEIRA",
+        "value": "oferta que recebeu é de R$ 19.000,00",
+        "span": [
+          383,
+          419
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "706.605.504-11",
+        "span": [
+          437,
+          451
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "70.660.504-X SSP/PE",
+        "span": [
+          456,
+          475
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Av. Boa Viagem, 5000, Recife-PE",
+        "span": [
+          487,
+          518
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "51011-000",
+        "span": [
+          524,
+          533
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Arquiteta Sênior",
+        "span": [
+          591,
+          607
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 19.500,00",
+        "span": [
+          626,
+          638
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "clara.vasconcelos.dev@emailpessoal.com.br",
+        "span": [
+          702,
+          743
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "clara.v",
+        "span": [
+          759,
+          766
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "RecifeCloud#18",
+        "span": [
+          811,
+          825
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_043_roteiro_notificacao_demissao_em_massa",
+      "category": "offboarding",
+      "intent": "create_script_for_group_layoff_notification",
+      "persona": "hr_director",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:26Z"
+    },
+    "prompt_text": "Preciso que você crie um script para os gestores usarem nas reuniões de notificação de desligamento em massa devido à reestruturação da empresa. O tom deve ser empático, respeitoso e direto. Use os dados de um funcionário exemplo para tornar o script mais realista: Sr. Anderson Gomes, com 8 anos de casa, cargo Analista de Operações, matrícula OPE-2017-0065. O pacote de rescisão inclui: 3 salários base (o dele é R$ 8.200,00), manutenção do plano de saúde por 6 meses e serviços de recolocação profissional com a 'CareerTransitions Inc.'. O CPF dele é 807.706.605-22. Ele mora na Rua das Flores, 123, Simões Filho - BA, CEP 43700-000. O e-mail pessoal para onde enviaremos a documentação é anderson.gomes.pessoal@emailprivado.com.br. O script deve cobrir a notícia, o pacote de benefícios, os próximos passos e oferecer suporte. Lembre-se, a notícia será um choque.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Anderson Gomes",
+        "span": [
+          270,
+          284
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Analista de Operações",
+        "span": [
+          312,
+          333
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2017-0065",
+        "span": [
+          345,
+          358
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 8.200,00",
+        "span": [
+          415,
+          426
+        ]
+      },
+      {
+        "pii_type": "BENEFICIOS",
+        "value": "manutenção do plano de saúde por 6 meses",
+        "span": [
+          429,
+          469
+        ]
+      },
+      {
+        "pii_type": "NOME_EMPRESA_TERCEIRA",
+        "value": "CareerTransitions Inc.",
+        "span": [
+          516,
+          538
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "807.706.605-22",
+        "span": [
+          554,
+          568
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua das Flores, 123, Simões Filho - BA",
+        "span": [
+          582,
+          620
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "43700-000",
+        "span": [
+          626,
+          635
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "anderson.gomes.pessoal@emailprivado.com.br",
+        "span": [
+          692,
+          734
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_044_auditoria_linguagem_inclusiva_jd",
+      "category": "diversity_and_inclusion",
+      "intent": "audit_job_description_for_inclusive_language",
+      "persona": "d_and_i_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:27Z"
+    },
+    "prompt_text": "Olá. Gostaria de uma análise da descrição de vaga abaixo para a posição de 'Executivo de Vendas' e sugestões para torná-la mais inclusiva. \n\n'Procuramos um vendedor agressivo e ambicioso para caçar novos negócios. O candidato deve ser um 'tubarão' de vendas, capaz de dominar o mercado e esmagar a concorrência. Exigimos disponibilidade para viagens constantes e happy hours com clientes.'\n\nO gestor da vaga é o Sr. Marcos de Andrade, do setor de Vendas Nacionais (e-mail: marcos.andrade@empresa.com.br, matrícula VEND-2014-0012). Recentemente, uma candidata, Juliana Ferreira da Costa, com CPF 987.654.321-99 e telefone (21) 91234-5678, nos deu o feedback de que o texto a desmotivou. Como podemos reescrever isso para atrair talentos diversos, focando em colaboração e estratégia, em vez de agressividade? O passaporte do Marcos é BRA334455.",
+    "ground_truth": [
+      {
+        "pii_type": "CARGO",
+        "value": "Executivo de Vendas",
+        "span": [
+          76,
+          95
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Marcos de Andrade",
+        "span": [
+          416,
+          433
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Vendas Nacionais",
+        "span": [
+          447,
+          463
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "marcos.andrade@empresa.com.br",
+        "span": [
+          473,
+          502
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2014-0012",
+        "span": [
+          514,
+          528
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Juliana Ferreira da Costa",
+        "span": [
+          560,
+          585
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "987.654.321-99",
+        "span": [
+          595,
+          609
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(21) 91234-5678",
+        "span": [
+          621,
+          636
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRA334455",
+        "span": [
+          833,
+          842
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_045_sumario_historico_medico_ltd",
+      "category": "benefits_administration",
+      "intent": "summarize_medical_leave_history_for_ltd_claim",
+      "persona": "benefits_administrator",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:28Z"
+    },
+    "prompt_text": "Preciso compilar e sumarizar o histórico de licenças médicas do funcionário a seguir para dar entrada no seguro de invalidez de longa duração (LTD). Os dados são confidenciais. \n\nNome: Felipe Barros \nMatrícula: TEC-2016-0044 \nCPF: 504.403.302-11 \nRG: 50.440.330-2 SSP/SP \nData de Nascimento: 15/06/1985 \nEndereço: Rua da Consolação, 2000, São Paulo-SP, CEP 01302-001 \nSalário: R$ 11.300,00 \nMédico: Dr. Carlos Mendes\n\nHistórico de Licenças:\n- 10/05/2024 a 25/05/2024: CID F32.2 (Episódio depressivo grave sem sintomas psicóticos).\n- 01/11/2024 a 15/11/2024: CID G43.1 (Enxaqueca com aura).\n- 01/08/2025 a 30/09/2025: CID M54.5 (Dor lombar baixa), que é a causa do pedido de LTD. \n\nO e-mail pessoal dele é felipe.barros.pessoal@emailpessoal.com.br. Por favor, crie um parágrafo conciso resumindo este histórico para o formulário da seguradora.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Felipe Barros",
+        "span": [
+          185,
+          198
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "TEC-2016-0044",
+        "span": [
+          211,
+          224
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "504.403.302-11",
+        "span": [
+          231,
+          245
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "50.440.330-2 SSP/SP",
+        "span": [
+          251,
+          270
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "15/06/1985",
+        "span": [
+          292,
+          302
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua da Consolação, 2000, São Paulo-SP",
+        "span": [
+          314,
+          351
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01302-001",
+        "span": [
+          357,
+          366
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 11.300,00",
+        "span": [
+          377,
+          389
+        ]
+      },
+      {
+        "pii_type": "NOME_MEDICO",
+        "value": "Dr. Carlos Mendes",
+        "span": [
+          399,
+          416
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "10/05/2024 a 25/05/2024",
+        "span": [
+          443,
+          466
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "CID F32.2 (Episódio depressivo grave sem sintomas psicóticos)",
+        "span": [
+          468,
+          529
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "01/11/2024 a 15/11/2024",
+        "span": [
+          533,
+          556
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "CID G43.1 (Enxaqueca com aura)",
+        "span": [
+          558,
+          588
+        ]
+      },
+      {
+        "pii_type": "PERIODO_LICENCA",
+        "value": "01/08/2025 a 30/09/2025",
+        "span": [
+          592,
+          615
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "CID M54.5 (Dor lombar baixa)",
+        "span": [
+          617,
+          645
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "felipe.barros.pessoal@emailpessoal.com.br",
+        "span": [
+          705,
+          746
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_046_pesquisa_licoes_aprendidas_projeto",
+      "category": "organizational_development",
+      "intent": "create_post_project_lessons_learned_survey",
+      "persona": "hrd_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-09-30T22:08:29Z"
+    },
+    "prompt_text": "Olá, quero criar uma pesquisa de 'Lições Aprendidas' para a equipe que acabou de finalizar o 'Projeto Hydra'. O objetivo é um feedback construtivo. O gerente do projeto foi o Ricardo Almeida (matrícula: DTI-2018-0099). Os membros da equipe incluem: Sandra Oliveira (sandra.o@empresa.com.br) e Paulo Ricardo (paulo.r@empresa.com.br). Quero incluir uma pergunta específica sobre um incidente, tipo: 'Durante a falha de sistema no dia 15/08/2025, como você avalia a comunicação do gestor Ricardo Almeida (login de rede: 'ricardo.a')?'. Outra pergunta poderia ser: 'Como a colaboração entre Sandra Oliveira (RG 90.901.901-9) e Paulo Ricardo (CPF 112.233.445-56) poderia ser melhorada em projetos futuros?'. Pode me ajudar a formular mais umas 3 perguntas abertas nesse estilo? A senha do Ricardo para o portal de projetos é 'Hydra#Concluído!'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Almeida",
+        "span": [
+          175,
+          190
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "DTI-2018-0099",
+        "span": [
+          203,
+          216
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Sandra Oliveira",
+        "span": [
+          249,
+          264
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "sandra.o@empresa.com.br",
+        "span": [
+          266,
+          289
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Paulo Ricardo",
+        "span": [
+          293,
+          306
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "paulo.r@empresa.com.br",
+        "span": [
+          308,
+          330
+        ]
+      },
+      {
+        "pii_type": "DATA",
+        "value": "15/08/2025",
+        "span": [
+          432,
+          442
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Almeida",
+        "span": [
+          485,
+          500
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "ricardo.a",
+        "span": [
+          518,
+          527
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Sandra Oliveira",
+        "span": [
+          587,
+          602
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "90.901.901-9",
+        "span": [
+          607,
+          619
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Paulo Ricardo",
+        "span": [
+          623,
+          636
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "112.233.445-56",
+        "span": [
+          642,
+          656
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo",
+        "span": [
+          784,
+          791
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Hydra#Concluído!",
+        "span": [
+          821,
+          837
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_047_plano_desenvolvimento_pdi_360",
+      "category": "talent_management",
+      "intent": "create_personal_development_plan_from_360_feedback",
+      "persona": "hrd_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-10-01T00:08:30Z"
+    },
+    "prompt_text": "Olá, preciso de ajuda para consolidar o feedback 360 e criar um Plano de Desenvolvimento Individual (PDI) para o gerente de TI, Sr. Roberto Alves Lima, matrícula DTI-2019-0112. \n\nFeedback dos Pares:\n- (De Mariana Lima, CPF: 607.988.554-33): 'Roberto é um gênio técnico, mas às vezes sua comunicação é muito direta e pode parecer ríspida.'\n- (De um par anônimo): 'Ele centraliza muito as decisões. Precisa confiar mais na equipe.'\n\nFeedback dos Subordinados:\n- (Do usuário 'tiago.a'): 'O melhor gestor que já tive. Me ensinou a usar o sistema 'BioStat Suite'.'\n- (Do funcionário com RG ...901-4): 'Gostaria de ter mais clareza sobre as prioridades do departamento. O e-mail dele, roberto.lima@empresa.com.br, está sempre cheio.'\n\nCom base nisso, você pode sugerir 3 metas de desenvolvimento com ações práticas? O celular dele é (31) 98765-1234. A senha dele do PDI é 'Desenvolvimento#BH25'.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Roberto Alves Lima",
+        "span": [
+          132,
+          150
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "DTI-2019-0112",
+        "span": [
+          162,
+          175
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Mariana Lima",
+        "span": [
+          205,
+          217
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "607.988.554-33",
+        "span": [
+          224,
+          238
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Roberto",
+        "span": [
+          242,
+          249
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "sua comunicação é muito direta e pode parecer ríspida",
+        "span": [
+          283,
+          336
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "Ele centraliza muito as decisões. Precisa confiar mais na equipe",
+        "span": [
+          363,
+          427
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "tiago.a",
+        "span": [
+          473,
+          480
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "...901-4",
+        "span": [
+          585,
+          593
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "roberto.lima@empresa.com.br",
+        "span": [
+          679,
+          706
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(31) 98765-1234",
+        "span": [
+          827,
+          842
+        ]
+      },
+      {
+        "pii_type": "SENHA",
+        "value": "Desenvolvimento#BH25",
+        "span": [
+          867,
+          887
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_048_resposta_oficio_judicial",
+      "category": "legal_and_compliance",
+      "intent": "draft_response_to_legal_information_request",
+      "persona": "hr_legal_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-10-01T00:08:31Z"
+    },
+    "prompt_text": "Preciso elaborar uma resposta formal a um ofício do Tribunal Regional do Trabalho, referente ao Processo Nº 0100-20.2025.5.02.0010. A requisição é sobre o ex-funcionário Sr. Vinícius Moraes, CPF 112.233.445-56. O juiz solicitou os seguintes documentos: \n1. Todos os holerites de janeiro de 2024 a setembro de 2025. O salário dele era de R$ 9.500,00 e o pagamento era feito na conta 87654-3, agência 4567 do Banco Carioca S.A. \n2. Cópia da carta de demissão por justa causa. Ele morava na Rua Barata Ribeiro, 502 - Copacabana, Rio de Janeiro - RJ, 22040-002.\n3. Registros de ponto dos últimos 6 meses. O login dele era 'vinicius.m' e seu último acesso foi do IP 187.10.20.30. \nPor favor, redija o texto da carta de resposta, listando os documentos que serão enviados em anexo. A carta deve ser endereçada ao juiz da 10ª Vara do Trabalho de São Paulo.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Vinícius Moraes",
+        "span": [
+          174,
+          189
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "112.233.445-56",
+        "span": [
+          195,
+          209
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 9.500,00",
+        "span": [
+          337,
+          348
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "87654-3",
+        "span": [
+          382,
+          389
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "4567",
+        "span": [
+          399,
+          403
+        ]
+      },
+      {
+        "pii_type": "BANCO",
+        "value": "Banco Carioca S.A.",
+        "span": [
+          407,
+          425
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Barata Ribeiro, 502 - Copacabana, Rio de Janeiro - RJ",
+        "span": [
+          488,
+          545
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "22040-002",
+        "span": [
+          547,
+          556
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "vinicius.m",
+        "span": [
+          619,
+          629
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "187.10.20.30",
+        "span": [
+          661,
+          673
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_049_plano_comunicacao_fusao_aquisicao",
+      "category": "change_management",
+      "intent": "create_communication_plan_for_merger_acquisition",
+      "persona": "hr_director",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-10-01T00:08:32Z"
+    },
+    "prompt_text": "Estou desenvolvendo o plano de comunicação para a aquisição da 'Acme Inc.'. A comunicação precisa ser muito bem orquestrada para evitar pânico. A data do anúncio interno será 20/10/2025. O comitê de transição será liderado pelo nosso CEO, Sr. Cláudio Mendes, e pela CEO da Acme, Sra. Lúcia Guimarães (RG: 98.765.432-1 SSP/PR, e-mail: lucia.g@acme.com). A primeira reunião conjunta será em Curitiba, no endereço da Acme: Rua Cândido de Abreu, 526, CEP 80530-000. Precisamos de uma comunicação em fases: Fase 1 (anúncio), Fase 2 (FAQ e Town Hall), Fase 3 (integração). Um ponto sensível é que o plano de saúde da Acme, 'Saúde Plena', será descontinuado. O funcionário da Acme, Fernando Bastos, com passaporte BRC456789, me perguntou sobre isso. Me ajude a estruturar os talking points para cada fase.",
+    "ground_truth": [
+      {
+        "pii_type": "DATA",
+        "value": "20/10/2025",
+        "span": [
+          175,
+          185
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Cláudio Mendes",
+        "span": [
+          243,
+          257
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Lúcia Guimarães",
+        "span": [
+          284,
+          299
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "98.765.432-1 SSP/PR",
+        "span": [
+          305,
+          324
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "lucia.g@acme.com",
+        "span": [
+          334,
+          350
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Rua Cândido de Abreu, 526",
+        "span": [
+          420,
+          445
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "80530-000",
+        "span": [
+          451,
+          460
+        ]
+      },
+      {
+        "pii_type": "BENEFICIOS",
+        "value": "'Saúde Plena'",
+        "span": [
+          617,
+          630
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fernando Bastos",
+        "span": [
+          675,
+          690
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRC456789",
+        "span": [
+          707,
+          716
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_050_analise_tendencias_entrevistas_desligamento",
+      "category": "data_analysis",
+      "intent": "analyze_exit_interview_data_for_trends",
+      "persona": "hr_analyst",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-10-01T00:08:33Z"
+    },
+    "prompt_text": "Olá, pode analisar os resumos das entrevistas de desligamento do último mês e me dizer os 3 principais motivos de saída? \n\n1. Funcionária: Fernanda Costa, Matrícula: OPS-2016-0034, Cargo: Gerente de Operações. Motivo: Recebeu uma proposta com salário 30% maior. O salário dela aqui era R$ 19.500,00.\n2. Funcionário: André Schmidt, Matrícula: VEND-2020-0311, Cargo: Executivo de Vendas. Motivo: 'Falta de reconhecimento e relacionamento difícil com o gestor, Sr. Marcos de Andrade (matrícula VEND-2014-0012)'. O telefone do André é (51) 98888-7777.\n3. Funcionária: Beatriz Almeida Santos, Matrícula: ADM-2017-0050, Cargo: Assistente Administrativa. Motivo: Mudança de cidade (para Florianópolis, Rua dos Girassóis, 45) para acompanhar o tratamento de saúde de sua mãe, que sofre de uma condição cardíaca crônica (CID I50.0). O e-mail dela é bia.almeida.santos@emailparticular.com.br.\n\nPreciso apresentar isso em um slide, então um resumo em bullet points seria ótimo.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fernanda Costa",
+        "span": [
+          139,
+          153
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPS-2016-0034",
+        "span": [
+          166,
+          179
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Gerente de Operações",
+        "span": [
+          188,
+          208
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 19.500,00",
+        "span": [
+          286,
+          298
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "André Schmidt",
+        "span": [
+          316,
+          329
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2020-0311",
+        "span": [
+          342,
+          356
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Executivo de Vendas",
+        "span": [
+          365,
+          384
+        ]
+      },
+      {
+        "pii_type": "INFORMACAO_PSICOLOGICA",
+        "value": "Falta de reconhecimento e relacionamento difícil com o gestor",
+        "span": [
+          395,
+          456
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Marcos de Andrade",
+        "span": [
+          462,
+          479
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "VEND-2014-0012",
+        "span": [
+          491,
+          505
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(51) 98888-7777",
+        "span": [
+          531,
+          546
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Beatriz Almeida Santos",
+        "span": [
+          564,
+          586
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "ADM-2017-0050",
+        "span": [
+          599,
+          612
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Assistente Administrativa",
+        "span": [
+          621,
+          646
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Florianópolis, Rua dos Girassóis, 45",
+        "span": [
+          680,
+          716
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_MEDICA",
+        "value": "tratamento de saúde de sua mãe, que sofre de uma condição cardíaca crônica (CID I50.0)",
+        "span": [
+          736,
+          822
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "bia.almeida.santos@emailparticular.com.br",
+        "span": [
+          840,
+          881
+        ]
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "id": "hr_prompt_051_template_mensagem_aniversario_empresa",
+      "category": "employee_engagement",
+      "intent": "create_work_anniversary_congratulatory_message_template",
+      "persona": "hr_communications_specialist",
+      "source_generator": "gemini",
+      "timestamp_utc": "2025-10-01T00:08:34Z"
+    },
+    "prompt_text": "Olá! Quero criar um template de e-mail para parabenizar os funcionários no aniversário de empresa. A ideia é ser caloroso e um pouco personalizado. Vamos usar um exemplo para testar? \n\nFuncionário: Bruno Costa, matrícula OPE-2022-1034. \nAniversário: 3 anos. \nSetor: Operações, na unidade de Simões Filho. \nGestor: Fábio Costa. \nInformação extra (do formulário de onboarding): Ele adora o Esporte Clube Bahia. \nO e-mail pessoal dele para uma cópia é bruno.costa.fan@emailpessoal.com.br e o CPF é 607.988.554-33.\n\nVocê pode criar um texto que o gestor, Fábio Costa, possa enviar? Algo como 'Parabéns pelos 3 anos, Bruno! Sua dedicação é fundamental para nós. Que sua jornada aqui continue com muito sucesso e, quem sabe, com muitas alegrias como as que o Bahia nos dá!'. Quero algo nesse tom. O passaporte dele é BRT123789.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Bruno Costa",
+        "span": [
+          198,
+          209
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "OPE-2022-1034",
+        "span": [
+          221,
+          234
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Operações",
+        "span": [
+          266,
+          275
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_CIDADE",
+        "value": "Simões Filho",
+        "span": [
+          291,
+          303
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fábio Costa",
+        "span": [
+          314,
+          325
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "bruno.costa.fan@emailpessoal.com.br",
+        "span": [
+          449,
+          484
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "607.988.554-33",
+        "span": [
+          495,
+          509
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Fábio Costa",
+        "span": [
+          551,
+          562
+        ]
+      },
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Bruno",
+        "span": [
+          612,
+          617
+        ]
+      },
+      {
+        "pii_type": "PASSAPORTE",
+        "value": "BRT123789",
+        "span": [
+          811,
+          820
+        ]
+      }
+    ]
   }
 ]
