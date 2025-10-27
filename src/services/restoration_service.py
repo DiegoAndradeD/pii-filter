@@ -21,7 +21,7 @@ class RestorationData:
 
     regex_mappings: List[PIIMapping]
     llm_mappings: List[PIIMapping]
-    ner_mappings: List[PIIMapping] = None
+    ner_mappings: Optional[List[PIIMapping]] = None
 
 
 class RestorationService:
@@ -72,10 +72,15 @@ class RestorationService:
                     len(restoration_data.llm_mappings),
                 )
 
-            # Step 2: Restore NER placeholders
+            # Step 2: Restore NER placeholders (second-to-last applied filter)
             if restoration_data.ner_mappings:
-                # NER restoration logic here...
-                pass
+                restored_text = self._generic_restore(
+                    restored_text, restoration_data.ner_mappings
+                )
+                self.logger.info(
+                    "Restored %d NER PII instances",
+                    len(restoration_data.ner_mappings),
+                )
 
             # Step 3: Restore Regex placeholders (first applied filter)
             if restoration_data.regex_mappings:
