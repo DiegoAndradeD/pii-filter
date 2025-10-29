@@ -31,6 +31,7 @@ class RegexService:
     # Types with a lower number have higher priority.
     _TYPE_PRIORITY: Dict[str, int] = {
         "CPF": 1,
+        "CNH": 2,
         "CNPJ": 1,
         "EMAIL": 1,
         "PIS": 1,

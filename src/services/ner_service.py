@@ -5,7 +5,7 @@ Service for filtering and restoring PII in text using Named Entity Recognition (
 import logging
 from typing import Dict, List, Tuple, Any
 import spacy
-from spacy.lang.pt import Portuguese
+
 
 from src.models.models import PIIMapping
 
@@ -17,54 +17,133 @@ class NERService:
     Service to find, filter, and restore PII from text using Named Entity Recognition.
 
     This class encapsulates the logic for:
-    1. Finding named entities (persons, organizations, locations) using spaCy.
-    2. Converting entities to PII mappings with placeholders.
-    3. Filtering text by replacing entities with placeholders.
-    4. Restoring the original text from the filtered text and the map.
+        1. Finding professions (via EntityRuler) and named entities (people, organizations, places) using spaCy.
+        2. Converting entities into PII mappings with placeholders.
+        3. Filtering text by replacing entities with placeholders.
+        4. Restoring the original text from the filtered text and the map.
     """
 
-    # Mapping from spaCy entity labels to our PII types
     _ENTITY_TYPE_MAPPING: Dict[str, str] = {
         "PERSON": "NOME_PESSOA",
-        "PER": "NOME_PESSOA",  # Alternative label
+        "PER": "NOME_PESSOA",
         "ORG": "ORGANIZACAO",
-        "GPE": "LOCAL",  # Geopolitical entities (cities, countries)
-        "LOC": "LOCAL",  # Locations
-        "FAC": "LOCAL",  # Facilities
-        "EVENT": "EVENTO",  # Events
+        "EVENT": "EVENTO",
         "WORK_OF_ART": "OBRA_ARTE",
         "LAW": "LEI",
         "LANGUAGE": "IDIOMA",
+        "PROFISSAO": "PROFISSAO",
     }
 
-    def __init__(self, model_name: str = "pt_core_news_sm"):
+    _FALSE_POSITIVES: set = {
+        "oi",
+        "olá",
+        "ei",
+        "bom dia",
+        "boa tarde",
+        "boa noite",
+        "use",
+        "cpf",
+        "cnpj",
+        "email",
+        "telefone",
+        "rg",
+        "cep",
+        "clt",
+        "cnh",
+        "ip",
+        "mac",
+        "mac address",
+        "endereço",
+        "detalhes",
+        "fraude",
+        "evidências",
+        "digitais",
+        "informações",
+        "adicionais",
+        "cúmplices",
+        "dados",
+        "contato",
+        "documentos",
+        "cargo",
+        "departamento",
+        "matrícula",
+        "salário",
+        "investigação",
+        "relatório",
+        "confidencial",
+        "operação",
+        "assunto",
+        "urgente",
+        "funcionário",
+        "principal",
+        "sr",
+        "sra",
+        "dr",
+        "rh",
+        "ti",
+    }
+
+    # Lista de profissões para o EntityRuler
+    _PROFESSION_PATTERNS: List[Dict[str, Any]] = [
+        {"label": "PROFISSAO", "pattern": "analista de sistemas"},
+        {"label": "PROFISSAO", "pattern": "engenheiro de software"},
+        {"label": "PROFISSAO", "pattern": "gerente de projetos"},
+        {"label": "PROFISSAO", "pattern": "médico"},
+        {"label": "PROFISSAO", "pattern": "advogado"},
+        {"label": "PROFISSAO", "pattern": "professor"},
+        {"label": "PROFISSAO", "pattern": "técnico em enfermagem"},
+        {"label": "PROFISSAO", "pattern": "técnico de"},
+        {"label": "PROFISSAO", "pattern": "analista"},
+        {"label": "PROFISSAO", "pattern": "gerente"},
+        {"label": "PROFISSAO", "pattern": "coordenador"},
+        {"label": "PROFISSAO", "pattern": "diretor"},
+        {"label": "PROFISSAO", "pattern": "supervisor"},
+        {"label": "PROFISSAO", "pattern": "assistente"},
+        {"label": "PROFISSAO", "pattern": "estagiário"},
+        {"label": "PROFISSAO", "pattern": "consultor"},
+        {"label": "PROFISSAO", "pattern": "desenvolvedor"},
+    ]
+
+    def __init__(self, model_name: str = "pt_core_news_lg"):
         """
-        Initializes the NER Service.
+        Inicializa o NER Service.
 
         Args:
-            model_name: Name of the spaCy Portuguese model to load.
+            model_name: Nome do modelo spaCy em português.
+                        Recomenda-se "pt_core_news_lg" para melhor precisão.
         """
         self.logger = logger
         self.model_name = model_name
+        self.nlp = None
 
         try:
-            # Try to load the Portuguese model
+            # Carrega o modelo spaCy
             self.nlp = spacy.load(model_name)
             self.logger.info("Loaded spaCy model: %s", model_name)
-        except OSError:
-            # Fallback to blank Portuguese model if trained model not available
-            self.logger.warning(
-                "Could not load %s, using blank Portuguese model", model_name
-            )
-            self.nlp = Portuguese()
 
-            # Add basic NER component if available
-            if "ner" not in self.nlp.pipe_names:
-                try:
-                    # Try to add a basic NER component
-                    self.nlp.add_pipe("ner")
-                except Exception as e:
-                    self.logger.error("Could not add NER component: %s", e)
+            # --- NOVO: Adicionar EntityRuler para Profissões ---
+            # Adiciona o 'entity_ruler' ao pipeline ANTES do 'ner'
+            if "entity_ruler" not in self.nlp.pipe_names:
+                ruler = self.nlp.add_pipe("entity_ruler", before="ner")
+                ruler.add_patterns(self._PROFESSION_PATTERNS)
+                self.logger.info(
+                    "Added EntityRuler with %d profession patterns.",
+                    len(self._PROFESSION_PATTERNS),
+                )
+            else:
+                self.logger.warning("EntityRuler already exists in pipeline.")
+            # --- FIM DO NOVO ---
+
+        except OSError as e:
+            # "Fail-fast": Se o modelo não puder ser carregado, o serviço
+            # deve falhar explicitamente em vez de operar em modo degradado.
+            self.logger.critical(
+                "Could not load spaCy model '%s'. NER Service will be disabled. Error: %s",
+                model_name,
+                e,
+            )
+            # Lança uma exceção clara para quem estiver inicializando o serviço
+            raise RuntimeError(f"Failed to load spaCy model '{model_name}'.") from e
 
         self.logger.info(
             "NER Service initialized with pipeline: %s", self.nlp.pipe_names
@@ -72,142 +151,73 @@ class NERService:
 
     def _extract_entities(self, text: str) -> List[Dict[str, Any]]:
         """
-        Extract named entities from text using spaCy.
+        Extrai entidades nomeadas do texto usando spaCy.
 
         Args:
-            text: Input text to analyze
+            text: Texto de entrada para analisar
 
         Returns:
-            List of entity dictionaries with type, value, and span information
+            Lista de dicionários de entidades com tipo, valor e informações de span
         """
+        if not self.nlp:
+            self.logger.warning("NER NLP model is not loaded. Skipping extraction.")
+            return []
+
         entities = []
 
         try:
-            # Process text with spaCy
             doc = self.nlp(text)
 
             for ent in doc.ents:
-                # Map spaCy entity label to our PII type
                 pii_type = self._ENTITY_TYPE_MAPPING.get(
                     ent.label_, f"ENTIDADE_{ent.label_}"
                 )
 
-                # Filter out very short entities that are likely false positives
-                if len(ent.text.strip()) < 3:
+                ent_text = ent.text.strip()
+                ent_text_lower = ent_text.lower()
+
+                # --- Filtros/Heurísticas Simplificados ---
+
+                # 1. Filtrar entidades muito curtas
+                if len(ent_text) < 3:
                     continue
 
-                # Skip entities that are just numbers or punctuation
-                if ent.text.strip().isdigit() or not any(c.isalpha() for c in ent.text):
+                # 2. Pular entidades que são apenas números
+                if ent_text.isdigit():
                     continue
 
-                # Skip common false positives and document terms
-                text_lower = ent.text.lower().strip()
-                false_positives = {
-                    "oi",
-                    "olá",
-                    "ei",
-                    "cpf",
-                    "cnpj",
-                    "email",
-                    "telefone",
-                    "rg",
-                    "cep",
-                    "use",
-                    "clt",
-                    "cargo",
-                    "setor",
-                    "cnh",
-                    "dados",
-                    "nome",
-                    "completo",
-                    "matrícula",
-                    "nascido",
-                    "funcionário",
-                    "endereço",
-                    "salário",
-                    "histórico",
-                    "login",
-                    "rede",
-                    "acesso",
-                    "ip",
-                    "gestão",
-                    "assinatura",
-                    "artigo",
-                    "lei",
-                    "código",
-                    "sistema",
-                    "empresa",
-                    "trabalho",
-                    "operações",
-                    "manutenção",
-                    "técnico",
-                    "jr",
-                    "senior",
-                    "pleno",
-                    "analista",
-                    "coordenador",
-                    "diretor",
-                    "gerente",
-                    "supervisor",
-                }
-                if text_lower in false_positives:
+                # 3. Pular falsos positivos conhecidos
+                if ent_text_lower in self._FALSE_POSITIVES:
                     continue
 
-                # Skip entities that look like placeholders or codes
+                # 4. Pular entidades que parecem placeholders
                 if (
-                    "[" in ent.text
-                    or "]" in ent.text
-                    or "_" in ent.text
-                    or ent.text.isupper()
-                    or ent.text.isdigit()
+                    "[" in ent_text
+                    or "]" in ent_text
+                    or "_" in ent_text
+                    or (
+                        ent_text.isupper() and len(ent_text) > 4
+                    )  # Muitas siglas (ex: CLT) já estão nos falsos positivos
                 ):
                     continue
 
-                # Skip single words that are too generic or common
-                if len(ent.text.strip()) <= 2 or text_lower in {
-                    "de",
-                    "da",
-                    "do",
-                    "em",
-                    "na",
-                    "no",
-                    "e",
-                    "é",
-                    "meu",
-                    "minha",
-                    "sua",
-                    "seu",
-                    "para",
-                    "com",
-                    "por",
-                    "sem",
-                    "uma",
-                    "um",
-                    "das",
-                    "dos",
-                    "pela",
-                    "pelo",
-                }:
-                    continue
-
-                # Skip entities that contain numbers (likely codes, IDs, etc.)
+                # 5. Pular entidades que contêm números mas não são nomes válidos
                 if any(
-                    c.isdigit() for c in ent.text
-                ) and not self._is_valid_name_with_numbers(ent.text):
-                    continue
+                    c.isdigit() for c in ent_text
+                ) and not self._is_valid_name_with_numbers(ent_text):
+                    if (
+                        pii_type != "LEI" and pii_type != "EVENTO"
+                    ):  # Permite números em LEI/EVENTO
+                        continue
 
-                # Additional validation based on entity type
-                if not self._is_valid_entity_for_type(ent.text, ent.label_):
-                    continue
+                # 6. Remover validação por tipo (ex: _is_valid_entity_for_type)
+                #    Confiamos mais no modelo 'large' e no EntityRuler.
 
                 entities.append(
                     {
                         "type": pii_type,
-                        "value": ent.text,
+                        "value": ent_text,
                         "span": (ent.start_char, ent.end_char),
-                        "confidence": getattr(
-                            ent, "_.confidence", 1.0
-                        ),  # Default confidence
                         "spacy_label": ent.label_,
                     }
                 )
@@ -221,16 +231,17 @@ class NERService:
                     ent.end_char,
                 )
 
-        except Exception as e:
-            self.logger.error("Error extracting entities: %s", e)
+        except (ValueError, TypeError) as e:
+            self.logger.error("Error extracting entities: %s", e, exc_info=True)
 
         return entities
 
     def _extract_entities_avoiding_placeholders(
         self, text: str, placeholders: List[str]
     ) -> List[Dict[str, Any]]:
-        """Extract entities while avoiding areas near existing placeholders."""
-        # Find all placeholder positions
+        """Extrai entidades evitando áreas que já são placeholders."""
+
+        # Encontra todas as posições de placeholders
         placeholder_spans = []
         for placeholder in placeholders:
             start = 0
@@ -241,118 +252,50 @@ class NERService:
                 placeholder_spans.append((pos, pos + len(placeholder)))
                 start = pos + 1
 
-        # Extract all entities normally
         all_entities = self._extract_entities(text)
 
-        # Filter out entities that are too close to placeholders
+        # Filtra entidades que se sobrepõem a placeholders
         filtered_entities = []
         for entity in all_entities:
             entity_start, entity_end = entity["span"]
 
-            # Check if entity overlaps or is too close to any placeholder
-            too_close = False
+            # Verifica se a entidade se SOBREPÕE a qualquer placeholder
+            overlaps = False
             for ph_start, ph_end in placeholder_spans:
-                # Add buffer of 10 characters around placeholders
-                buffer = 10
-                if entity_start <= ph_end + buffer and entity_end >= ph_start - buffer:
-                    too_close = True
+                # Lógica de sobreposição correta (sem buffer)
+                if entity_start < ph_end and entity_end > ph_start:
+                    overlaps = True
                     break
 
-            if not too_close:
+            if not overlaps:
                 filtered_entities.append(entity)
+            else:
+                self.logger.debug(
+                    "Skipping entity '%s' as it overlaps with an existing placeholder.",
+                    entity["value"],
+                )
 
         return filtered_entities
 
     def _is_valid_name_with_numbers(self, text: str) -> bool:
-        """Check if text with numbers is a valid name (like 'João II' or 'São Paulo')."""
-        # Allow Roman numerals and ordinal numbers in names
+        """Verifica se o texto com números é um nome válido (ex: 'João II')."""
         text_clean = text.lower().strip()
-        valid_patterns = ["ii", "iii", "iv", "jr", "sr", "filho", "neto"]
-        return any(pattern in text_clean for pattern in valid_patterns)
-
-    def _is_valid_entity_for_type(self, text: str, label: str) -> bool:
-        """Validate if the detected entity makes sense for its detected type."""
-        text_clean = text.lower().strip()
-
-        # Common job title and descriptive patterns to exclude
-        job_patterns = [
-            "cargo",
-            "função",
-            "técnico",
-            "analista",
-            "gerente",
-            "coordenador",
-            "assistente",
-            "supervisor",
-            "estagiário",
-            "manutenção",
-            "júnior",
-            "jr",
-            "senior",
-            "sr",
-            "pleno",
-        ]
-
-        # For person names, require at least one uppercase letter and reasonable length
-        if label in ["PERSON", "PER"]:
-            if len(text.split()) < 2:  # Names should have at least first + last name
-                return False
-            if not any(c.isupper() for c in text):  # Names should be capitalized
-                return False
-            # Skip obvious non-names
-            if any(pattern in text_clean for pattern in job_patterns):
-                return False
-
-        # For organizations, require reasonable length and capitalization
-        elif label == "ORG":
-            if len(text) < 3:
-                return False
-            if text_clean in ["cnh", "cpf", "rg"]:  # These are not organizations
-                return False
-            # Skip job descriptions
-            if any(pattern in text_clean for pattern in job_patterns):
-                return False
-
-        # For locations, validate they look like place names
-        elif label in ["GPE", "LOC", "FAC"]:
-            if len(text) < 3:
-                return False
-            # Skip obvious non-locations
-            if text_clean in ["use", "cargo", "setor", "matrícula"]:
-                return False
-            if any(pattern in text_clean for pattern in job_patterns):
-                return False
-
-        # For miscellaneous entities, be very strict
-        elif label == "MISC":
-            if len(text) < 4:  # Require longer text for misc entities
-                return False
-            # Skip job descriptions and common administrative terms
-            if any(pattern in text_clean for pattern in job_patterns):
-                return False
-            # Skip common administrative words
-            admin_words = ["setor", "operações", "artigo", "disciplinar", "matrícula"]
-            if any(word in text_clean for word in admin_words):
-                return False
-
-        return True
+        # Permite numerais romanos e títulos comuns
+        valid_patterns = [" ii", " iii", " iv", " v", " jr", " sr", " filho", " neto"]
+        return any(text_clean.endswith(pattern) for pattern in valid_patterns)
 
     def _filter_overlapping_entities(
         self, entities: List[Dict[str, Any]]
     ) -> List[Dict[str, Any]]:
         """
-        Filter out overlapping entities, keeping the longer ones.
-
-        Args:
-            entities: List of entity dictionaries
-
-        Returns:
-            Filtered list without overlapping entities
+        Filtra entidades sobrepostas, mantendo as mais longas.
+        Se o EntityRuler e o NER encontrarem a mesma coisa, esta função
+        ajuda a resolver o conflito.
         """
         if not entities:
             return []
 
-        # Sort by start position, then by length (longest first)
+        # Ordena por posição inicial, e depois por comprimento (do maior para o menor)
         entities.sort(key=lambda x: (x["span"][0], -(x["span"][1] - x["span"][0])))
 
         filtered_entities = []
@@ -361,7 +304,7 @@ class NERService:
         for entity in entities:
             start, end = entity["span"]
 
-            # If this entity doesn't overlap with the previous one, keep it
+            # Se esta entidade não se sobrepõe à última mantida, guarde-a
             if start >= last_end:
                 filtered_entities.append(entity)
                 last_end = end
@@ -371,24 +314,22 @@ class NERService:
     def filter_by_ner(
         self,
         text: str,
-        confidence_threshold: float = 0.5,
         existing_placeholders: List[str] = None,
     ) -> Tuple[str, List[PIIMapping]]:
         """
-        Filter PII from text using Named Entity Recognition.
+        Filtra PII do texto usando Reconhecimento de Entidade Nomeada.
 
         Args:
-            text: Input text to filter
-            confidence_threshold: Minimum confidence score for entities (0.0 to 1.0)
-            existing_placeholders: List of existing placeholders to avoid conflicts
+            text: Texto de entrada para filtrar.
+            existing_placeholders: Lista de placeholders existentes para evitar
+                                     conflitos (ex: do filtro Regex).
 
         Returns:
-            Tuple of (filtered_text, list_of_pii_mappings)
+            Tupla de (texto_filtrado, lista_de_mapeamentos_pii)
         """
-        if not text.strip():
+        if not text.strip() or not self.nlp:
             return text, []
 
-        # Skip entities that are near existing placeholders (likely already detected by regex)
         if existing_placeholders:
             entities = self._extract_entities_avoiding_placeholders(
                 text, existing_placeholders
@@ -396,48 +337,64 @@ class NERService:
         else:
             entities = self._extract_entities(text)
 
-        # Filter by confidence threshold
-        entities = [
-            e for e in entities if e.get("confidence", 1.0) >= confidence_threshold
-        ]
-
-        # Remove overlapping entities
+        # Remove entidades sobrepostas (ex: "Gerente" e "Gerente de Projetos")
+        # Mantém a mais longa ("Gerente de Projetos")
         entities = self._filter_overlapping_entities(entities)
 
         if not entities:
-            self.logger.info("No entities detected by NER")
+            self.logger.info("No new entities detected by NER")
             return text, []
 
-        # Sort entities by span start position (reverse order for replacement)
+        # --- INÍCIO DA CORREÇÃO ---
+
+        # 1. Contagem total (passagem em ordem de aparição)
+        # Conta quantas entidades de cada tipo existem no total.
+        type_counts: Dict[str, int] = {}
+        for entity in entities:
+            pii_type = entity["type"]
+            type_counts[pii_type] = type_counts.get(pii_type, 0) + 1
+
+        # 2. Copia os contadores totais. Usaremos isso para decrementar.
+        # (ex: NOME_PESSOA: 2, LOCAL: 3)
+        current_counts = type_counts.copy()
+
+        # 3. Ordena as entidades pela posição inicial (em ordem inversa para substituição)
         entities.sort(key=lambda x: x["span"][0], reverse=True)
 
         filtered_text = text
         pii_mappings = []
 
-        # Replace entities with placeholders (from end to start to preserve indices)
-        for i, entity in enumerate(entities):
+        # 4. Substitui entidades por placeholders (do fim para o começo)
+        for entity in entities:
             pii_type = entity["type"]
             original_value = entity["value"]
             start, end = entity["span"]
 
-            # Generate placeholder
-            placeholder = f"[{pii_type}_{i+1}]"
+            # Obtém o contador atual para este tipo (ex: 2 para NOME_PESSOA)
+            count = current_counts[pii_type]
 
-            # Replace in text
+            # Decrementa o contador para a próxima entidade do mesmo tipo
+            current_counts[pii_type] -= 1
+
+            # Gera placeholder (ex: [NOME_PESSOA_2], depois [NOME_PESSOA_1])
+            placeholder = f"[{pii_type}_{count}]"
+
+            # Substitui no texto
             filtered_text = filtered_text[:start] + placeholder + filtered_text[end:]
 
-            # Create PII mapping
             pii_mapping = PIIMapping(
                 placeholder=placeholder,
                 original_value=original_value,
                 type=pii_type,
-                span=(start, end),
+                span=(start, start + len(placeholder)),  # O span agora é do placeholder
             )
             pii_mappings.append(pii_mapping)
 
             self.logger.debug("Replaced '%s' with '%s'", original_value, placeholder)
 
-        # Reverse the list to maintain original order
+        # --- FIM DA CORREÇÃO ---
+
+        # Reverte a lista para manter a ordem original de aparição
         pii_mappings.reverse()
 
         self.logger.info(
@@ -450,22 +407,25 @@ class NERService:
         self, filtered_text: str, pii_mappings: List[PIIMapping]
     ) -> str:
         """
-        Restore original text from filtered text using PII mappings.
+        Restaura o texto original a partir do texto filtrado usando mapeamentos PII.
 
         Args:
-            filtered_text: Text with placeholders
-            pii_mappings: List of PII mappings to restore
+            filtered_text: Texto com placeholders
+            pii_mappings: Lista de mapeamentos PII para restaurar
 
         Returns:
-            Original text with PII restored
+            Texto original com PII restaurado
         """
         if not pii_mappings:
             return filtered_text
 
         restored_text = filtered_text
 
-        # Sort mappings by placeholder to ensure consistent replacement
-        for mapping in sorted(pii_mappings, key=lambda x: x.placeholder):
+        # Ordena os mapeamentos pelo comprimento do placeholder, do maior para o menor.
+        # Isso evita substituições parciais (ex: substituir [NOME_1] dentro de [NOME_10])
+        pii_mappings.sort(key=lambda m: len(m.placeholder), reverse=True)
+
+        for mapping in pii_mappings:
             restored_text = restored_text.replace(
                 mapping.placeholder, mapping.original_value
             )
@@ -477,9 +437,9 @@ class NERService:
 
     def get_supported_entity_types(self) -> List[str]:
         """
-        Get list of supported entity types.
+        Obtém a lista de tipos de entidade PII suportados.
 
         Returns:
-            List of PII type names supported by this service
+            Lista de nomes de tipos PII suportados por este serviço
         """
         return list(set(self._ENTITY_TYPE_MAPPING.values()))

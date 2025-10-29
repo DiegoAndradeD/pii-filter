@@ -18,10 +18,12 @@ from src.interfaces.proxy_service_interface import (
     IRegexService,
     IRestorationService,
     ISensitiveTopicDetector,
+    INERService,
 )
 from src.services.regex_service import RegexService
 from src.services.local_llm_service import LocalLLMService
 from src.services.restoration_service import RestorationService
+from src.services.ner_service import NERService
 from src.models.models import ProcessedResponse
 from src.utils.sse_utils import create_sse_event
 
@@ -38,6 +40,20 @@ def get_sensitive_topic_detector() -> ISensitiveTopicDetector:
     return LocalLLMService()
 
 
+def get_ner_service() -> INERService:  # <-- ADICIONAR ESTA FUNÇÃO
+    """Provides a concrete implementation of INERService."""
+    # The NERService may fail to load the spaCy model.
+    # Ideally, this would be a Singleton handled at app startup.
+    # For now, we instantiate it directly.
+    try:
+        return NERService()
+    except RuntimeError as e:
+        # If the spaCy model cannot be loaded, the app should not
+        # accept this dependency.
+        print(f"CRITICAL ERROR: Failed to initialize NERService. {e}")
+        raise e
+
+
 def get_external_llm() -> IExternalLLM:
     """Provides a concrete instance of an external LLM via the factory."""
     return get_llm_service()
@@ -50,6 +66,7 @@ def get_restoration_service() -> IRestorationService:
 
 def get_proxy_service(
     regex_service: IRegexService = Depends(get_regex_service),
+    ner_service: INERService = Depends(get_ner_service),
     sensitive_topic_detector: ISensitiveTopicDetector = Depends(
         get_sensitive_topic_detector
     ),
@@ -70,6 +87,7 @@ def get_proxy_service(
     """
     return ProxyService(
         regex_service=regex_service,
+        ner_service=ner_service,
         sensitive_topic_detector=sensitive_topic_detector,
         external_llm=external_llm,
         restoration_service=restoration_service,
@@ -102,15 +120,32 @@ async def stream_generator(original_text: str, proxy_service: ProxyService):
         yield event
     await asyncio.sleep(0.5)
 
-    # Step 2: Sensitive topic detection using LLM
+    # Step 2: PII detection with NER
+    ner_filtered_text, ner_mappings, ner_events = (
+        await proxy_service.detect_pii_with_ner(
+            regex_filtered_text, [m.placeholder for m in regex_mappings]
+        )
+    )
+    for event in ner_events:
+        yield event
+    await asyncio.sleep(0.5)
+
+    # Step 3: Sensitive topic detection using LLM
     llm_filtered_text, llm_mappings, topic_events = (
-        await proxy_service.detect_sensitive_topics(regex_filtered_text)
+        await proxy_service.detect_sensitive_topics(ner_filtered_text)
     )
     for event in topic_events:
         yield event
     await asyncio.sleep(0.5)
 
-    # Step 3: External LLM call
+    yield create_sse_event(
+        {
+            "type": "log",
+            "message": f"Final filtered text (sending to external LLM)\n{llm_filtered_text}",
+        }
+    )
+
+    # Step 4: External LLM call
     # Skipping the external LLM call to avoid extra costs and because we are on the free plan.
     # Uncomment the following lines if you want to enable external LLM:
     llm_external_response, llm_events = await proxy_service.call_external_llm(
@@ -128,14 +163,16 @@ async def stream_generator(original_text: str, proxy_service: ProxyService):
 
     # Step 4: PII restoration
     final_response_text, restore_events = await proxy_service.restore_pii(
-        llm_external_response, regex_mappings, llm_mappings
+        llm_external_response, regex_mappings, ner_mappings, llm_mappings
     )
     for event in restore_events:
         yield event
     await asyncio.sleep(0.5)
 
     # Step 5: Send final response
-    all_pii_masked = sorted(regex_mappings + llm_mappings, key=lambda m: m.span[0])
+    all_pii_masked = sorted(
+        regex_mappings + ner_mappings + llm_mappings, key=lambda m: m.span[0]
+    )
     final_payload = ProcessedResponse(
         final_response=final_response_text,
         pii_masked=all_pii_masked,

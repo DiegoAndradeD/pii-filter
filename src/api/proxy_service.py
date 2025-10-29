@@ -15,6 +15,7 @@ from src.interfaces.proxy_service_interface import (
     IRegexService,
     IRestorationService,
     ISensitiveTopicDetector,
+    INERService,
 )
 from src.models.models import PIIMapping
 from src.utils.sse_utils import create_sse_event
@@ -30,6 +31,7 @@ class ProxyService:
     def __init__(
         self,
         regex_service: IRegexService,
+        ner_service: INERService,
         sensitive_topic_detector: ISensitiveTopicDetector,
         external_llm: IExternalLLM,
         restoration_service: IRestorationService,
@@ -47,6 +49,7 @@ class ProxyService:
             PII into processed text.
         """
         self.regex_service = regex_service
+        self.ner_service = ner_service
         self.sensitive_topic_detector = sensitive_topic_detector
         self.external_llm = external_llm
         self.restoration_service = restoration_service
@@ -73,7 +76,7 @@ class ProxyService:
 
         # Detect and filter PII in the text
         filtered_text, mappings = self.regex_service.filter_by_regex(
-            original_text, validate_pii_data=False
+            original_text, validate_pii_data=True
         )
 
         # Log detection results
@@ -97,6 +100,64 @@ class ProxyService:
         events.append(
             create_sse_event(
                 {"type": "log", "message": f"   - Total PIIs detected: {len(mappings)}"}
+            )
+        )
+        return filtered_text, mappings, events
+
+    async def detect_pii_with_ner(
+        self, text: str, existing_placeholders: List[str]
+    ) -> Tuple[str, List[PIIMapping], List[str]]:
+        """
+        Detects PII using NER models and returns the filtered text,
+        detected mappings, and event logs.
+
+        Args:
+            text (str): The text to analyze (already processed by regex).
+            existing_placeholders (List[str]): Placeholders from regex step.
+
+        Returns:
+            Tuple[str, List[PIIMapping], List[str]]: A tuple containing:
+                - The text with NER PIIs filtered.
+                - A list of detected NER mappings.
+                - A list of Server-Sent Events (SSE) log messages.
+        """
+        events = [
+            create_sse_event(
+                {"type": "log", "message": "Detecting PII using NER (spaCy)..."}
+            )
+        ]
+
+        # Detect and filter PII in the text
+        # We use asyncio.to_thread because spaCy (NERService) is synchronous and can
+        # block the event loop.
+        filtered_text, mappings = await asyncio.to_thread(
+            self.ner_service.filter_by_ner, text, existing_placeholders
+        )
+
+        # Log detection results
+        if mappings:
+            for m in mappings:
+                events.append(
+                    create_sse_event(
+                        {
+                            "type": "log",
+                            "message": f"   - NER PII detected: '{m.original_value}' of type {m.type}",
+                        }
+                    )
+                )
+        else:
+            events.append(
+                create_sse_event(
+                    {"type": "log", "message": "   - No new PII detected by NER."}
+                )
+            )
+
+        events.append(
+            create_sse_event(
+                {
+                    "type": "log",
+                    "message": f"   - Total NER PIIs detected: {len(mappings)}",
+                }
             )
         )
         return filtered_text, mappings, events
@@ -201,7 +262,11 @@ class ProxyService:
         return llm_response, events
 
     async def restore_pii(
-        self, llm_response: str, regex_mappings: List, llm_mappings: List
+        self,
+        llm_response: str,
+        regex_mappings: List,
+        ner_mappings: List,
+        llm_mappings: List,
     ) -> Tuple[str, List[str]]:
         """
         Restores original PII values into the final LLM response and returns
@@ -210,6 +275,7 @@ class ProxyService:
         Args:
             llm_response (str): The LLM output with masked placeholders.
             regex_mappings (List): PII mappings detected by regex.
+            ner_mappings (List): PII mappings detected by NER. # <-- ADICIONAR
             llm_mappings (List): PII or sensitive topic mappings detected by the local LLM.
 
         Returns:
@@ -233,7 +299,9 @@ class ProxyService:
 
         # Generate restoration data and restore all PII placeholders
         restoration_data = self.restoration_service.create_restoration_data(
-            regex_mappings=regex_mappings, llm_mappings=llm_mappings
+            regex_mappings=regex_mappings,
+            ner_mappings=ner_mappings,
+            llm_mappings=llm_mappings,
         )
         final_response_text = self.restoration_service.restore_all(
             llm_response, restoration_data

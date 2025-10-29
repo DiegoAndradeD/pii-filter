@@ -40,14 +40,19 @@ class LocalLLMService:
         Creates a specialized system prompt for the LLM to perform extraction.
         """
 
+        categories_str = ", ".join(SENSITIVE_CATEGORIES)
+
         return (
-            "Você é um especialista em LGPD. Sua tarefa é analisar o texto e EXTRAIR os trechos exatos "
-            f"que correspondem às seguintes categorias de dados sensíveis: {SENSITIVE_CATEGORIES}. "
-            'Retorne APENAS um objeto JSON com uma chave "sensitive_fragments", que contém uma lista de objetos. '
-            'Cada objeto deve ter duas chaves: "category" (a categoria identificada) e "exact_text" '
-            "(o trecho de texto exato que você encontrou). Se nada for encontrado, retorne uma lista vazia. "
-            "Não inclua trechos que sejam apenas nomes de pessoas ou documentos. Foque no contexto sensível. "
-            'Exemplo de resposta: {"sensitive_fragments": [{"category": "CONDIÇÃO_DE_SAUDE", "exact_text": "diagnosticado com TDAH"}]}. '
+            "Você é um especialista em LGPD e RH. Sua tarefa é analisar o texto e EXTRAIR os trechos exatos "
+            "que correspondem às seguintes categorias de dados sensíveis e PII contextuais: "
+            f"{categories_str}. "
+            "Retorne APENAS um objeto JSON com uma chave 'sensitive_fragments', que contém uma lista de objetos. "
+            'Cada objeto deve ter duas chaves: "category" (a categoria identificada da lista) e "exact_text" '
+            "(o trecho de texto exato que você encontrou). "
+            "NÃO extraia PIIs de padrão óbvio como CPF, RG, E-mail, Telefone ou CEP (eles são tratados por outro sistema). "
+            "Foque em extrair o CONTEXTO sensível (ex: CONDIÇÃO_DE_SAUDE) e PIIs contextuais (ex: CARGO, SALARIO, ENDERECO_LOGRADOURO, MATRICULA, NOME_DEPENDENTE, CNH, PASSAPORTE). "
+            "Se nada for encontrado, retorne uma lista vazia. "
+            'Exemplo de resposta: {"sensitive_fragments": [{"category": "CONDIÇÃO_DE_SAUDE", "exact_text": "diagnosticado com TDAH"}, {"category": "CARGO", "exact_text": "Técnico de Manutenção Jr"}]}. '
             "Não adicione explicações ou qualquer texto fora do JSON."
         )
 

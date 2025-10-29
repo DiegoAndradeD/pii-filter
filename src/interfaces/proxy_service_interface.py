@@ -102,3 +102,28 @@ class IRestorationService(Protocol):
         Returns:
             str: The text with original PII restored.
         """
+
+
+class INERService(Protocol):
+    """
+    Interface for NER-based PII detection and filtering service.
+    """
+
+    @abstractmethod
+    def filter_by_ner(
+        self,
+        text: str,
+        existing_placeholders: List[str] = None,
+    ) -> Tuple[str, List[PIIMapping]]:
+        """
+        Filters the input text using NER models to detect PII.
+
+        Args:
+            text (str): The text to analyze.
+            existing_placeholders (List[str], optional): A list of placeholders
+                from previous steps to avoid re-processing.
+
+        Returns:
+            Tuple[str, List[PIIMapping]]: A tuple containing the filtered text
+                and a list of detected PII mappings.
+        """

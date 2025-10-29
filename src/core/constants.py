@@ -10,6 +10,8 @@ from typing import Dict, List
 PII_PATTERNS: Dict[str, re.Pattern] = {
     # CPF: Exactly 11 digits in XXX.XXX.XXX-XX format (dots and dash optional)
     "CPF": re.compile(r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b"),
+    # CNH: Exactly 11 digits in XXX.XXX.XXX-XX format (same as CPF, differentiated by validation)
+    "CNH": re.compile(r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b"),
     # CNPJ: Exactly 14 digits in XX.XXX.XXX/XXXX-XX format
     "CNPJ": re.compile(r"\b\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2}\b"),
     "EMAIL": re.compile(
@@ -22,7 +24,8 @@ PII_PATTERNS: Dict[str, re.Pattern] = {
     # Matches 7-9 digits in X.XXX.XXX-X or XX.XXX.XXX-X format
     "RG": re.compile(r"(?:RG\s*:?\s*)?\b\d{1,2}\.\d{3}\.\d{3}-[0-9X]\b", re.IGNORECASE),
     "CARTAO_CREDITO": re.compile(r"\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b"),
-    "PIS": re.compile(r"\b\d{3}\.?\d{5}\.?\d{2}-?\d\b"),
+    # PIS: Must have dots in the right positions to differentiate from CPF (XXX.XXXXX.XX-X)
+    "PIS": re.compile(r"\b\d{3}\.\d{5}\.\d{2}-\d\b"),
     "TITULO_ELEITOR": re.compile(r"\b\d{4}\s?\d{4}\s?\d{4}\b"),
     "CONTA_BANCARIA": re.compile(
         r"\b(?:conta|cc|c/c)\s*:?\s*\d{4,8}[-\s]?\d{1,2}\b", re.IGNORECASE
@@ -49,6 +52,32 @@ SENSITIVE_CATEGORIES: List[str] = [
     "FOTO_URL",
     "INFORMACAO_SENSIVEL",
     "HISTORICO_PROFISSIONAL",
+    "CARGO",
+    "DEPARTAMENTO",
+    "MATRICULA",
+    "SALARIO",
+    "BENEFICIO",
+    "SITUACAO_FINANCEIRA",
+    "ENDERECO_LOGRADOURO",
+    "ENDERECO_BAIRRO",
+    "ENDERECO_CIDADE",
+    "NOME_BANCO",
+    "AGENCIA_BANCARIA",
+    "NOME_DEPENDENTE",
+    "DATA_NASCIMENTO",
+    "DATA_NASCIMENTO_DEPENDENTE",
+    "NOME_MEDICO",
+    "NOME_EMPRESA_TERCEIRA",
+    "NOME_CONTATO_EMERGENCIA",
+    "TELEFONE_CONTATO_EMERGENCIA",
+    "CNH",
+    "PASSAPORTE",
+    "DATA",
+    "HORARIO",
+    "PERIODO_LICENCA",
+    "FERIAS",
+    "RESULTADO_EXAME",
+    "MEDICACAO",
 ]
 
 
@@ -82,12 +111,13 @@ PORTUGUESE_STOP_WORDS = [
 # NER-based PII types mapping
 NER_PII_TYPES = {
     "NOME_PESSOA": "Nome de pessoa física",
-    "ORGANIZACAO": "Nome de organização/empresa", 
+    "ORGANIZACAO": "Nome de organização/empresa",
     "LOCAL": "Nome de local/endereço",
     "EVENTO": "Nome de evento",
     "OBRA_ARTE": "Obra de arte/produto cultural",
     "LEI": "Referência legal/legislação",
     "IDIOMA": "Referência a idioma",
+    "PROFISSAO": "Profissão",
 }
 
 # All supported PII types (regex + NER)

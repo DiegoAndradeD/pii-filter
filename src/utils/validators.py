@@ -87,6 +87,8 @@ def validate_pii(pii_type: str, value: str) -> bool:
 
     if pii_type == "CPF":
         result = validate_cpf(value)
+    elif pii_type == "CNH":
+        result = validate_cnh(value)
     elif pii_type == "CNPJ":
         result = validate_cnpj(value)
     elif pii_type == "EMAIL":
@@ -104,3 +106,41 @@ def validate_pii(pii_type: str, value: str) -> bool:
         result = 10 <= len(digits_only) <= 13
 
     return result
+
+
+def validate_cnh(cnh: str) -> bool:
+    """Validates a Brazilian CNH (driver's license) number using the official DENATRAN algorithm.
+
+    Args:
+        cnh (str): The CNH string, which can contain punctuation.
+
+    Returns:
+        bool: True if the CNH is valid, False otherwise.
+    """
+    # Remove any non-digit characters from the input string.
+    cnh = re.sub(r"\D", "", cnh)
+
+    # A valid CNH must have 11 digits. Also, CNHs with all same digits are invalid.
+    if len(cnh) != 11 or cnh == cnh[0] * 11:
+        return False
+
+    # Calculate the first check digit (dv1)
+    soma = 0
+    for i in range(9):
+        soma += int(cnh[i]) * (9 - i)
+
+    dv1 = soma % 11
+    if dv1 >= 10:
+        dv1 = 0
+
+    # Calculate the second check digit (dv2)
+    soma = 0
+    for i in range(9):
+        soma += int(cnh[i]) * (1 + i)
+
+    dv2 = soma % 11
+    if dv2 >= 10:
+        dv2 = 0
+
+    # The CNH is valid if the calculated digits match the last two digits of the CNH.
+    return int(cnh[9]) == dv1 and int(cnh[10]) == dv2
