@@ -120,20 +120,27 @@ async def stream_generator(original_text: str, proxy_service: ProxyService):
         yield event
     await asyncio.sleep(0.5)
 
+    regex_placeholders = [m.placeholder for m in regex_mappings]
+
     # Step 2: PII detection with NER
     ner_filtered_text, ner_mappings, ner_events = (
-        await proxy_service.detect_pii_with_ner(
-            regex_filtered_text, [m.placeholder for m in regex_mappings]
-        )
+        await proxy_service.detect_pii_with_ner(regex_filtered_text, regex_placeholders)
     )
     for event in ner_events:
         yield event
     await asyncio.sleep(0.5)
 
+    ner_placeholders = [m.placeholder for m in ner_mappings]
+
+    all_previous_placeholders = regex_placeholders + ner_placeholders
+
     # Step 3: Sensitive topic detection using LLM
     llm_filtered_text, llm_mappings, topic_events = (
-        await proxy_service.detect_sensitive_topics(ner_filtered_text)
+        await proxy_service.detect_sensitive_topics(
+            ner_filtered_text, all_previous_placeholders  # Passa a lista completa
+        )
     )
+
     for event in topic_events:
         yield event
     await asyncio.sleep(0.5)

@@ -31,16 +31,11 @@ class RegexService:
     # Types with a lower number have higher priority.
     _TYPE_PRIORITY: Dict[str, int] = {
         "CPF": 1,
-        "CNH": 2,
-        "CNPJ": 1,
+        "RG": 2,
         "EMAIL": 1,
-        "PIS": 1,
-        "TITULO_ELEITOR": 1,
-        "CARTAO_CREDITO": 2,
-        "CEP": 3,
-        "TELEFONE": 4,
-        "CONTA_BANCARIA": 5,
-        "RG": 6,  # RG has lower priority as its pattern can be more generic.
+        "TELEFONE": 3,
+        "CEP": 4,
+        "CONTA_BANCARIA": 2,
     }
 
     def __init__(self):

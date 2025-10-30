@@ -40,7 +40,9 @@ class ISensitiveTopicDetector(Protocol):
     """
 
     @abstractmethod
-    def filter_sensitive_topics(self, text: str) -> Tuple[str, List[PIIMapping]]:
+    def filter_sensitive_topics(
+        self, text: str, existing_placeholders: List[str] = None
+    ) -> Tuple[str, List[PIIMapping]]:
         """
         Detects sensitive topics in the text.
 

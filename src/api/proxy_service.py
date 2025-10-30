@@ -163,13 +163,14 @@ class ProxyService:
         return filtered_text, mappings, events
 
     async def detect_sensitive_topics(
-        self, text: str
+        self, text: str, existing_placeholders: List[str]
     ) -> Tuple[str, List[PIIMapping], List[str]]:
         """
         Detects sensitive topics in the text using a local LLM-based model.
 
         Args:
             text (str): The text to analyze for sensitive content.
+            existing_placeholders (List[str]): Placeholders from previous steps.
 
         Returns:
             Tuple[str, List[PIIMapping], List[str]]: A tuple containing:
@@ -184,8 +185,10 @@ class ProxyService:
         ]
 
         # Detect sensitive topics
-        filtered_text, mappings = self.sensitive_topic_detector.filter_sensitive_topics(
-            text
+        filtered_text, mappings = await asyncio.to_thread(
+            self.sensitive_topic_detector.filter_sensitive_topics,
+            text,
+            existing_placeholders,
         )
 
         # Log detection results

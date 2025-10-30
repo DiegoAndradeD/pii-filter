@@ -1,86 +1,58 @@
 """
-The dictionary of regex patterns designed to detect Brazilian PII formats.
-Each pattern is compiled for better performance.
+Constants for detecting PII and sensitive information in HR documents.
+Regular patterns optimized for the Brazilian context, aligned with the scope of the thesis.
 """
 
 import re
-from typing import Dict, List
+from typing import Any, Dict, List
 
 
+# Regex patterns for key PIIs in the Brazilian HR context
 PII_PATTERNS: Dict[str, re.Pattern] = {
-    # CPF: Exactly 11 digits in XXX.XXX.XXX-XX format (dots and dash optional)
+    # CPF: Exactly 11 digits in the format XXX.XXX.XXX-XX (periods and hyphens optional)
     "CPF": re.compile(r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b"),
-    # CNH: Exactly 11 digits in XXX.XXX.XXX-XX format (same as CPF, differentiated by validation)
-    "CNH": re.compile(r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b"),
-    # CNPJ: Exactly 14 digits in XX.XXX.XXX/XXXX-XX format
-    "CNPJ": re.compile(r"\b\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2}\b"),
+    # RG: Format X.XXX.XXX-X or XX.XXX.XXX-X (may have "RG:" before)
+    "RG": re.compile(r"(?:RG\s*:?\s*)?\b\d{1,2}\.\d{3}\.\d{3}-[0-9X]\b", re.IGNORECASE),
+    # Email: Basic RFC compliant standard
     "EMAIL": re.compile(
         r"\b[a-zA-Z0-9](?:[a-zA-Z0-9._%+-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}\b",
         re.IGNORECASE,
     ),
+    # Phone: Brazilian formats with area code (landline and mobile)
     "TELEFONE": re.compile(r"(?:\+?55\s?)?\(?\d{2}\)?\s?\d{4,5}[-\s]?\d{4}"),
+    # Postal Code: Brazilian format XXXXX-XXX (hyphen optional)
     "CEP": re.compile(r"\b\d{5}-?\d{3}\b"),
-    # RG: More restrictive to avoid conflicts with CPF
-    # Matches 7-9 digits in X.XXX.XXX-X or XX.XXX.XXX-X format
-    "RG": re.compile(r"(?:RG\s*:?\s*)?\b\d{1,2}\.\d{3}\.\d{3}-[0-9X]\b", re.IGNORECASE),
-    "CARTAO_CREDITO": re.compile(r"\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b"),
-    # PIS: Must have dots in the right positions to differentiate from CPF (XXX.XXXXX.XX-X)
-    "PIS": re.compile(r"\b\d{3}\.\d{5}\.\d{2}-\d\b"),
-    "TITULO_ELEITOR": re.compile(r"\b\d{4}\s?\d{4}\s?\d{4}\b"),
+    # Bank Account: Must be preceded by "account", "cc" or "c/c"
     "CONTA_BANCARIA": re.compile(
         r"\b(?:conta|cc|c/c)\s*:?\s*\d{4,8}[-\s]?\d{1,2}\b", re.IGNORECASE
     ),
 }
 
+
+# Categories of sensitive (non-PII) information relevant to HR
 SENSITIVE_CATEGORIES: List[str] = [
-    "CONDIÇÃO_DE_SAUDE",
-    "INFORMAÇÃO_FINANCEIRA_DETALHADA",
+    "CONDICAO_DE_SAUDE",
+    "INFORMACAO_FINANCEIRA_DETALHADA",
     "HISTORICO_DISCIPLINAR",
     "PROBLEMA_PESSOAL_FAMILIAR",
-    "ORIENTAÇÃO_SEXUAL",
-    "CRENÇA_RELIGIOSA",
-    "OPINIÃO_POLÍTICA",
-    "DADOS_BIOMÉTRICOS",
-    "AVALIACAO_DESEMPENHO",
-    "INFORMACAO_PSICOLOGICA",
-    "SENHA",
     "USUARIO_REDE",
     "IP_ADDRESS",
-    "MAC_ADDRESS",
     "REGISTRO_PONTO",
-    "DOCUMENTO_URL",
-    "FOTO_URL",
-    "INFORMACAO_SENSIVEL",
-    "HISTORICO_PROFISSIONAL",
     "CARGO",
     "DEPARTAMENTO",
     "MATRICULA",
     "SALARIO",
-    "BENEFICIO",
-    "SITUACAO_FINANCEIRA",
+    "ENDERECO_COMPLETO",
     "ENDERECO_LOGRADOURO",
     "ENDERECO_BAIRRO",
     "ENDERECO_CIDADE",
     "NOME_BANCO",
     "AGENCIA_BANCARIA",
-    "NOME_DEPENDENTE",
     "DATA_NASCIMENTO",
-    "DATA_NASCIMENTO_DEPENDENTE",
-    "NOME_MEDICO",
-    "NOME_EMPRESA_TERCEIRA",
-    "NOME_CONTATO_EMERGENCIA",
-    "TELEFONE_CONTATO_EMERGENCIA",
-    "CNH",
-    "PASSAPORTE",
-    "DATA",
-    "HORARIO",
-    "PERIODO_LICENCA",
-    "FERIAS",
-    "RESULTADO_EXAME",
-    "MEDICACAO",
 ]
 
 
+# Stop words in Portuguese (for NER and word processing)
 PORTUGUESE_STOP_WORDS = [
     "a",
     "o",
@@ -106,19 +78,110 @@ PORTUGUESE_STOP_WORDS = [
     "como",
     "mais",
     "mas",
+    "ao",
+    "pelo",
+    "pela",
 ]
 
-# NER-based PII types mapping
+
+# Types of PII detectable via the NET
 NER_PII_TYPES = {
-    "NOME_PESSOA": "Nome de pessoa física",
+    "NOME_COMPLETO": "Nome completo de pessoa física",
     "ORGANIZACAO": "Nome de organização/empresa",
     "LOCAL": "Nome de local/endereço",
-    "EVENTO": "Nome de evento",
-    "OBRA_ARTE": "Obra de arte/produto cultural",
-    "LEI": "Referência legal/legislação",
-    "IDIOMA": "Referência a idioma",
-    "PROFISSAO": "Profissão",
+    "CARGO": "Cargo/profissão",
 }
 
-# All supported PII types (regex + NER)
+NER_ENTITY_TYPE_MAPPING: Dict[str, str] = {
+    "PERSON": "NOME_COMPLETO",
+    "PER": "NOME_COMPLETO",
+    "ORG": "ORGANIZACAO",
+    "LOC": "LOCAL",
+    "EVENT": "EVENTO",
+    "WORK_OF_ART": "OBRA_ARTE",
+    "LAW": "LEI",
+    "LANGUAGE": "IDIOMA",
+    "PROFISSAO": "CARGO",
+}
+
+NER_PROFESSION_PATTERNS: List[Dict[str, Any]] = [
+    {"label": "CARGO", "pattern": "analista de sistemas"},
+    {"label": "CARGO", "pattern": "engenheiro de software"},
+    {"label": "CARGO", "pattern": "gerente de projetos"},
+    {"label": "CARGO", "pattern": "médico"},
+    {"label": "CARGO", "pattern": "advogado"},
+    {"label": "CARGO", "pattern": "professor"},
+    {"label": "CARGO", "pattern": "técnico em enfermagem"},
+    {"label": "CARGO", "pattern": "técnico de"},
+    {"label": "CARGO", "pattern": "analista"},
+    {"label": "CARGO", "pattern": "gerente"},
+    {"label": "CARGO", "pattern": "coordenador"},
+    {"label": "CARGO", "pattern": "diretor"},
+    {"label": "CARGO", "pattern": "supervisor"},
+    {"label": "CARGO", "pattern": "assistente"},
+    {"label": "CARGO", "pattern": "estagiário"},
+    {"label": "CARGO", "pattern": "consultor"},
+    {"label": "CARGO", "pattern": "desenvolvedor"},
+]
+
+NER_FALSE_POSITIVES: set = {
+    "oi",
+    "olá",
+    "ei",
+    "bom dia",
+    "boa tarde",
+    "boa noite",
+    "use",
+    "cpf",
+    "cnpj",
+    "email",
+    "telefone",
+    "rg",
+    "cep",
+    "clt",
+    "cnh",
+    "ip",
+    "mac",
+    "mac address",
+    "endereço",
+    "detalhes",
+    "fraude",
+    "evidências",
+    "digitais",
+    "informações",
+    "adicionais",
+    "cúmplices",
+    "dados",
+    "contato",
+    "documentos",
+    "cargo",
+    "departamento",
+    "matrícula",
+    "salário",
+    "investigação",
+    "relatório",
+    "confidencial",
+    "operação",
+    "assunto",
+    "urgente",
+    "funcionário",
+    "principal",
+    "sr",
+    "sra",
+    "dr",
+    "rh",
+    "ti",
+    "funcionário principal: nome",
+    "evidências digitais",
+    "detalhes da fraude",
+    "informações adicionais",
+    "cúmplices:",
+    "contato: telefone",
+    "setor de suprimentos matrícula",
+    "setor de suprimentos",
+    "funcionário principal",
+}
+
+
+# All PII types supported (Regex + NER)
 ALL_PII_TYPES = list(PII_PATTERNS.keys()) + list(NER_PII_TYPES.keys())

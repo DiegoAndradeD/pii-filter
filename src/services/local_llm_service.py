@@ -56,17 +56,31 @@ class LocalLLMService:
             "Não adicione explicações ou qualquer texto fora do JSON."
         )
 
-    def filter_sensitive_topics(self, text: str) -> Tuple[str, List[PIIMapping]]:
+    def _find_placeholder_spans(
+        self, text: str, placeholders: List[str]
+    ) -> List[Tuple[int, int]]:
+        """Helper to find all spans of existing placeholders."""
+        placeholder_spans = []
+        unique_placeholders = set(placeholders or [])
+        if not unique_placeholders:
+            return []
+
+        for placeholder in unique_placeholders:
+            start = 0
+            while True:
+                pos = text.find(placeholder, start)
+                if pos == -1:
+                    break
+                placeholder_spans.append((pos, pos + len(placeholder)))
+                start = pos + 1
+        return placeholder_spans
+
+    def filter_sensitive_topics(
+        self, text: str, existing_placeholders: List[str] = None
+    ) -> Tuple[str, List[PIIMapping]]:
         """
         Finds and filters sensitive topic phrases from a text using the LLM.
-
-        Args:
-            text (str): The input text to be filtered.
-
-        Returns:
-            Tuple[str, List[PIIMapping]]: A tuple containing:
-                - The modified text with sensitive phrases replaced by placeholders.
-                - A list of PIIMapping objects for the replaced phrases.
+        Avoids filtering text that is already inside an existing placeholder.
         """
         if not text:
             return text, []
@@ -81,9 +95,7 @@ class LocalLLMService:
         }
 
         try:
-            response = requests.post(
-                self.api_url, json=payload, timeout=90
-            )  # Aumentado o timeout
+            response = requests.post(self.api_url, json=payload, timeout=90)
             response.raise_for_status()
 
             response_content = response.json().get("response", "{}")
@@ -97,22 +109,33 @@ class LocalLLMService:
                 )
                 return text, []
 
-            return self._replace_fragments_with_placeholders(text, fragments)
+            placeholder_spans = self._find_placeholder_spans(
+                text, existing_placeholders
+            )
+
+            return self._replace_fragments_with_placeholders(
+                text, fragments, placeholder_spans
+            )
 
         except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
             logger.error("Error interacting with Ollama or parsing its response: %s", e)
             return text, []
 
     def _replace_fragments_with_placeholders(
-        self, text: str, fragments: List[dict]
+        self,
+        text: str,
+        fragments: List[dict],
+        placeholder_spans: List[Tuple[int, int]] = None,
     ) -> Tuple[str, List[PIIMapping]]:
         """
         Replaces extracted text fragments with placeholders and creates mappings.
+        Skips fragments that overlap with existing placeholder spans.
         """
         modified_text = text
         mappings_found: List[PIIMapping] = []
+        if placeholder_spans is None:
+            placeholder_spans = []
 
-        # Adiciona a posição inicial de cada fragmento para ordenação
         found_fragments = []
         for frag in fragments:
             exact_text = frag.get("exact_text")
@@ -121,11 +144,30 @@ class LocalLLMService:
                 continue
 
             start_pos = text.find(exact_text)
-            if start_pos != -1:
-                frag["start_pos"] = start_pos
-                found_fragments.append(frag)
+            if start_pos == -1:
+                logger.warning(
+                    "LLM fragment '%s' not found in original text. Skipping.",
+                    exact_text,
+                )
+                continue
 
-        # Ordena em ordem reversa para não bagunçar os índices durante a substituição
+            end_pos = start_pos + len(exact_text)
+            overlaps = False
+            for ph_start, ph_end in placeholder_spans:
+                if start_pos < ph_end and end_pos > ph_start:
+                    overlaps = True
+                    logger.debug(
+                        "Skipping LLM fragment '%s' as it overlaps with an existing placeholder.",
+                        exact_text,
+                    )
+                    break
+
+            if overlaps:
+                continue
+
+            frag["start_pos"] = start_pos
+            found_fragments.append(frag)
+
         found_fragments.sort(key=lambda x: x["start_pos"], reverse=True)
 
         counts = {}
@@ -135,7 +177,6 @@ class LocalLLMService:
             start = fragment["start_pos"]
             end = start + len(original_value)
 
-            # Cria um placeholder único (ex: [CONDIÇÃO_DE_SAUDE_1])
             counts[pii_type] = counts.get(pii_type, 0) + 1
             placeholder = f"[{pii_type}_{counts[pii_type]}]"
 
@@ -149,5 +190,5 @@ class LocalLLMService:
 
             modified_text = modified_text[:start] + placeholder + modified_text[end:]
 
-        mappings_found.reverse()  # Retorna à ordem original
+        mappings_found.reverse()
         return modified_text, mappings_found
