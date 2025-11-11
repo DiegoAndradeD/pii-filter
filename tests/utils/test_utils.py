@@ -20,6 +20,15 @@ TestCase = Dict[str, Any]
 log = logging.getLogger(__name__)
 
 
+def _spans_overlap(span1: Tuple[int, int], span2: Tuple[int, int]) -> bool:
+    """
+    Verifica se dois spans (start, end) se sobrepõem.
+    Lógica: O span1 começa antes que o span2 termine E
+            o span1 termina depois que o span2 começa.
+    """
+    return span1[0] < span2[1] and span1[1] > span2[0]
+
+
 def load_dataset(filepath: Path) -> List[TestCase]:
     """
     Loads the ground truth dataset from the specified JSON file.
@@ -51,16 +60,15 @@ def calculate_metrics_detailed(
     gt_list: List[PIIMap], detected_list: List[PIIMapping], prompt_text: str
 ) -> Tuple[PIISet, PIISet, PIISet]:
     """
-    Compares ground truth PIIs against detected PIIs and returns
-    the SETS of True Positives, False Positives, and False Negatives.
-
-    A match is defined as having the *exact same type* and *exact same span*.
-    Includes the actual value from the prompt text.
+    Compares PIIs from the ground truth (gt) with detected PIIs and returns the sets of True
+    Positives, False Positives, and False Negatives.
+    For NER, the metric is based on OVERLAP of spans with the SAME TYPE. For Regex, it
+    works as an exact match because Regex spans are, by nature, exact.
 
     Args:
-        gt_list: List of ground truth PII dictionaries
-        detected_list: List of detected PIIMapping objects
-        prompt_text: Original prompt text for extracting values
+        gt_list: List of PIIs from the ground truth (template)
+        detected_list: List of PIIs detected by the service
+        prompt_text: Original text for value extraction
 
     Returns:
         Tuple of (true_positives, false_positives, false_negatives) as sets
@@ -73,12 +81,32 @@ def calculate_metrics_detailed(
 
     detected_set: PIISet = set()
     for pii_obj in detected_list:
+
         value = prompt_text[pii_obj.span[0] : pii_obj.span[1]]
         detected_set.add((pii_obj.type, pii_obj.span, value))
 
-    tp_set = gt_set.intersection(detected_set)
-    fp_set = detected_set - gt_set
-    fn_set = gt_set - detected_set
+    tp_set: PIISet = set()
+    fp_set: PIISet = detected_set.copy()
+    fn_set: PIISet = gt_set.copy()
+
+    gt_items_to_match = list(fn_set)
+    detected_items_to_match = list(fp_set)
+
+    for gt_type, gt_span, gt_value in gt_items_to_match:
+        best_match = None
+        for det_type, det_span, det_value in detected_items_to_match:
+
+            if det_type == gt_type and _spans_overlap(det_span, gt_span):
+                best_match = (det_type, det_span, det_value)
+                break
+
+        if best_match:
+            tp_set.add((gt_type, gt_span, gt_value))
+
+            fn_set.remove((gt_type, gt_span, gt_value))
+            fp_set.remove(best_match)
+
+            detected_items_to_match.remove(best_match)
 
     return tp_set, fp_set, fn_set
 

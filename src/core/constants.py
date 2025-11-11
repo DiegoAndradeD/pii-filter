@@ -12,7 +12,7 @@ PII_PATTERNS: Dict[str, re.Pattern] = {
     # CPF: Exactly 11 digits in the format XXX.XXX.XXX-XX (periods and hyphens optional)
     "CPF": re.compile(r"\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b"),
     # RG: Format X.XXX.XXX-X or XX.XXX.XXX-X (may have "RG:" before)
-    "RG": re.compile(r"(?:RG\s*:?\s*)?\b\d{1,2}\.\d{3}\.\d{3}-[0-9X]\b", re.IGNORECASE),
+    "RG": re.compile(r"\b\d{1,2}\.\d{3}\.\d{3}-[0-9X]\b", re.IGNORECASE),
     # Email: Basic RFC compliant standard
     "EMAIL": re.compile(
         r"\b[a-zA-Z0-9](?:[a-zA-Z0-9._%+-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}\b",
@@ -99,6 +99,7 @@ NER_ENTITY_TYPE_MAPPING: Dict[str, str] = {
     "LAW": "LEI",
     "LANGUAGE": "IDIOMA",
     "PROFISSAO": "CARGO",
+    "CARGO": "CARGO",
 }
 
 NER_PROFESSION_PATTERNS: List[Dict[str, Any]] = [
@@ -119,6 +120,18 @@ NER_PROFESSION_PATTERNS: List[Dict[str, Any]] = [
     {"label": "CARGO", "pattern": "estagiário"},
     {"label": "CARGO", "pattern": "consultor"},
     {"label": "CARGO", "pattern": "desenvolvedor"},
+    {"label": "CARGO", "pattern": "Assistente de Logística"},
+    {"label": "CARGO", "pattern": "Analista de Marketing"},
+    {"label": "CARGO", "pattern": "Coordenadora de Marketing"},
+    {"label": "CARGO", "pattern": "Técnico de TI"},
+    {"label": "CARGO", "pattern": "Analista Financeiro"},
+    {"label": "CARGO", "pattern": "Desenvolvedor Front-End"},
+    {"label": "CARGO", "pattern": "Coordenador de TI"},
+    {"label": "CARGO", "pattern": "Gerente de Infraestrutura"},
+    {"label": "CARGO", "pattern": "Assistente Administrativo"},
+    {"label": "CARGO", "pattern": "Analista de Qualidade Sênior"},
+    {"label": "CARGO", "pattern": "Desenvolvedora Full Stack Junior"},
+    {"label": "CARGO", "pattern": "Supervisor de Logística"},
 ]
 
 NER_FALSE_POSITIVES: set = {
