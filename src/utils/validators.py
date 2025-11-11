@@ -3,6 +3,29 @@
 import re
 
 
+def is_plausible_cpf(cpf: str) -> bool:
+    """
+    Checks whether a CPF is 'plausible' for masking purposes.
+    This ignores the check digit calculation but filters
+    out obvious garbage, such as CPFs with all repeated digits.
+    """
+    # Remove any non-numeric characters
+    cpf = re.sub(r"\D", "", cpf)
+
+    # A plausible CPF must have exactly 11 digits
+    if len(cpf) != 11:
+        return False
+
+    # CPFs with all digits equal are invalid and likely
+    # test data, examples, or garbage
+    if cpf == cpf[0] * 11:
+        return False
+
+    # If it reaches this point, it has 11 digits and is not a repeated sequence.
+    # Good enough to be considered plausible PII.
+    return True
+
+
 def validate_cpf(cpf: str) -> bool:
     """Validates a Brazilian CPF number using the official checksum algorithm.
 
@@ -86,7 +109,7 @@ def validate_pii(pii_type: str, value: str) -> bool:
     result = True  # default for unknown types
 
     if pii_type == "CPF":
-        result = validate_cpf(value)
+        result = is_plausible_cpf(value)
     elif pii_type == "CNH":
         result = validate_cnh(value)
     elif pii_type == "CNPJ":

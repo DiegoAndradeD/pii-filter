@@ -22,10 +22,6 @@ PII_PATTERNS: Dict[str, re.Pattern] = {
     "TELEFONE": re.compile(r"(?:\+?55\s?)?\(?\d{2}\)?\s?\d{4,5}[-\s]?\d{4}"),
     # Postal Code: Brazilian format XXXXX-XXX (hyphen optional)
     "CEP": re.compile(r"\b\d{5}-?\d{3}\b"),
-    # Bank Account: Must be preceded by "account", "cc" or "c/c"
-    "CONTA_BANCARIA": re.compile(
-        r"\b(?:conta|cc|c/c)\s*:?\s*\d{4,8}[-\s]?\d{1,2}\b", re.IGNORECASE
-    ),
 }
 
 
@@ -49,6 +45,7 @@ SENSITIVE_CATEGORIES: List[str] = [
     "NOME_BANCO",
     "AGENCIA_BANCARIA",
     "DATA_NASCIMENTO",
+    "CONTA_BANCARIA",
 ]
 
 

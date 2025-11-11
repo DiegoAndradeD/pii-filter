@@ -90,6 +90,21 @@ class RestorationService:
 
         return True
 
+    def _cleanup_duplicate_labels(self, text: str) -> str:
+        """
+        Remove known duplicate labels that arise from the restoration process.
+        """
+        self.logger.debug("Cleaning duplicate labels...")
+
+        known_labels = ["matrícula", "conta", "agência", "cpf", "rg"]
+
+        for label in known_labels:
+            pattern = re.compile(rf"(\b{label}\b)\s+\1", re.IGNORECASE)
+
+            text = pattern.sub(r"\1", text)
+
+        return text
+
     def restore_all(self, filtered_text: str, restoration_data: RestorationData) -> str:
         """
         Restores PII and sensitive info from all filtering layers in reverse order.
@@ -130,6 +145,11 @@ class RestorationService:
                 restored_text = self.regex_service.restore_pii_from_mappings(
                     restored_text, restoration_data.regex_mappings
                 )
+
+            self.logger.info(
+                "Restoration complete. Applying duplicate label cleanup..."
+            )
+            restored_text = self._cleanup_duplicate_labels(restored_text)
 
             if not self._check_restoration_integrity(restored_text):
                 self.logger.error(
