@@ -103,35 +103,96 @@ NER_ENTITY_TYPE_MAPPING: Dict[str, str] = {
 }
 
 NER_PROFESSION_PATTERNS: List[Dict[str, Any]] = [
-    {"label": "CARGO", "pattern": "analista de sistemas"},
-    {"label": "CARGO", "pattern": "engenheiro de software"},
-    {"label": "CARGO", "pattern": "gerente de projetos"},
-    {"label": "CARGO", "pattern": "médico"},
-    {"label": "CARGO", "pattern": "advogado"},
-    {"label": "CARGO", "pattern": "professor"},
-    {"label": "CARGO", "pattern": "técnico em enfermagem"},
-    {"label": "CARGO", "pattern": "técnico de"},
-    {"label": "CARGO", "pattern": "analista"},
-    {"label": "CARGO", "pattern": "gerente"},
-    {"label": "CARGO", "pattern": "coordenador"},
-    {"label": "CARGO", "pattern": "diretor"},
-    {"label": "CARGO", "pattern": "supervisor"},
-    {"label": "CARGO", "pattern": "assistente"},
-    {"label": "CARGO", "pattern": "estagiário"},
-    {"label": "CARGO", "pattern": "consultor"},
-    {"label": "CARGO", "pattern": "desenvolvedor"},
-    {"label": "CARGO", "pattern": "Assistente de Logística"},
-    {"label": "CARGO", "pattern": "Analista de Marketing"},
-    {"label": "CARGO", "pattern": "Coordenadora de Marketing"},
-    {"label": "CARGO", "pattern": "Técnico de TI"},
-    {"label": "CARGO", "pattern": "Analista Financeiro"},
-    {"label": "CARGO", "pattern": "Desenvolvedor Front-End"},
-    {"label": "CARGO", "pattern": "Coordenador de TI"},
-    {"label": "CARGO", "pattern": "Gerente de Infraestrutura"},
-    {"label": "CARGO", "pattern": "Assistente Administrativo"},
-    {"label": "CARGO", "pattern": "Analista de Qualidade Sênior"},
-    {"label": "CARGO", "pattern": "Desenvolvedora Full Stack Junior"},
-    {"label": "CARGO", "pattern": "Supervisor de Logística"},
+    {
+        "label": "CARGO",
+        "pattern": [
+            {
+                "LOWER": {
+                    "IN": [
+                        "analista",
+                        "gerente",
+                        "coordenador",
+                        "coordenadora",
+                        "diretor",
+                        "diretora",
+                        "supervisor",
+                        "supervisora",
+                        "assistente",
+                        "estagiário",
+                        "estagiária",
+                        "consultor",
+                        "consultora",
+                        "técnico",
+                        "técnica",
+                        "engenheiro",
+                        "engenheira",
+                        "desenvolvedor",
+                        "desenvolvedora",
+                        "especialista",
+                        "chefe",
+                        "lider",
+                        "líder",
+                    ]
+                }
+            },
+            {"LOWER": "de", "OP": "?"},
+            {"OP": "+"},
+            {
+                "LOWER": {
+                    "IN": ["júnior", "pleno", "sênior", "sr", "pl", "jr", "ii", "iii"]
+                },
+                "OP": "?",
+            },
+        ],
+    },
+    {
+        "label": "CARGO",
+        "pattern": [
+            {"LOWER": {"IN": ["desenvolvedor", "desenvolvedora", "dev"]}},
+            {"LOWER": {"IN": ["full", "back", "front"]}, "OP": "?"},
+            {"LOWER": {"IN": ["stack", "end"]}, "OP": "?"},
+            {
+                "LOWER": {"IN": ["júnior", "pleno", "sênior", "jr", "pl", "sr"]},
+                "OP": "?",
+            },
+        ],
+    },
+    {
+        "label": "CARGO",
+        "pattern": [
+            {"LOWER": {"IN": ["engenheiro", "engenheira"]}},
+            {"LOWER": "de"},
+            {"LOWER": {"IN": ["software", "dados", "segurança", "sistemas"]}},
+            {"OP": "*"},
+        ],
+    },
+    {"label": "CARGO", "pattern": [{"LOWER": "médico"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "médica"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "advogado"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "advogada"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "professor"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "professora"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "motorista"}]},
+    {"label": "CARGO", "pattern": [{"LOWER": "recepcionista"}]},
+    {
+        "label": "CARGO",
+        "pattern": [
+            {"LOWER": {"IN": ["técnico", "técnica"]}},
+            {"LOWER": {"IN": ["em", "de"]}},
+            {
+                "LOWER": {
+                    "IN": [
+                        "enfermagem",
+                        "segurança",
+                        "ti",
+                        "informática",
+                        "manutenção",
+                        "suporte",
+                    ]
+                }
+            },
+        ],
+    },
 ]
 
 NER_FALSE_POSITIVES: set = {

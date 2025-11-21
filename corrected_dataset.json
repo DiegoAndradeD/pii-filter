@@ -1,0 +1,183 @@
+[
+  {
+    "metadata": {
+      "id": "master_golden_record_001",
+      "category": "full_spectrum_test",
+      "intent": "system_calibration",
+      "persona": "sistema_validacao",
+      "source_generator": "manual_expert",
+      "timestamp_utc": "2025-11-21T10:00:00Z"
+    },
+    "prompt_text": "Ficha cadastral de Ricardo Mendes Silva, matrícula 2024-9988. Documentos: CPF 123.456.789-00, RG 12.345.678-9, nascido em 15/05/1985. Contratado como Engenheiro de Software Sênior para o departamento de Inovação Digital. Endereço residencial: Avenida Paulista, 1000, Bela Vista, São Paulo-SP, CEP 01310-100. Contatos: ricardo.ms@email.com e (11) 99876-5432. Dados Financeiros: Salário base de R$ 15.000,00. Dados bancários: Banco Itaú, agência 1234, conta 56789-0. Acessos de TI: Login de rede r.silva, máquina com IP fixo 192.168.0.55. Observações de RH: O colaborador apresentou laudo de transtorno de ansiedade e possui um processo trabalhista ativo contra ex-empregador.",
+    "ground_truth": [
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Mendes Silva",
+        "span": [
+          19,
+          39
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "2024-9988",
+        "span": [
+          51,
+          60
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "123.456.789-00",
+        "span": [
+          78,
+          92
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "12.345.678-9",
+        "span": [
+          97,
+          109
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "15/05/1985",
+        "span": [
+          122,
+          132
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Engenheiro de Software Sênior",
+        "span": [
+          150,
+          179
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Inovação Digital",
+        "span": [
+          203,
+          219
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Avenida Paulista, 1000",
+        "span": [
+          243,
+          265
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_BAIRRO",
+        "value": "Bela Vista",
+        "span": [
+          267,
+          277
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_CIDADE",
+        "value": "São Paulo-SP",
+        "span": [
+          279,
+          291
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01310-100",
+        "span": [
+          297,
+          306
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "ricardo.ms@email.com",
+        "span": [
+          318,
+          338
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 99876-5432",
+        "span": [
+          341,
+          356
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 15.000,00",
+        "span": [
+          393,
+          405
+        ]
+      },
+      {
+        "pii_type": "ORGANIZACAO",
+        "value": "Banco Itaú",
+        "span": [
+          424,
+          434
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "1234",
+        "span": [
+          444,
+          448
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "56789-0",
+        "span": [
+          456,
+          463
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "r.silva",
+        "span": [
+          494,
+          501
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "192.168.0.55",
+        "span": [
+          523,
+          535
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_DE_SAUDE",
+        "value": "laudo de transtorno de ansiedade",
+        "span": [
+          581,
+          613
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "processo trabalhista ativo contra ex-empregador",
+        "span": [
+          626,
+          673
+        ]
+      }
+    ]
+  }
+]

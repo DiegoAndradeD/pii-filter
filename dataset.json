@@ -1,156 +1,183 @@
 [
   {
     "metadata": {
-      "id": "hr_006_promocao",
-      "category": "promotion",
-      "intent": "promotion_announcement",
-      "persona": "analista_rh",
-      "source_generator": "claude-sonnet-4",
-      "timestamp_utc": "2025-11-11T10:15:00Z"
+      "id": "master_golden_record_001",
+      "category": "full_spectrum_test",
+      "intent": "system_calibration",
+      "persona": "sistema_validacao",
+      "source_generator": "manual_expert",
+      "timestamp_utc": "2025-11-21T10:00:00Z"
     },
-    "prompt_text": "Elaborar comunicado de promoção para Carlos Eduardo Santos, matrícula 2023-1287, CPF 123.456.789-09, nascido em 15/03/1988, RG 12.345.678-9. Atualmente Coordenador de TI, será promovido a Gerente de Infraestrutura do departamento de Tecnologia. Reside na Rua das Flores, 892, Apto 501, Jardim Botânico, Rio de Janeiro-RJ, CEP 22461-120. Telefone (21) 98765-4321, e-mail carlos.santos@empresa.com.br. Novo salário: R$ 12.500,00 (anterior R$ 8.300,00). Bônus de promoção: R$ 5.000,00. Usuário de rede: c.santos, acesso VPN registrado IP 192.168.1.105. Dados bancários para depósito: Banco Bradesco, agência 3456, conta 123456-7. Início na nova posição: 01/12/2025.",
+    "prompt_text": "Ficha cadastral de Ricardo Mendes Silva, matrícula 2024-9988. Documentos: CPF 123.456.789-00, RG 12.345.678-9, nascido em 15/05/1985. Contratado como Engenheiro de Software Sênior para o departamento de Inovação Digital. Endereço residencial: Avenida Paulista, 1000, Bela Vista, São Paulo-SP, CEP 01310-100. Contatos: ricardo.ms@email.com e (11) 99876-5432. Dados Financeiros: Salário base de R$ 15.000,00. Dados bancários: Banco Itaú, agência 1234, conta 56789-0. Acessos de TI: Login de rede r.silva, máquina com IP fixo 192.168.0.55. Observações de RH: O colaborador apresentou laudo de transtorno de ansiedade e possui um processo trabalhista ativo contra ex-empregador.",
     "ground_truth": [
-      { "pii_type": "NOME_COMPLETO", "value": "Carlos Eduardo Santos", "span": [38, 59] },
-      { "pii_type": "MATRICULA", "value": "2023-1287", "span": [72, 81] },
-      { "pii_type": "CPF", "value": "123.456.789-09", "span": [87, 101] },
-      { "pii_type": "DATA_NASCIMENTO", "value": "15/03/1988", "span": [114, 124] },
-      { "pii_type": "RG", "value": "12.345.678-9", "span": [129, 141] },
-      { "pii_type": "CARGO", "value": "Coordenador de TI", "span": [154, 171] },
-      { "pii_type": "CARGO", "value": "Gerente de Infraestrutura", "span": [190, 215] },
-      { "pii_type": "DEPARTAMENTO", "value": "Tecnologia", "span": [233, 243] },
-      { "pii_type": "ENDERECO_COMPLETO", "value": "Rua das Flores, 892, Apto 501, Jardim Botânico, Rio de Janeiro-RJ", "span": [256, 323] },
-      { "pii_type": "CEP", "value": "22461-120", "span": [329, 338] },
-      { "pii_type": "TELEFONE", "value": "(21) 98765-4321", "span": [349, 364] },
-      { "pii_type": "EMAIL", "value": "carlos.santos@empresa.com.br", "span": [373, 401] },
-      { "pii_type": "SALARIO", "value": "R$ 12.500,00", "span": [417, 429] },
-      { "pii_type": "SALARIO", "value": "R$ 8.300,00", "span": [440, 451] },
-      { "pii_type": "INFORMACAO_FINANCEIRA_DETALHADA", "value": "Bônus de promoção: R$ 5.000,00", "span": [454, 485] },
-      { "pii_type": "USUARIO_REDE", "value": "c.santos", "span": [504, 513] },
-      { "pii_type": "IP_ADDRESS", "value": "192.168.1.105", "span": [540, 553] },
-      { "pii_type": "CONTA_BANCARIA", "value": "Banco Bradesco, agência 3456, conta 123456-7", "span": [591, 636] }
-    ]
-  },
-  {
-    "metadata": {
-      "id": "hr_007_desligamento",
-      "category": "termination",
-      "intent": "termination_process",
-      "persona": "analista_rh",
-      "source_generator": "claude-sonnet-4",
-      "timestamp_utc": "2025-11-11T11:22:00Z"
-    },
-    "prompt_text": "Processar desligamento de Mariana Oliveira Costa, matrícula 2022-0891, CPF 234.567.890-10, RG 23.456.789-0, nascida em 22/08/1992. Cargo: Assistente Administrativo, departamento Financeiro. Endereço: Av. Atlântica, 2345, Copacabana, Rio de Janeiro-RJ, CEP 22021-001. Contatos: (21) 97654-3210 e mariana.costa@empresa.com.br. Salário: R$ 3.800,00. Tipo: demissão sem justa causa, data 30/11/2025. Motivo: reestruturação do setor. Ela possui empréstimo consignado ativo com desconto mensal de R$ 420,00, saldo devedor R$ 3.360,00. Histórico: uma advertência em abril/2024 por erro em conciliação bancária. Último acesso sistema: usuário m.costa, IP 172.16.0.88, em 10/11/2025 às 18:45. Banco Santander, agência 0567, conta 789012-3.",
-    "ground_truth": [
-      { "pii_type": "NOME_COMPLETO", "value": "Mariana Oliveira Costa", "span": [29, 50] },
-      { "pii_type": "MATRICULA", "value": "2022-0891", "span": [63, 72] },
-      { "pii_type": "CPF", "value": "234.567.890-10", "span": [78, 92] },
-      { "pii_type": "RG", "value": "23.456.789-0", "span": [97, 109] },
-      { "pii_type": "DATA_NASCIMENTO", "value": "22/08/1992", "span": [122, 132] },
-      { "pii_type": "CARGO", "value": "Assistente Administrativo", "span": [141, 166] },
-      { "pii_type": "DEPARTAMENTO", "value": "Financeiro", "span": [181, 191] },
-      { "pii_type": "ENDERECO_COMPLETO", "value": "Av. Atlântica, 2345, Copacabana, Rio de Janeiro-RJ", "span": [203, 254] },
-      { "pii_type": "CEP", "value": "22021-001", "span": [260, 269] },
-      { "pii_type": "TELEFONE", "value": "(21) 97654-3210", "span": [281, 296] },
-      { "pii_type": "EMAIL", "value": "mariana.costa@empresa.com.br", "span": [299, 327] },
-      { "pii_type": "SALARIO", "value": "R$ 3.800,00", "span": [338, 349] },
-      { "pii_type": "INFORMACAO_FINANCEIRA_DETALHADA", "value": "empréstimo consignado ativo com desconto mensal de R$ 420,00, saldo devedor R$ 3.360,00", "span": [433, 521] },
-      { "pii_type": "HISTORICO_DISCIPLINAR", "value": "uma advertência em abril/2024 por erro em conciliação bancária", "span": [534, 597] },
-      { "pii_type": "USUARIO_REDE", "value": "m.costa", "span": [624, 631] },
-      { "pii_type": "IP_ADDRESS", "value": "172.16.0.88", "span": [636, 647] },
-      { "pii_type": "REGISTRO_PONTO", "value": "10/11/2025 às 18:45", "span": [652, 671] },
-      { "pii_type": "CONTA_BANCARIA", "value": "Banco Santander, agência 0567, conta 789012-3", "span": [673, 720] }
-    ]
-  },
-  {
-    "metadata": {
-      "id": "hr_008_ferias",
-      "category": "leave_request",
-      "intent": "vacation_approval",
-      "persona": "analista_rh",
-      "source_generator": "claude-sonnet-4",
-      "timestamp_utc": "2025-11-11T13:45:00Z"
-    },
-    "prompt_text": "Aprovar solicitação de férias de Roberto Ferreira Lima, matrícula 2021-2156, CPF 345.678.901-21, nascido em 10/05/1985, RG 34.567.890-1. Cargo: Analista de Qualidade Sênior, departamento Produção. Mora na Rua Sete de Setembro, 678, Centro, Curitiba-PR, CEP 80060-240. Telefone (41) 99123-4567, e-mail roberto.lima@fabrica.com.br. Salário base: R$ 7.600,00, adicional de periculosidade R$ 2.280,00. Período solicitado: 15/12/2025 a 13/01/2026 (30 dias). Possui restrição médica para trabalho em altura desde acidente em 2023, conforme atestado do Dr. José Silva (CRM-PR 12345). Adiantamento de 40% das férias: R$ 3.952,00. Banco do Brasil, agência 1234, conta 98765-4. Login sistema: r.lima, último ponto registrado 08/11/2025 07:58.",
-    "ground_truth": [
-      { "pii_type": "NOME_COMPLETO", "value": "Roberto Ferreira Lima", "span": [38, 59] },
-      { "pii_type": "MATRICULA", "value": "2021-2156", "span": [72, 81] },
-      { "pii_type": "CPF", "value": "345.678.901-21", "span": [87, 101] },
-      { "pii_type": "DATA_NASCIMENTO", "value": "10/05/1985", "span": [114, 124] },
-      { "pii_type": "RG", "value": "34.567.890-1", "span": [129, 141] },
-      { "pii_type": "CARGO", "value": "Analista de Qualidade Sênior", "span": [150, 178] },
-      { "pii_type": "DEPARTAMENTO", "value": "Produção", "span": [193, 201] },
-      { "pii_type": "ENDERECO_COMPLETO", "value": "Rua Sete de Setembro, 678, Centro, Curitiba-PR", "span": [211, 258] },
-      { "pii_type": "CEP", "value": "80060-240", "span": [264, 273] },
-      { "pii_type": "TELEFONE", "value": "(41) 99123-4567", "span": [284, 299] },
-      { "pii_type": "EMAIL", "value": "roberto.lima@fabrica.com.br", "span": [308, 335] },
-      { "pii_type": "SALARIO", "value": "R$ 7.600,00", "span": [351, 362] },
-      { "pii_type": "INFORMACAO_FINANCEIRA_DETALHADA", "value": "adicional de periculosidade R$ 2.280,00", "span": [364, 404] },
-      { "pii_type": "CONDICAO_DE_SAUDE", "value": "restrição médica para trabalho em altura desde acidente em 2023, conforme atestado do Dr. José Silva (CRM-PR 12345)", "span": [461, 578] },
-      { "pii_type": "INFORMACAO_FINANCEIRA_DETALHADA", "value": "Adiantamento de 40% das férias: R$ 3.952,00", "span": [580, 624] },
-      { "pii_type": "CONTA_BANCARIA", "value": "Banco do Brasil, agência 1234, conta 98765-4", "span": [626, 671] },
-      { "pii_type": "USUARIO_REDE", "value": "r.lima", "span": [687, 693] },
-      { "pii_type": "REGISTRO_PONTO", "value": "último ponto registrado 08/11/2025 07:58", "span": [695, 736] }
-    ]
-  },
-  {
-    "metadata": {
-      "id": "hr_009_onboarding",
-      "category": "onboarding",
-      "intent": "welcome_letter",
-      "persona": "analista_rh",
-      "source_generator": "claude-sonnet-4",
-      "timestamp_utc": "2025-11-11T14:30:00Z"
-    },
-    "prompt_text": "Criar carta de boas-vindas para Juliana Mendes Rodrigues, matrícula 2025-0034, CPF 456.789.012-32, RG 45.678.901-2, nascida em 18/11/1995. Contratada como Desenvolvedora Full Stack Junior no departamento de Tecnologia. Endereço: Av. Brigadeiro Faria Lima, 3012, Apto 1804, Itaim Bibi, São Paulo-SP, CEP 01451-000. Telefones: (11) 98234-5678 e residencial (11) 3456-7890. E-mail corporativo: juliana.rodrigues@techcorp.com.br. Salário inicial: R$ 6.500,00, vale-refeição R$ 35,00/dia, vale-transporte R$ 220,00/mês. Data de início: 02/12/2025. Será criado usuário de rede j.rodrigues com e-mail e acesso aos sistemas. Dados para cadastro: Banco Itaú, agência 0789, conta 234567-8. Beneficiários plano de saúde: cônjuge Paulo Henrique (CPF 567.890.123-43) e filho Gabriel, 3 anos.",
-    "ground_truth": [
-      { "pii_type": "NOME_COMPLETO", "value": "Juliana Mendes Rodrigues", "span": [34, 59] },
-      { "pii_type": "MATRICULA", "value": "2025-0034", "span": [72, 81] },
-      { "pii_type": "CPF", "value": "456.789.012-32", "span": [87, 101] },
-      { "pii_type": "RG", "value": "45.678.901-2", "span": [106, 118] },
-      { "pii_type": "DATA_NASCIMENTO", "value": "18/11/1995", "span": [131, 141] },
-      { "pii_type": "CARGO", "value": "Desenvolvedora Full Stack Junior", "span": [158, 191] },
-      { "pii_type": "DEPARTAMENTO", "value": "Tecnologia", "span": [209, 219] },
-      { "pii_type": "ENDERECO_COMPLETO", "value": "Av. Brigadeiro Faria Lima, 3012, Apto 1804, Itaim Bibi, São Paulo-SP", "span": [231, 301] },
-      { "pii_type": "CEP", "value": "01451-000", "span": [307, 316] },
-      { "pii_type": "TELEFONE", "value": "(11) 98234-5678", "span": [329, 344] },
-      { "pii_type": "TELEFONE", "value": "(11) 3456-7890", "span": [358, 372] },
-      { "pii_type": "EMAIL", "value": "juliana.rodrigues@techcorp.com.br", "span": [394, 428] },
-      { "pii_type": "SALARIO", "value": "R$ 6.500,00", "span": [445, 456] },
-      { "pii_type": "INFORMACAO_FINANCEIRA_DETALHADA", "value": "vale-refeição R$ 35,00/dia, vale-transporte R$ 220,00/mês", "span": [458, 516] },
-      { "pii_type": "USUARIO_REDE", "value": "j.rodrigues", "span": [567, 578] },
-      { "pii_type": "CONTA_BANCARIA", "value": "Banco Itaú, agência 0789, conta 234567-8", "span": [632, 673] },
-      { "pii_type": "PROBLEMA_PESSOAL_FAMILIAR", "value": "Beneficiários plano de saúde: cônjuge Paulo Henrique (CPF 567.890.123-43) e filho Gabriel, 3 anos", "span": [675, 775] }
-    ]
-  },
-  {
-    "metadata": {
-      "id": "hr_010_licenca_medica",
-      "category": "medical_leave",
-      "intent": "sick_leave_approval",
-      "persona": "analista_rh",
-      "source_generator": "claude-sonnet-4",
-      "timestamp_utc": "2025-11-11T15:10:00Z"
-    },
-    "prompt_text": "Processar licença médica para Fernando Alves Pereira, matrícula 2020-1645, CPF 567.890.123-54, nascido em 05/07/1980, RG 56.789.012-3. Cargo: Supervisor de Logística, departamento Operações. Reside na Rua das Acácias, 445, Vila Mariana, São Paulo-SP, CEP 04049-020. Contato: (11) 97321-6543, fernando.pereira@logistica.com.br. Salário: R$ 9.200,00. Afastamento por 45 dias a partir de 12/11/2025 devido a cirurgia de hérnia de disco, conforme atestado médico do Dr. Carlos Mendes, ortopedista CRM-SP 98765, Hospital Sírio-Libanês. Necessita fisioterapia pós-operatória. Histórico: teve licença de 15 dias em março/2024 por pneumonia. Durante afastamento, salário será pago normalmente nos primeiros 15 dias. INSS a partir do 16º dia. Usuário j.silva (substituto) terá acesso temporário. Banco Caixa, agência 0321, conta 567890-1. Possui empréstimo consignado com desconto de R$ 650,00/mês.",
-    "ground_truth": [
-      { "pii_type": "NOME_COMPLETO", "value": "Fernando Alves Pereira", "span": [36, 59] },
-      { "pii_type": "MATRICULA", "value": "2020-1645", "span": [72, 81] },
-      { "pii_type": "CPF", "value": "567.890.123-54", "span": [87, 101] },
-      { "pii_type": "DATA_NASCIMENTO", "value": "05/07/1980", "span": [114, 124] },
-      { "pii_type": "RG", "value": "56.789.012-3", "span": [129, 141] },
-      { "pii_type": "CARGO", "value": "Supervisor de Logística", "span": [150, 173] },
-      { "pii_type": "DEPARTAMENTO", "value": "Operações", "span": [188, 197] },
-      { "pii_type": "ENDERECO_COMPLETO", "value": "Rua das Acácias, 445, Vila Mariana, São Paulo-SP", "span": [210, 259] },
-      { "pii_type": "CEP", "value": "04049-020", "span": [265, 274] },
-      { "pii_type": "TELEFONE", "value": "(11) 97321-6543", "span": [285, 300] },
-      { "pii_type": "EMAIL", "value": "fernando.pereira@logistica.com.br", "span": [302, 336] },
-      { "pii_type": "SALARIO", "value": "R$ 9.200,00", "span": [347, 358] },
-      { "pii_type": "CONDICAO_DE_SAUDE", "value": "Afastamento por 45 dias a partir de 12/11/2025 devido a cirurgia de hérnia de disco, conforme atestado médico do Dr. Carlos Mendes, ortopedista CRM-SP 98765, Hospital Sírio-Libanês", "span": [360, 543] },
-      { "pii_type": "CONDICAO_DE_SAUDE", "value": "Necessita fisioterapia pós-operatória", "span": [545, 583] },
-      { "pii_type": "CONDICAO_DE_SAUDE", "value": "teve licença de 15 dias em março/2024 por pneumonia", "span": [596, 648] },
-      { "pii_type": "USUARIO_REDE", "value": "j.silva", "span": [757, 764] },
-      { "pii_type": "CONTA_BANCARIA", "value": "Banco Caixa, agência 0321, conta 567890-1", "span": [803, 845] },
-      { "pii_type": "INFORMACAO_FINANCEIRA_DETALHADA", "value": "empréstimo consignado com desconto de R$ 650,00/mês", "span": [854, 906] }
+      {
+        "pii_type": "NOME_COMPLETO",
+        "value": "Ricardo Mendes Silva",
+        "span": [
+          19,
+          39
+        ]
+      },
+      {
+        "pii_type": "MATRICULA",
+        "value": "2024-9988",
+        "span": [
+          51,
+          60
+        ]
+      },
+      {
+        "pii_type": "CPF",
+        "value": "123.456.789-00",
+        "span": [
+          78,
+          92
+        ]
+      },
+      {
+        "pii_type": "RG",
+        "value": "12.345.678-9",
+        "span": [
+          97,
+          109
+        ]
+      },
+      {
+        "pii_type": "DATA_NASCIMENTO",
+        "value": "15/05/1985",
+        "span": [
+          122,
+          132
+        ]
+      },
+      {
+        "pii_type": "CARGO",
+        "value": "Engenheiro de Software Sênior",
+        "span": [
+          150,
+          179
+        ]
+      },
+      {
+        "pii_type": "DEPARTAMENTO",
+        "value": "Inovação Digital",
+        "span": [
+          203,
+          219
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_LOGRADOURO",
+        "value": "Avenida Paulista, 1000",
+        "span": [
+          242,
+          264
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_BAIRRO",
+        "value": "Bela Vista",
+        "span": [
+          266,
+          276
+        ]
+      },
+      {
+        "pii_type": "ENDERECO_CIDADE",
+        "value": "São Paulo-SP",
+        "span": [
+          278,
+          290
+        ]
+      },
+      {
+        "pii_type": "CEP",
+        "value": "01310-100",
+        "span": [
+          296,
+          305
+        ]
+      },
+      {
+        "pii_type": "EMAIL",
+        "value": "ricardo.ms@email.com",
+        "span": [
+          317,
+          337
+        ]
+      },
+      {
+        "pii_type": "TELEFONE",
+        "value": "(11) 99876-5432",
+        "span": [
+          340,
+          355
+        ]
+      },
+      {
+        "pii_type": "SALARIO",
+        "value": "R$ 15.000,00",
+        "span": [
+          393,
+          405
+        ]
+      },
+      {
+        "pii_type": "ORGANIZACAO",
+        "value": "Banco Itaú",
+        "span": [
+          424,
+          434
+        ]
+      },
+      {
+        "pii_type": "AGENCIA_BANCARIA",
+        "value": "1234",
+        "span": [
+          444,
+          448
+        ]
+      },
+      {
+        "pii_type": "CONTA_BANCARIA",
+        "value": "56789-0",
+        "span": [
+          456,
+          463
+        ]
+      },
+      {
+        "pii_type": "USUARIO_REDE",
+        "value": "r.silva",
+        "span": [
+          495,
+          502
+        ]
+      },
+      {
+        "pii_type": "IP_ADDRESS",
+        "value": "192.168.0.55",
+        "span": [
+          526,
+          538
+        ]
+      },
+      {
+        "pii_type": "CONDICAO_DE_SAUDE",
+        "value": "laudo de transtorno de ansiedade",
+        "span": [
+          573,
+          605
+        ]
+      },
+      {
+        "pii_type": "HISTORICO_DISCIPLINAR",
+        "value": "processo trabalhista ativo contra ex-empregador",
+        "span": [
+          615,
+          662
+        ]
+      }
     ]
   }
 ]

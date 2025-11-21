@@ -51,6 +51,8 @@ class LocalLLMService:
             "(o trecho de texto exato que você encontrou). "
             "NÃO extraia PIIs de padrão óbvio como CPF, RG, E-mail, Telefone ou CEP (eles são tratados por outro sistema). "
             "Foque em extrair o CONTEXTO sensível (ex: CONDIÇÃO_DE_SAUDE) e PIIs contextuais (ex: CARGO, SALARIO, ENDERECO_LOGRADOURO, MATRICULA, NOME_DEPENDENTE, CNH, PASSAPORTE). "
+            "E TAMBÉM dados técnicos específicos como: "
+            "CONTA_BANCARIA (ex: conta 1234-5), AGENCIA_BANCARIA, IP_ADDRESS (ex: 192.168.0.1), USUARIO_REDE (ex: j.silva), MATRICULA. "
             "Se nada for encontrado, retorne uma lista vazia. "
             'Exemplo de resposta: {"sensitive_fragments": [{"category": "CONDIÇÃO_DE_SAUDE", "exact_text": "diagnosticado com TDAH"}, {"category": "CARGO", "exact_text": "Técnico de Manutenção Jr"}]}. '
             "Não adicione explicações ou qualquer texto fora do JSON."
@@ -140,6 +142,18 @@ class LocalLLMService:
         for frag in fragments:
             exact_text = frag.get("exact_text")
             category = frag.get("category")
+
+            if isinstance(exact_text, list):
+                logger.warning(
+                    "LLM returned a list for 'exact_text' instead of string. Handling via join: %s",
+                    exact_text,
+                )
+                exact_text = " ".join([str(x) for x in exact_text])
+
+            if not isinstance(exact_text, str):
+                logger.warning("Skipping invalid exact_text type: %s", type(exact_text))
+                continue
+
             if not exact_text or not category:
                 continue
 
@@ -166,6 +180,7 @@ class LocalLLMService:
                 continue
 
             frag["start_pos"] = start_pos
+            frag["exact_text"] = exact_text
             found_fragments.append(frag)
 
         found_fragments.sort(key=lambda x: x["start_pos"], reverse=True)
