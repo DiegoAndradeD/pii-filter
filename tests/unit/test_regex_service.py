@@ -33,7 +33,7 @@ from tests.utils.test_utils import (
 )
 
 BASE_DIR = Path(__file__).resolve().parent
-DATASET_FILE = BASE_DIR / "../../final-dataset.json"
+DATASET_FILE = BASE_DIR / "../../dataset.json"
 
 REGEX_PII_TYPES = set(PII_PATTERNS.keys())
 
