@@ -3,8 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat com Proxy LGPD</title>
+    <title>Janus</title>
     <link href="{{ url_for('static', path='/main.css') }}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js"></script>
+
+    <style>
+      .message-content h1,
+      .message-content h2,
+      .message-content h3 {
+        margin-top: 10px;
+        font-size: 1.1em;
+      }
+      .message-content code {
+        background-color: #f0f0f0;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+      .message-content pre {
+        background-color: #1e1e1e;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      .message-content pre code {
+        background-color: transparent;
+        color: inherit;
+      }
+      .message-content ul,
+      .message-content ol {
+        padding-left: 20px;
+      }
+      .message-content p {
+        margin-bottom: 8px;
+      }
+    </style>
   </head>
   <body>
     <div class="page-container">
@@ -62,7 +98,15 @@
 
         const contentDiv = document.createElement("div");
         contentDiv.classList.add("message-content");
-        contentDiv.textContent = content;
+
+        if (isUser) {
+          contentDiv.textContent = content;
+        } else {
+          const rawHtml = marked.parse(content);
+          const cleanHtml = DOMPurify.sanitize(rawHtml);
+
+          contentDiv.innerHTML = cleanHtml;
+        }
 
         messageDiv.appendChild(contentDiv);
         messages.appendChild(messageDiv);
